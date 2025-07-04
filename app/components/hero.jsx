@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { IoMdCloseCircle, IoMdRemoveCircle, IoMdAddCircle } from "react-icons/io";
 
 export default function Hero() {
   const cardsRef = useRef([]);
@@ -17,7 +18,12 @@ export default function Hero() {
 
   return (
     <section className="flex justify-center items-center py-12 px-6">
-      <div className="max-w-6xl w-full bg-white rounded-xl shadow-lg flex flex-col md:flex-row items-center overflow-hidden">
+        <div className="max-w-6xl w-full bg-white rounded-xl shadow-lg ">
+            <div className="flex justify-between mx-2 my-2">
+                <IoMdCloseCircle className="text-lg text-black opacity-50"/>
+                <IoMdCloseCircle className="text-lg text-black opacity-50"/>
+            </div>
+      <div className="flex flex-col md:flex-row items-center overflow-hidden">
         {/* Left: Heading and CTA */}
         <div className="w-full md:w-1/2 p-8 md:px-14 md:py-24 flex flex-col justify-center items-start">
           <h1 className="text-4xl md:text-4xl font-semibold text-neutral-900 mb-4">
@@ -58,9 +64,34 @@ export default function Hero() {
               key={i}
               ref={(el) => (cardsRef.current[i] = el)}
               className="absolute w-40 h-60 bg-neutral-100 rounded-lg shadow-md"
-            />
+            >
+                <div className="flex justify-start mt-1 ml-1">
+                    <IoMdCloseCircle className="text-lg text-red-500"/>
+                    <IoMdRemoveCircle className="text-lg text-amber-500"/>
+                    <IoMdAddCircle className="text-lg text-green-500"/>
+                </div>
+                <div className="mx-4 mt-1">
+                    <div className="border border-black/25 rounded-lg h-[60px] flex justify-center items-center w-auto">
+                        <p className="text-black/50 text-sm">Add image</p>
+                    </div>
+                    <div className="mt-2 flex flex-col">
+                        <p className="text-sm ml-1">Card Heading</p>
+                        <p className="text-xs ml-1 text-black/50">A short description goes here, explaining the component or its purpose.</p>
+                        <div className="border border-black/25 rounded-3xl mt-2"></div>
+                    </div>
+                </div>
+                <div className="flex flex-row gap-2 justify-center mt-2">
+                    <div className="bg-black text-white px-2 py-1 text-sm rounded-lg shadow-lg duration-300 hover:scale-110">Button</div>
+                    <div className="border border-black text-black px-2 py-1 text-sm rounded-lg shadow-lg duration-300 hover:scale-110">Button</div>
+                </div>
+            </div>
           ))}
         </div>
+      </div>
+      <div className="flex justify-between mx-2 my-2">
+                <IoMdCloseCircle className="text-lg text-black opacity-50"/>
+                <IoMdCloseCircle className="text-lg text-black opacity-50"/>
+            </div>
       </div>
     </section>
   );

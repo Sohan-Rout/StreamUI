@@ -1,3 +1,5 @@
+"use client";
+import { useEffect, useState } from "react";
 import { FaGithub, FaLinkedin, FaProductHunt } from "react-icons/fa";
 
 const navlinks = [
@@ -14,8 +16,23 @@ const social = [
 ];
 
 const Navbar = () => {
+    const [isFixed, setIsFixed] = useState(false);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 50) {
+                setIsFixed(true);
+            } else {
+                setIsFixed(false);
+            }
+        };
+
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
     return (
-        <header className="w-full max-w-6xl mx-auto mt-4 mb-4 rounded-2xl border border-neutral-200 bg-white shadow-md backdrop-blur">
+        <header className={`${isFixed ? "fixed top-4 left-1/2 -translate-x-1/2 z-50" : "relative"} w-full max-w-6xl mx-auto mt-4 mb-4 rounded-2xl border border-neutral-200 bg-white shadow-md backdrop-blur`}>
             <div className="px-10 flex items-center justify-between py-3">
                 {/* Logo */}
                 <div className="text-2xl font-medium text-neutral-900">
