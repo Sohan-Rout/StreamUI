@@ -1,46 +1,46 @@
+import { FaGithub, FaLinkedin, FaProductHunt } from "react-icons/fa";
+
 const navlinks = [
     { "title" : "Features", "links" : "#features" },
-    { "title" : "Components" },
-    { "title" : "Reviews" },
-    { "title" : "FAQs" },
+    { "title" : "Components", "links" : "#components" },
+    { "title" : "Reviews", "links" : "#reviews" },
+    { "title" : "FAQs", "links" : "#faqs" },
 ];
 
 const social = [
-    { "title" : "Github", "links" : "/" },
-    { "title" : "LinkedIn", "links" : "/" },
-    { "title" : "ProductHunt", "links" : "/" },
-]
+    { "title" : "Github", "links" : "/", "icon": <FaGithub size={20} /> },
+    { "title" : "LinkedIn", "links" : "/", "icon": <FaLinkedin size={20} /> },
+    { "title" : "ProductHunt", "links" : "/", "icon": <FaProductHunt size={20} /> },
+];
 
 const Navbar = () => {
     return (
-        <main>
-            <section className="flex flex-row justify-between">
-            <div>
-                <h1 className="text-2xl">
-                    Stream<span className="bg-black text-white px-2 py-2 rounded-lg">Ui</span>
-                </h1>
+        <header className="w-full max-w-6xl mx-auto mt-4 rounded-2xl border border-neutral-200 bg-white shadow-md backdrop-blur">
+            <div className="px-10 flex items-center justify-between py-3">
+                {/* Logo */}
+                <div className="text-2xl font-medium text-neutral-900">
+                    Stream<span className="bg-black text-white font-semibold px-2 py-2 rounded-lg">UI</span>
+                </div>
+                {/* Navlinks */}
+                <nav>
+                    <ul className="hidden md:flex gap-6 text-sm md:text-base text-neutral-500">
+                        {navlinks.map((item, index) => (
+                            <li key={index}>
+                                <a href={item.links}>{item.title}</a>
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+                {/* Social links with icons */}
+                <div className="hidden md:flex items-center gap-4 border border-neutral-300 dark:border-neutral-700 rounded-full px-3 py-2 bg-neutral-800">
+                    {social.map((item, index) => (
+                        <a key={index} href={item.links} className="text-neutral-700 dark:text-neutral-300 hover:text-blue-400 hover:duration-300 hover:scale-110 transition">
+                            {item.icon}
+                        </a>
+                    ))}
+                </div>
             </div>
-            <div>
-                <ul className="flex gap-4 text-lg">
-                {navlinks.map((item, index) => (
-                    <li key={index}>
-                        <a href={item.links}>{item.title}</a>
-                    </li>
-                ))}
-                </ul>
-            </div>
-            <div className="flex gap-2">
-                <p>Follow us on!</p>
-                <ul className="flex gap-4">
-                {social.map((item, index) => (
-                   <li key={index}>
-                    <a href={item.links}>{item.title}</a>
-                   </li> 
-                ))}
-                </ul>
-            </div>
-            </section>
-        </main>
+        </header>
     );
 };
 
