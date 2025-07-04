@@ -26,8 +26,8 @@ export default function Hero() {
       <div className="flex flex-col md:flex-row items-center overflow-hidden">
         {/* Left: Heading and CTA */}
         <div className="w-full md:w-1/2 p-8 md:px-14 md:py-24 flex flex-col justify-center items-start">
-          <h1 className="text-4xl md:text-4xl font-semibold text-neutral-900 mb-4">
-            Build Fast with Stream<span className="px-2 py-2 bg-black text-white rounded-lg">UI</span>
+          <h1 className="text-4xl md:text-4xl font-medium text-neutral-900 mb-4">
+            Build Fast with <span className="font-medium">Stream</span><span className="px-2 py-2 bg-black text-white rounded-lg">UI</span>
           </h1>
           <p className="text-neutral-600 dark:text-neutral-400 text-lg mb-6">
             Copy-paste clean, ready-to-use React + Tailwind components into your projects without installation.
