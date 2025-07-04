@@ -15,7 +15,7 @@ const social = [
 
 const Navbar = () => {
     return (
-        <header className="w-full max-w-6xl mx-auto mt-4 rounded-2xl border border-neutral-200 bg-white shadow-md backdrop-blur">
+        <header className="w-full max-w-6xl mx-auto mt-4 mb-4 rounded-2xl border border-neutral-200 bg-white shadow-md backdrop-blur">
             <div className="px-10 flex items-center justify-between py-3">
                 {/* Logo */}
                 <div className="text-2xl font-medium text-neutral-900">
