@@ -1,21 +1,10 @@
 "use client";
-import { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+import { useState } from "react";
 import { IoMdCloseCircle, IoMdRemoveCircle, IoMdAddCircle } from "react-icons/io";
 
 export default function Hero() {
-  const cardsRef = useRef([]);
-
-  useEffect(() => {
-    const tl = gsap.timeline({ repeat: -1, yoyo: true, defaults: { ease: "power1.inOut", duration: 1 } });
-    tl.to(cardsRef.current, {
-      stagger: 0.2,
-      y: (i) => -20 - i * 10,
-      x: (i) => (i - 1.5) * 40,
-      rotation: (i) => (i - 1.5) * 5,
-    }).to(cardsRef.current, { delay: 1, y: 0, x: 0, rotation: 0, stagger: 0.2 });
-  }, []);
-
+  // Add near the top of Hero component
+  const [isDark, setIsDark] = useState(true);
   return (
     <section className="flex justify-center items-center py-12 px-6">
         <div className="max-w-6xl w-full bg-white rounded-xl shadow-lg ">
@@ -57,35 +46,94 @@ export default function Hero() {
             <span className="text-sm text-neutral-500">Reviewed by 100+ users</span>
           </div>
         </div>
-        {/* Right: Animated Cards */}
-        <div className="w-full md:w-1/2 p-8 flex justify-center items-center relative h-72">
-          {[...Array(4)].map((_, i) => (
-            <div
-              key={i}
-              ref={(el) => (cardsRef.current[i] = el)}
-              className="absolute w-40 h-60 bg-neutral-100 rounded-lg shadow-md"
-            >
-                <div className="flex justify-start mt-1 ml-1">
-                    <IoMdCloseCircle className="text-lg text-red-500"/>
-                    <IoMdRemoveCircle className="text-lg text-amber-500"/>
-                    <IoMdAddCircle className="text-lg text-green-500"/>
-                </div>
-                <div className="mx-4 mt-1">
-                    <div className="border border-black/25 rounded-lg h-[60px] flex justify-center items-center w-auto">
-                        <p className="text-black/50 text-sm">Add image</p>
-                    </div>
-                    <div className="mt-2 flex flex-col">
-                        <p className="text-sm ml-1">Card Heading</p>
-                        <p className="text-xs ml-1 text-black/50">A short description goes here, explaining the component or its purpose.</p>
-                        <div className="border border-black/25 rounded-3xl mt-2"></div>
-                    </div>
-                </div>
-                <div className="flex flex-row gap-2 justify-center mt-2">
-                    <div className="bg-black text-white px-2 py-1 text-sm rounded-lg shadow-lg duration-300 hover:scale-110">Button</div>
-                    <div className="border border-black text-black px-2 py-1 text-sm rounded-lg shadow-lg duration-300 hover:scale-110">Button</div>
-                </div>
+        {/* Right: Bento Grid Showcase */}
+        <div className="w-full md:w-1/2 p-4 grid grid-cols-3 grid-rows-2 gap-4 h-[28rem]">
+          {/* Main Focus Card */}
+          <div className="col-span-2 row-span-2 bg-neutral-100 rounded-xl shadow-xl p-4 flex flex-col justify-between">
+            <div className="flex justify-start space-x-1">
+              <IoMdCloseCircle className="text-lg text-red-500" />
+              <IoMdRemoveCircle className="text-lg text-amber-500" />
+              <IoMdAddCircle className="text-lg text-green-500" />
             </div>
-          ))}
+            {/* Mini Website Mockup */}
+            <div className="w-full h-full bg-white rounded-lg shadow-inner flex flex-col overflow-hidden text-xs flex-grow mt-2 mb-2">
+              {/* Sticky Header */}
+              <div className="flex justify-between items-center px-4 py-2 bg-neutral-50 border-b border-neutral-200 sticky top-0">
+                <div className="font-semibold text-neutral-700">StreamUI</div>
+                <div className="flex gap-3">
+                  <div className="w-10 h-3 bg-neutral-200 rounded"></div>
+                  <div className="w-10 h-3 bg-neutral-200 rounded"></div>
+                  <div className="w-10 h-3 bg-neutral-200 rounded"></div>
+                </div>
+              </div>
+              {/* Hero Section */}
+              <div className="flex flex-col items-center justify-center flex-grow p-4 gap-2">
+                <div className="w-32 h-4 bg-neutral-200 rounded"></div>
+                <div className="w-48 h-3 bg-neutral-200 rounded"></div>
+                <div className="w-24 h-6 bg-black rounded text-white flex items-center justify-center text-[10px]">Get Started</div>
+              </div>
+              {/* Features */}
+              <div className="grid grid-cols-3 gap-2 p-3">
+                <div className="bg-neutral-100 rounded-md h-10"></div>
+                <div className="bg-neutral-100 rounded-md h-10"></div>
+                <div className="bg-neutral-100 rounded-md h-10"></div>
+              </div>
+              {/* Footer */}
+              <div className="text-center text-neutral-400 py-2 border-t border-neutral-200">
+                © 2025 StreamUI
+              </div>
+            </div>
+          </div>
+
+          {/* Side Preview Cards */}
+          <div className="bg-neutral-200 rounded-xl shadow-md flex flex-col justify-center items-center gap-2 p-3">
+            <button className="bg-black text-white text-xs px-3 py-1 rounded-lg shadow hover:bg-neutral-800 transition">
+              Dark Button
+            </button>
+            <button className="border border-neutral-500 text-neutral-800 text-xs px-3 py-1 rounded-lg shadow hover:bg-neutral-100 transition">
+              Light Button
+            </button>
+          </div>
+          {/* Toggle Showcase Card */}
+          <div className={`${isDark ? "bg-neutral-900 text-white" : "bg-neutral-200"} rounded-xl shadow-md flex flex-col items-center justify-center gap-3 p-4 transition-colors duration-300`}>
+            <span className="text-xs font-medium">{isDark ? "Dark Mode" : "Light Mode"}</span>
+
+            {/* Toggle Variety 1: Pill Switch */}
+            <label className="relative inline-block w-12 h-7 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={isDark}
+                onChange={() => setIsDark(!isDark)}
+                className="opacity-0 w-0 h-0 peer"
+              />
+              <div className={`absolute inset-0 rounded-full transition ${isDark ? "bg-white/30" : "bg-neutral-300"}`}></div>
+              <div className={`absolute left-0.5 top-0.5 w-6 h-6 rounded-full shadow transform transition ${isDark ? "translate-x-5 bg-white" : "bg-white"}`}></div>
+            </label>
+
+            {/* Toggle Variety 2: Circle Toggle */}
+            <label className="relative inline-block w-8 h-8 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={isDark}
+                onChange={() => setIsDark(!isDark)}
+                className="opacity-0 w-0 h-0 peer"
+              />
+              <div className={`absolute inset-0 rounded-full transition ${isDark ? "bg-white/30" : "bg-neutral-300"}`}></div>
+              <div className={`absolute top-1 left-1 w-6 h-6 rounded-full shadow transform transition ${isDark ? "bg-white" : "bg-white"}`}></div>
+            </label>
+
+            {/* Toggle Variety 3: Rounded Slider */}
+            <label className="relative inline-block w-16 h-8 cursor-pointer">
+              <input
+                type="checkbox"
+                checked={isDark}
+                onChange={() => setIsDark(!isDark)}
+                className="opacity-0 w-0 h-0 peer"
+              />
+              <div className={`absolute inset-0 rounded-full transition ${isDark ? "bg-white/30" : "bg-neutral-300"}`}></div>
+              <div className={`absolute top-1 left-1 w-6 h-6 rounded-full shadow transform transition ${isDark ? "translate-x-8 bg-white" : "bg-white"}`}></div>
+            </label>
+          </div>
         </div>
       </div>
       <div className="flex justify-between mx-2 my-2">
