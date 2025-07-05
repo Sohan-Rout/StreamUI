@@ -49,9 +49,9 @@ const Navbar = () => {
                     </ul>
                 </nav>
                 {/* Social links with icons */}
-                <div className="hidden md:flex items-center gap-4 border border-neutral-300 dark:border-neutral-700 rounded-full px-3 py-2 bg-neutral-800">
+                <div className="hidden md:flex items-center gap-4 border border-neutral-300 rounded-full px-3 py-2 bg-neutral-800">
                     {social.map((item, index) => (
-                        <a key={index} href={item.links} className="text-neutral-700 dark:text-neutral-300 hover:text-blue-400 hover:duration-300 hover:scale-110 transition">
+                        <a key={index} href={item.links} className="text-neutral-300 hover:text-blue-400 hover:duration-300 hover:scale-110 transition">
                             {item.icon}
                         </a>
                     ))}

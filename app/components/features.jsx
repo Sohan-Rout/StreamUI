@@ -1,7 +1,7 @@
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { FaFile, FaCopy, FaPencilRuler, FaSearch } from "react-icons/fa";
+import { FaFile, FaCopy, FaPencilRuler } from "react-icons/fa";
 import { IoMdCloseCircle } from "react-icons/io";
 import { HiSparkles } from "react-icons/hi2";
 import { RiTailwindCssFill } from "react-icons/ri";
@@ -16,45 +16,47 @@ const iconMap = {
 const features = [
   {
     title: "Clean Minimal Design",
-    description : "Explore clean, minimal, and reusable components to build your ideas faster with StreamUI.",
+    description:
+      "Explore clean, minimal, and reusable components to build your ideas faster with StreamUI.",
   },
   {
     title: "Fully Tailwind Ready",
   },
   {
-    title: "Copy the Code",
+    title: "Copy Paste simplicity",
     description:
-      "Click copy and paste directly into your project. No installation required.",
+      "No installation needed, just copy and paste directly into your project.",
     icon: "FaCopy",
   },
   {
-    title: "Paste & Customize",
-    description:
-      "Tweak text, colors, and structure easily to match your brand and needs.",
+    title: "Dark Mode Compatible",
+    description: "Seamless support for dark mode across all components.",
     icon: "FaPencilRuler",
   },
   {
-    title: "Browse Components",
-    description:
-      "Explore a curated collection of clean, ready-to-use React + Tailwind components for modern projects.",
+    title: "Animation Ready",
+    description: "Components with GSAP/Framer Motion for subtle animations.",
     icon: "FaFile",
   },
 ];
 
 export default function Hero() {
-  // Ref for the magnifying glass icon on the second card
-  const magnifyRef = useRef(null);
+  const copyButtonRef = useRef(null);
+  const pointerRef = useRef(null);
+  const [copyText, setCopyText] = useState("Copy");
 
   useEffect(() => {
-    if (magnifyRef.current) {
-      gsap.to(magnifyRef.current, {
-        x: 10,
-        y: -10,
-        duration: 2,
-        yoyo: true,
-        repeat: -1,
-        ease: "power1.inOut",
-      });
+    if (copyButtonRef.current && pointerRef.current) {
+      const tl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+
+      tl.to(pointerRef.current, { y: 0, duration: 0.3, ease: "power1.inOut" })
+        .add(() => setCopyText("Copied"))
+        .to(
+          pointerRef.current,
+          { y: 10, duration: 0.3, ease: "power1.inOut" },
+          "+=0.2"
+        )
+        .add(() => setCopyText("Copy"), "+=0.5");
     }
   }, []);
 
@@ -71,7 +73,8 @@ export default function Hero() {
           Everything You Need to Build Fast
         </h2>
         <p className="mt-4 text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto">
-          Reusable, clean, and responsive components ready to copy-paste into your next project.
+          Reusable, clean, and responsive components ready to copy-paste into
+          your next project.
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-6 max-w-6xl mx-auto">
@@ -94,18 +97,33 @@ export default function Hero() {
                 <div className="flex flex-col items-center justify-center flex-grow text-center gap-4 p-2">
                   {/* Mini Navbar */}
                   <div className="flex items-center justify-between w-full max-w-xs px-4 py-2 border border-neutral-200 rounded-lg shadow-sm bg-white">
-                    <div className="text-sm font-medium text-black">Stream<span className="px-1 py-1 bg-black text-white ml-[1px] rounded-md">UI</span></div>
+                    <div className="text-sm font-medium text-black">
+                      Stream
+                      <span className="px-1 py-1 bg-black text-white ml-[1px] rounded-md">
+                        UI
+                      </span>
+                    </div>
                     <div className="flex gap-3 text-sm text-neutral-600">
-                      <span className="cursor-pointer hover:text-black transition">Home</span>
-                      <span className="cursor-pointer hover:text-black transition">Components</span>
-                      <span className="cursor-pointer hover:text-black transition">Docs</span>
+                      <span className="cursor-pointer hover:text-black transition">
+                        Home
+                      </span>
+                      <span className="cursor-pointer hover:text-black transition">
+                        Components
+                      </span>
+                      <span className="cursor-pointer hover:text-black transition">
+                        Docs
+                      </span>
                     </div>
                   </div>
 
                   {/* Minimalist Card Showcase */}
                   <div className="border border-neutral-200 rounded-lg shadow-sm p-4 bg-white w-full max-w-xs">
-                    <h4 className="text-base font-semibold text-neutral-800 mb-1">Card Title</h4>
-                    <p className="text-sm text-neutral-600 mb-2">This is a clean, minimal card to showcase StreamUI design.</p>
+                    <h4 className="text-base font-semibold text-neutral-800 mb-1">
+                      Card Title
+                    </h4>
+                    <p className="text-sm text-neutral-600 mb-2">
+                      This is a clean, minimal card to showcase StreamUI design.
+                    </p>
                     <button className="px-3 py-1 text-sm rounded-md border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition">
                       Action
                     </button>
@@ -125,11 +143,12 @@ export default function Hero() {
                   </div>
 
                   {/* Title and Description */}
-                  <h3 className="text-lg font-medium text-neutral-800">{item.title}</h3>
+                  <h3 className="text-lg font-medium text-neutral-800">
+                    {item.title}
+                  </h3>
                   <p className="text-sm text-neutral-600 max-w-xs">
                     {item.description}
                   </p>
-
                 </div>
                 {/* Bottom icons */}
                 <div className="flex justify-between mx-2 mb-2">
@@ -147,12 +166,9 @@ export default function Hero() {
                   <>
                     <div className="flex flex-col items-center justify-center flex-grow text-center gap-2 p-4 relative">
                       {/* Tailwind Logo */}
-                      <RiTailwindCssFill className="text-6xl text-blue-500"/>
-                      {/* Magnifying Glass */}
-                      <FaSearch
-                        ref={magnifyRef}
-                        className="text-3xl text-black opacity-50 absolute top-8 right-8 rotate-12"
-                      />
+                      <div className="animate-bounce">
+                        <RiTailwindCssFill className="text-6xl text-blue-500" />
+                      </div>
                       {/* Title */}
                       <h3 className="text-lg font-medium text-neutral-800 mt-2">
                         {item.title}
@@ -161,15 +177,43 @@ export default function Hero() {
                   </>
                 ) : (
                   <div className="flex flex-col items-center text-center flex-grow justify-center">
-                    {iconMap[item.icon] &&
+                    {idx === 2 ? (
+                      // Replace icon with Copy Button UI
+                      <div className="relative mb-4">
+                        <button
+                          ref={copyButtonRef}
+                          className="px-4 py-2 text-sm rounded-lg border border-neutral-300 text-neutral-700 bg-white hover:bg-neutral-100 transition"
+                        >
+                          {copyText}
+                        </button>
+                        {/* Pointer Icon hovering and clicking */}
+                        <div
+                          ref={pointerRef}
+                          className="absolute top-6 left-1/2 -translate-x-1/2"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            x="0px"
+                            y="0px"
+                            width="25"
+                            height="25"
+                            viewBox="0 0 50 50"
+                          >
+                            <path d="M 29.699219 47 C 29.578125 47 29.457031 46.976563 29.339844 46.933594 C 29.089844 46.835938 28.890625 46.644531 28.78125 46.398438 L 22.945313 32.90625 L 15.683594 39.730469 C 15.394531 40.003906 14.96875 40.074219 14.601563 39.917969 C 14.238281 39.761719 14 39.398438 14 39 L 14 6 C 14 5.601563 14.234375 5.242188 14.601563 5.082031 C 14.964844 4.925781 15.390625 4.996094 15.683594 5.269531 L 39.683594 27.667969 C 39.972656 27.9375 40.074219 28.355469 39.945313 28.726563 C 39.816406 29.101563 39.480469 29.363281 39.085938 29.398438 L 28.902344 30.273438 L 35.007813 43.585938 C 35.117188 43.824219 35.128906 44.101563 35.035156 44.351563 C 34.941406 44.601563 34.757813 44.800781 34.515625 44.910156 L 30.113281 46.910156 C 29.980469 46.96875 29.84375 47 29.699219 47 Z"></path>
+                          </svg>
+                        </div>
+                      </div>
+                    ) : (
+                      iconMap[item.icon] &&
                       React.createElement(iconMap[item.icon], {
                         className: "text-4xl mb-4",
-                      })}
+                      })
+                    )}
                     <h3 className="font-medium text-neutral-800 text-lg">
                       {item.title}
                     </h3>
                     {item.description && (
-                      <p className="text-sm text-neutral-600 max-w-xs mt-1">
+                      <p className="text-sm text-neutral-600 max-w-xs mt-1 px-1">
                         {item.description}
                       </p>
                     )}
