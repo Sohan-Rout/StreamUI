@@ -27,17 +27,14 @@ const features = [
     title: "Copy Paste simplicity",
     description:
       "No installation needed, just copy and paste directly into your project.",
-    icon: "FaCopy",
   },
   {
     title: "Dark Mode Compatible",
     description: "Seamless support for dark mode across all components.",
-    icon: "FaPencilRuler",
   },
   {
     title: "Animation Ready",
     description: "Components with GSAP/Framer Motion for subtle animations.",
-    icon: "FaFile",
   },
 ];
 
@@ -59,6 +56,27 @@ export default function Hero() {
           "+=0.2"
         )
         .add(() => setCopyText("Copy"), "+=0.5");
+    }
+
+    if (typeof window !== "undefined") {
+      // Animate loading bar
+      gsap.to(".loading-bar", {
+        width: "100%",
+        duration: 2,
+        ease: "power1.inOut",
+        repeat: -1,
+        yoyo: true,
+      });
+
+      // Animate "Loading" letters with wave
+      gsap.to(".loading-letter", {
+        y: -5,
+        stagger: 0.1,
+        duration: 0.5,
+        ease: "power1.inOut",
+        yoyo: true,
+        repeat: -1,
+      });
     }
   }, []);
 
@@ -242,6 +260,19 @@ export default function Hero() {
                           </p>
                         )}
                       </>
+                    ) : idx === 4 ? (
+                      <div className="flex flex-col items-center justify-center mb-4">
+                        {/* Loading Text */}
+                        <div className="flex space-x-1 text-lg font-medium">
+                          {"Loading".split("").map((letter, index) => (
+                            <span key={index} className="loading-letter">{letter}</span>
+                          ))}
+                        </div>
+                        {/* Loading Bar */}
+                        <div className="relative mt-2 w-40 h-2 bg-neutral-300 rounded-full overflow-hidden">
+                          <div className="loading-bar absolute left-0 top-0 h-full bg-black rounded-full"></div>
+                        </div>
+                      </div>
                     ) : (
                       iconMap[item.icon] &&
                       React.createElement(iconMap[item.icon], {
