@@ -3,6 +3,7 @@ import Hero from "@/app/components/hero";
 import Work from "@/app/components/work";
 import Features from "@/app/components/features";
 import Testimonial from "@/app/components/testimonial";
+import Cta from "@/app/components/cta";
 
 export default function App() {
   return (
@@ -21,6 +22,9 @@ export default function App() {
       </div>
       <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
         <Testimonial/>
+      </div>
+      <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
+        <Cta/>
       </div>
     </>
   );
