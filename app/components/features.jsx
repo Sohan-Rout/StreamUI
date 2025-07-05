@@ -2,9 +2,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { FaFile, FaCopy, FaPencilRuler } from "react-icons/fa";
-import { IoMdCloseCircle } from "react-icons/io";
+import { IoMdCloseCircle, IoMdMoon } from "react-icons/io";
 import { HiSparkles } from "react-icons/hi2";
 import { RiTailwindCssFill } from "react-icons/ri";
+import { MdSunny } from "react-icons/md";
 
 // Map icon names to actual components
 const iconMap = {
@@ -44,6 +45,7 @@ export default function Hero() {
   const copyButtonRef = useRef(null);
   const pointerRef = useRef(null);
   const [copyText, setCopyText] = useState("Copy");
+  const [isCardDarkMode, setIsCardDarkMode] = useState(true);
 
   useEffect(() => {
     if (copyButtonRef.current && pointerRef.current) {
@@ -81,11 +83,11 @@ export default function Hero() {
         {features.map((item, idx) => (
           <div
             key={idx}
-            className={`rounded-xl bg-white shadow-lg flex flex-col justify-between ${
+            className={`rounded-xl shadow-lg flex flex-col justify-between ${
               idx === 0
                 ? "col-span-1 sm:col-span-2 md:col-span-2 md:row-span-2"
                 : "p-0"
-            }`}
+            } ${idx === 3 && isCardDarkMode ? "bg-neutral-900 text-white" : "bg-white"}`}
           >
             {idx === 0 ? (
               <>
@@ -122,7 +124,7 @@ export default function Hero() {
                       Card Title
                     </h4>
                     <p className="text-sm text-neutral-600 mb-2">
-                      This is a clean, minimal card to showcase StreamUI design.
+                      This is a clean, minimal card.
                     </p>
                     <button className="px-3 py-1 text-sm rounded-md border border-neutral-300 text-neutral-700 hover:bg-neutral-100 transition">
                       Action
@@ -159,8 +161,17 @@ export default function Hero() {
             ) : (
               <>
                 <div className="flex justify-between mx-2 my-2">
-                  <IoMdCloseCircle className="text-lg text-black opacity-50" />
-                  <IoMdCloseCircle className="text-lg text-black opacity-50" />
+                  {idx === 3 ? (
+                    <>
+                      <IoMdCloseCircle className={`text-lg ${isCardDarkMode ? "text-white" : "text-black"} opacity-50`} />
+                      <IoMdCloseCircle className={`text-lg ${isCardDarkMode ? "text-white" : "text-black"} opacity-50`} />
+                    </>
+                  ) : (
+                    <>
+                      <IoMdCloseCircle className="text-lg text-black opacity-50" />
+                      <IoMdCloseCircle className="text-lg text-black opacity-50" />
+                    </>
+                  )}
                 </div>
                 {idx === 1 ? (
                   <>
@@ -203,25 +214,66 @@ export default function Hero() {
                           </svg>
                         </div>
                       </div>
+                    ) : idx === 3 ? (
+                      <>
+                        {/* Toggle Switch */}
+                        <label className="relative inline-flex items-center cursor-pointer mb-4">
+                          <input
+                            type="checkbox"
+                            checked={isCardDarkMode}
+                            onChange={() => setIsCardDarkMode(!isCardDarkMode)}
+                            className="sr-only peer"
+                          />
+                          <div className="w-14 h-8 bg-gray-200 rounded-full flex items-center px-1 peer-checked:bg-neutral-700 transition relative">
+                            <span className="text-xs"><MdSunny/></span>
+                            <div className={`absolute top-1 left-1 w-6 h-6 bg-white rounded-full transition-transform flex items-center justify-center text-xs
+                              ${isCardDarkMode ? "translate-x-6" : ""}`}>
+                              {isCardDarkMode ? <IoMdMoon className="text-black"/> : <MdSunny/>}
+                            </div>
+                            <span className="text-xs ml-auto"><IoMdMoon/></span>
+                          </div>
+                        </label>
+                        <h3 className="font-medium text-lg">
+                          {item.title}
+                        </h3>
+                        {item.description && (
+                          <p className="text-sm max-w-xs mt-1 px-1 dark:text-white opacity-75">
+                            {item.description}
+                          </p>
+                        )}
+                      </>
                     ) : (
                       iconMap[item.icon] &&
                       React.createElement(iconMap[item.icon], {
                         className: "text-4xl mb-4",
                       })
                     )}
-                    <h3 className="font-medium text-neutral-800 text-lg">
-                      {item.title}
-                    </h3>
-                    {item.description && (
-                      <p className="text-sm text-neutral-600 max-w-xs mt-1 px-1">
-                        {item.description}
-                      </p>
+                    {idx !== 3 && (
+                      <>
+                        <h3 className="font-medium text-neutral-800 text-lg">
+                          {item.title}
+                        </h3>
+                        {item.description && (
+                          <p className="text-sm text-neutral-600 max-w-xs mt-1 px-1">
+                            {item.description}
+                          </p>
+                        )}
+                      </>
                     )}
                   </div>
                 )}
                 <div className="flex justify-between mx-2 my-2">
-                  <IoMdCloseCircle className="text-lg text-black opacity-50" />
-                  <IoMdCloseCircle className="text-lg text-black opacity-50" />
+                  {idx === 3 ? (
+                    <>
+                      <IoMdCloseCircle className={`text-lg ${isCardDarkMode ? "text-white" : "text-black"} opacity-50`} />
+                      <IoMdCloseCircle className={`text-lg ${isCardDarkMode ? "text-white" : "text-black"} opacity-50`} />
+                    </>
+                  ) : (
+                    <>
+                      <IoMdCloseCircle className="text-lg text-black opacity-50" />
+                      <IoMdCloseCircle className="text-lg text-black opacity-50" />
+                    </>
+                  )}
                 </div>
               </>
             )}

@@ -5,8 +5,8 @@ import { FaGithub, FaLinkedin, FaProductHunt } from "react-icons/fa";
 const navlinks = [
     { "title" : "Features", "links" : "#features" },
     { "title" : "Components", "links" : "#components" },
+    { "title" : "Documentation", "links" : "#documentation" },
     { "title" : "Reviews", "links" : "#reviews" },
-    { "title" : "FAQs", "links" : "#faqs" },
 ];
 
 const social = [
