@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
-import { IoMdCloseCircle, IoMdRemoveCircle, IoMdAddCircle } from "react-icons/io";
+import { IoMdCloseCircle, IoMdRemoveCircle, IoMdAddCircle, IoMdMoon } from "react-icons/io";
+import { MdSunny } from "react-icons/md";
+import { FaLightbulb, FaRegLightbulb } from "react-icons/fa";
 
 export default function Hero() {
   // Add near the top of Hero component
@@ -59,11 +61,11 @@ export default function Hero() {
             <div className="w-full h-full bg-white rounded-lg shadow-inner flex flex-col overflow-hidden text-xs flex-grow mt-2 mb-2">
               {/* Sticky Header */}
               <div className="flex justify-between items-center px-4 py-2 bg-neutral-50 border-b border-neutral-200 sticky top-0">
-                <div className="font-semibold text-neutral-700">StreamUI</div>
-                <div className="flex gap-3">
-                  <div className="w-10 h-3 bg-neutral-200 rounded"></div>
-                  <div className="w-10 h-3 bg-neutral-200 rounded"></div>
-                  <div className="w-10 h-3 bg-neutral-200 rounded"></div>
+                <div className="font-medium text-neutral-700">Stream<span className="px-1 py-1 ml-1 text-white bg-black rounded-md">UI</span></div>
+                <div className="flex gap-2">
+                  <div className="text-xs">Home</div>
+                  <div className="text-xs">Features</div>
+                  <div className="text-xs">Reviews</div>
                 </div>
               </div>
               {/* Hero Section */}
@@ -86,7 +88,7 @@ export default function Hero() {
           </div>
 
           {/* Side Preview Cards */}
-          <div className="bg-neutral-200 rounded-xl shadow-md flex flex-col justify-center items-center gap-2 p-3">
+          <div className="bg-neutral-100 rounded-xl shadow-md flex flex-col justify-center items-center gap-2 p-3">
             <button className="bg-black text-white text-xs px-3 py-1 rounded-lg shadow hover:bg-neutral-800 transition">
               Dark Button
             </button>
@@ -95,10 +97,10 @@ export default function Hero() {
             </button>
           </div>
           {/* Toggle Showcase Card */}
-          <div className={`${isDark ? "bg-neutral-900 text-white" : "bg-neutral-200"} rounded-xl shadow-md flex flex-col items-center justify-center gap-3 p-4 transition-colors duration-300`}>
+          <div className={`${isDark ? "bg-neutral-900 text-white" : "bg-neutral-100"} rounded-xl shadow-md flex flex-col items-center justify-center gap-3 p-4 transition-colors duration-300`}>
             <span className="text-xs font-medium">{isDark ? "Dark Mode" : "Light Mode"}</span>
 
-            {/* Toggle Variety 1: Pill Switch */}
+            {/* Toggle Variety 1: Pill Switch with icons */}
             <label className="relative inline-block w-12 h-7 cursor-pointer">
               <input
                 type="checkbox"
@@ -107,20 +109,27 @@ export default function Hero() {
                 className="opacity-0 w-0 h-0 peer"
               />
               <div className={`absolute inset-0 rounded-full transition ${isDark ? "bg-white/30" : "bg-neutral-300"}`}></div>
+              {/* Icons inside toggle */}
+              <IoMdMoon className="absolute left-2 top-2 text-[10px] text-white pointer-events-none" />
+              <MdSunny className="absolute right-2 top-2 text-[10px] text-black pointer-events-none" />
               <div className={`absolute left-0.5 top-0.5 w-6 h-6 rounded-full shadow transform transition ${isDark ? "translate-x-5 bg-white" : "bg-white"}`}></div>
             </label>
 
-            {/* Toggle Variety 2: Circle Toggle */}
-            <label className="relative inline-block w-8 h-8 cursor-pointer">
-              <input
-                type="checkbox"
-                checked={isDark}
-                onChange={() => setIsDark(!isDark)}
-                className="opacity-0 w-0 h-0 peer"
-              />
-              <div className={`absolute inset-0 rounded-full transition ${isDark ? "bg-white/30" : "bg-neutral-300"}`}></div>
-              <div className={`absolute top-1 left-1 w-6 h-6 rounded-full shadow transform transition ${isDark ? "bg-white" : "bg-white"}`}></div>
-            </label>
+    {/* Toggle Variety 2: Circle Toggle with icon */}
+    <button
+      type="button"
+      onClick={() => setIsDark(!isDark)}
+      className={`relative w-10 h-10 rounded-full flex items-center justify-center transition-all duration-200 ${
+        isDark ? 'bg-white/30 text-white' : 'bg-neutral-200 text-yellow-500'
+      } ${isDark ? 'shadow-inner' : 'shadow-md'} active:scale-95`}
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
+    >
+      {isDark ? (
+        <FaRegLightbulb className="text-[18px]" />
+      ) : (
+        <FaLightbulb className="text-[18px]" />
+      )}
+    </button>
 
             {/* Toggle Variety 3: Rounded Slider */}
             <label className="relative inline-block w-16 h-8 cursor-pointer">
