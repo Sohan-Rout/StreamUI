@@ -18,10 +18,10 @@ export default function App() {
       <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
         <Work/>
       </div>
-      <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
+      <div id="features" className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
         <Features/>
       </div>
-      <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
+      <div id="reviews" className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
         <Testimonial/>
       </div>
       <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
