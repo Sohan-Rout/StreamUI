@@ -1,8 +1,9 @@
 import { IoMdCloseCircle } from "react-icons/io";
+import { MdWidgets } from "react-icons/md";
 
 export default function Hero() {
   return (
-    <section className="relative flex justify-center items-center min-h-screen py-12 px-6 bg-neutral-100">
+    <section className="flex justify-center items-center py-12 px-6">
       {/* White base layer (card) */}
       <div className="relative max-w-6xl w-full bg-white rounded-xl shadow-lg z-10">
         {/* Bento grid background layer */}
@@ -22,7 +23,8 @@ export default function Hero() {
             <IoMdCloseCircle className="text-lg text-black opacity-50" />
           </div>
           <div className="flex flex-col items-center justify-center text-center px-6 py-16 md:py-24 gap-6 flex-grow">
-            <span className="text-xs uppercase border border-black rounded-full bg-white px-4 py-1 tracking-widest text-black">
+            <span className="text-xs flex items-center gap-2 uppercase border border-black rounded-full bg-white px-4 py-1 tracking-widest text-black">
+              <MdWidgets className="text-lg"/>
               Get Started
             </span>
             <h2 className="text-4xl md:text-5xl font-semibold text-neutral-900 max-w-2xl">
