@@ -1,5 +1,6 @@
 import Sidebar from "./components/sidebar";
 import Content from "./components/content";
+import Installation from "./components/installation";
 
 export default function DocsHome() {
   return (
@@ -13,6 +14,7 @@ export default function DocsHome() {
         {/* Main Content */}
         <div className="col-span-1 md:col-span-5 border-l border-dashed border-neutral-400 p-6 flex flex-col gap-4">
           <Content/>
+          <Installation/>
         </div>
       </div>
     </div>

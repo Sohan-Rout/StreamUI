@@ -83,7 +83,7 @@ export default function DocsContent() {
       </p>
 
       {/* Bento Grid for Steps */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
         {steps.map((step, index) => (
           <div
             key={index}
