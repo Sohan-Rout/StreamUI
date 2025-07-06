@@ -36,7 +36,7 @@ const Navbar = () => {
             <div className="px-10 flex items-center justify-between py-3">
                 {/* Logo */}
                 <div className="text-2xl font-medium text-neutral-900">
-                    Stream<span className="bg-black text-white font-semibold px-2 py-2 rounded-lg">UI</span>
+                    <a href="/">Stream<span className="bg-black text-white font-semibold px-2 py-2 rounded-lg">UI</span></a>
                 </div>
                 {/* Navlinks */}
                 <nav>
