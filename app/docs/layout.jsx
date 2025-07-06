@@ -1,4 +1,5 @@
 import Navbar from "@/app/components/navbar";
+import Footer from "@/app/components/footer";
 
 export default function DocsLayout({ children }) {
   return (
@@ -11,6 +12,10 @@ export default function DocsLayout({ children }) {
       {/* Main content area with dotted border */}
       <div className="border-l border-t border-r border-dashed border-neutral-400 p-2 md:p-2 mx-12">
         {children}
+      </div>
+
+      <div>
+        <Footer/>
       </div>
     </main>
   );

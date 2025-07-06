@@ -1,5 +1,7 @@
 import { IoMdCloseCircle } from "react-icons/io";
-import { VscDebugStart } from "react-icons/vsc";
+import { VscDebugStart, VscGitPullRequestNewChanges } from "react-icons/vsc";
+import { PiPackageFill } from "react-icons/pi";
+import { FaQuestion } from "react-icons/fa";
 
 export default function Sidebar() {
   return (
@@ -9,22 +11,22 @@ export default function Sidebar() {
           <IoMdCloseCircle className="text-lg text-black opacity-50" />
           <IoMdCloseCircle className="text-lg text-black opacity-50" />
         </div>
-        <div className="my-2 mx-6 border-t border-b border-dotted border-neutral-400 py-4">
-          <h2 className="text-lg font-semibold text-black mb-3">
+        <div className="my-2 mx-6 border-t flex flex-col items-center border-b border-dotted border-neutral-400 py-4">
+          <h2 className="text-2xl flex items-center gap-2 font-medium text-black mb-3">
             Docs Navigation
           </h2>
-          <nav className="flex flex-col gap-2 text-sm ml-4 text-neutral-600">
-            <a href="/docs/getting-started" className="flex tracking-wide hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full">
-              <VscDebugStart/>Getting Started
+          <nav className="flex flex-col gap-2 text-sm text-neutral-600">
+            <a href="/docs/getting-started" className="flex gap-2 items-center tracking-wider hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full hover:text-black">
+              <VscDebugStart className="text-lg"/>Getting Started
             </a>
-            <a href="/docs/components" className="tracking-wide hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full">
-              Components
+            <a href="/docs/components" className="flex gap-2 items-center tracking-wider hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full hover:text-black">
+              <PiPackageFill className="text-lg"/>Components
             </a>
-            <a href="/docs/faq" className="tracking-wide hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full">
-              FAQ
+            <a href="/docs/faq" className="flex gap-2 items-center tracking-wider hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full hover:text-black">
+              <FaQuestion className="text-lg"/>FAQ
             </a>
-            <a href="/docs/changelog" className="tracking-wide hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full">
-              Changelog
+            <a href="/docs/changelog" className="flex gap-2 items-center tracking-wider hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full hover:text-black">
+              <VscGitPullRequestNewChanges className="text-lg"/>Changelog
             </a>
           </nav>
         </div>
