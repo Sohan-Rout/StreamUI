@@ -4,6 +4,10 @@ import { IoMdCloseCircle, IoMdRemoveCircle, IoMdAddCircle, IoMdMoon } from "reac
 import { MdSunny } from "react-icons/md";
 import { FaLightbulb, FaRegLightbulb } from "react-icons/fa";
 
+const pageLinks = [
+  { name : "docsPage", href : "./docs/getting-started"}
+];
+
 export default function Hero() {
   // Add near the top of Hero component
   const [isDark, setIsDark] = useState(true);
@@ -31,7 +35,7 @@ export default function Hero() {
               Browse Components
             </a>
             <a
-              href="#features"
+              href={pageLinks[0].href}
               className="border shadow-xl border-neutral-700 text-neutral-900 px-5 py-3 rounded-lg hover:bg-neutral-100 transition"
             >
               Learn More
