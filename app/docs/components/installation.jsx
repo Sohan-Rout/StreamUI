@@ -37,8 +37,8 @@ export default function DocsContent() {
 
         {/* Step 2 */}
         <div className="pl-4 py-2">
-          <h2 className="text-lg font-semibold">2️⃣ Install Tailwind CSS</h2>
-          <p className="text-sm text-neutral-600">
+          <h2 className="text-lg font-medium text-black">Install Tailwind CSS</h2>
+          <p className="text-sm text-neutral-600 mb-4 mt-2">
             Install Tailwind CSS and its dependencies:
           </p>
           <div className="bg-white rounded-xl shadow-lg">

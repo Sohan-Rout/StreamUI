@@ -1,6 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
-import { FaGithub, FaLinkedin, FaProductHunt } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaProductHunt, FaChevronDown } from "react-icons/fa";
 
 const navlinks = [
     { "title" : "Features", "links" : "#features" },
@@ -41,11 +41,37 @@ const Navbar = () => {
                 {/* Navlinks */}
                 <nav>
                     <ul className="hidden md:flex gap-6 text-sm md:text-base text-neutral-500">
-                        {navlinks.map((item, index) => (
-                            <li key={index}>
-                                <a href={item.links}>{item.title}</a>
-                            </li>
-                        ))}
+                        {navlinks.map((item, index) =>
+                            item.title === "Components" ? (
+                                <li key={index} className="relative group">
+                                    <button className="flex items-center gap-1">
+                                        {item.title} <FaChevronDown size={12} />
+                                    </button>
+                                    {/* Dropdown */}
+                                    <ul className="absolute left-0 mt-2 w-40 bg-white border border-neutral-200 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition pointer-events-none group-hover:pointer-events-auto">
+                                        <li>
+                                            <a href="#featured" className="block px-4 py-2 hover:bg-neutral-100">Featured</a>
+                                        </li>
+                                        <li>
+                                            <a href="#hero" className="block px-4 py-2 hover:bg-neutral-100">Hero</a>
+                                        </li>
+                                        <li>
+                                            <a href="#buttons" className="block px-4 py-2 hover:bg-neutral-100">Buttons</a>
+                                        </li>
+                                        <li>
+                                            <a href="#cards" className="block px-4 py-2 hover:bg-neutral-100">Cards</a>
+                                        </li>
+                                        <li>
+                                            <a href="#navbars" className="block px-4 py-2 hover:bg-neutral-100">Navbars</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            ) : (
+                                <li key={index}>
+                                    <a href={item.links}>{item.title}</a>
+                                </li>
+                            )
+                        )}
                     </ul>
                 </nav>
                 {/* Social links with icons */}
