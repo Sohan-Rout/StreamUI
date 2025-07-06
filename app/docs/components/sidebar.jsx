@@ -12,10 +12,10 @@ export default function Sidebar() {
           <IoMdCloseCircle className="text-lg text-black opacity-50" />
         </div>
         <div className="my-2 mx-6 border-t flex flex-col items-center border-b border-dotted border-neutral-400 py-4">
-          <h2 className="text-2xl flex items-center gap-2 font-medium text-black mb-3">
+          <h2 className="text-xl flex items-center gap-2 font-medium text-black mb-3">
             Docs Navigation
           </h2>
-          <nav className="flex flex-col gap-2 text-sm text-neutral-600">
+          <nav className="flex flex-col gap-2 text-xs text-neutral-600">
             <a href="/docs/getting-started" className="flex gap-2 items-center tracking-wider hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full hover:text-black">
               <VscDebugStart className="text-lg"/>Getting Started
             </a>
