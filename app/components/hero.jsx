@@ -5,7 +5,7 @@ import { MdSunny } from "react-icons/md";
 import { FaLightbulb, FaRegLightbulb } from "react-icons/fa";
 
 const pageLinks = [
-  { name : "docsPage", href : "./docs/getting-started"}
+  { name : "docsPage", href : "./docs"}
 ];
 
 export default function Hero() {
