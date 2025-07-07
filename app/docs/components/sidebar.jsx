@@ -16,7 +16,7 @@ export default function Sidebar() {
             Docs Navigation
           </h2>
           <nav className="flex flex-col gap-2 text-xs text-neutral-600">
-            <a href="/docs/getting-started" className="flex gap-2 items-center tracking-wider hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full hover:text-black">
+            <a href="/docs" className="flex gap-2 items-center tracking-wider hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full hover:text-black">
               <VscDebugStart className="text-lg"/>Getting Started
             </a>
             <a href="#installation" className="flex gap-2 items-center tracking-wider hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full hover:text-black">
