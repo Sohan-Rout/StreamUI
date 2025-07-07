@@ -1,5 +1,6 @@
 import { GrInstallOption } from "react-icons/gr";
 import { IoMdCloseCircle } from "react-icons/io";
+import Copy from "@/app/components/ui/copyButton";
 
 export default function DocsContent() {
   return (
@@ -25,50 +26,91 @@ export default function DocsContent() {
       <div className="flex flex-col gap-4">
         {/* Step 1 */}
         <div className="border-black pl-4 py-2">
-          <h2 className="text-lg font-semibold">1️⃣ Initialize your project</h2>
-          <p className="text-sm text-neutral-600">
+          <h2 className="text-lg font-medium text-black">
+            Initialize your project
+          </h2>
+          <p className="text-sm text-neutral-600 mb-4 mt-2">
             If you haven't already, create a new Next.js project or navigate to
             your existing project's root directory.
           </p>
-          <pre className="bg-neutral-900 text-white text-xs p-3 rounded-md mt-2">
-            npx create-next-app@latest
-          </pre>
+          <div className="bg-white rounded-xl shadow-lg">
+            <div className="flex justify-between py-2 px-2">
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+            </div>
+            <div className="px-8">
+              <div className="flex justify-between">
+                <p className="font-mono text-sm text-black/75">Terminal ~</p>
+                <Copy text="npx create-next-app@latest" />
+              </div>
+              <pre className="bg-neutral-900 text-white text-xs p-3 rounded-md mt-2">
+                npx create-next-app@latest
+              </pre>
+            </div>
+            <div className="flex justify-between py-2 px-2">
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+            </div>
+          </div>
         </div>
 
         {/* Step 2 */}
         <div className="pl-4 py-2">
-          <h2 className="text-lg font-medium text-black">Install Tailwind CSS</h2>
+          <h2 className="text-lg font-medium text-black">
+            Install Tailwind CSS
+          </h2>
           <p className="text-sm text-neutral-600 mb-4 mt-2">
             Install Tailwind CSS and its dependencies:
           </p>
           <div className="bg-white rounded-xl shadow-lg">
             <div className="flex justify-between py-2 px-2">
-                          <IoMdCloseCircle className="text-lg text-black opacity-50" />
-                          <IoMdCloseCircle className="text-lg text-black opacity-50" />
-                        </div>
-                        <div className="px-8">
-            <p className="font-mono text-sm text-black/75">Terminal ~</p>
-            <pre className="bg-neutral-900 text-white text-xs p-3 rounded-md mt-1">
-              npm install -D tailwindcss postcss autoprefixer
-            </pre>
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+            </div>
+            <div className="px-8">
+              <div className="flex justify-between">
+                <p className="font-mono text-sm text-black/75">Terminal ~</p>
+                <Copy text="npm install -D tailwindcss postcss autoprefixer" />
+              </div>
+              <pre className="bg-neutral-900 text-white text-xs p-3 rounded-md mt-1">
+                npm install -D tailwindcss postcss autoprefixer
+              </pre>
             </div>
             <div className="flex justify-between py-2 px-2">
-                          <IoMdCloseCircle className="text-lg text-black opacity-50" />
-                          <IoMdCloseCircle className="text-lg text-black opacity-50" />
-                        </div>
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+            </div>
           </div>
-          <p className="text-sm text-neutral-600 mt-2">Initialize Tailwind:</p>
-          <pre className="bg-neutral-900 text-white text-xs p-3 rounded-md mt-2">
-            npx tailwindcss init -p
-          </pre>
+          <p className="text-sm text-neutral-600 mt-4 mb-4">
+            Initialize Tailwind:
+          </p>
+          <div className="bg-white rounded-xl shadow-lg">
+            <div className="flex justify-between py-2 px-2">
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+            </div>
+            <div className="px-8">
+              <div className="flex justify-between">
+                <p className="font-mono text-sm text-black/75">Terminal ~</p>
+                <Copy text="npx tailwindcss init -p" />
+              </div>
+              <pre className="bg-neutral-900 text-white text-xs p-3 rounded-md mt-2">
+                npx tailwindcss init -p
+              </pre>
+            </div>
+            <div className="flex justify-between py-2 px-2">
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+            </div>
+          </div>
         </div>
 
         {/* Step 3 */}
         <div className="pl-4 py-2">
-          <h2 className="text-lg font-semibold">
-            3️⃣ Configure Tailwind to use Poppins font
+          <h2 className="text-lg font-medium text-black">
+            Configure Tailwind to use Poppins font
           </h2>
-          <p className="text-sm text-neutral-600">
+          <p className="text-sm text-neutral-600 mb-4 mt-2">
             In your <code>tailwind.config.js</code>, add Poppins to your
             fontFamily:
           </p>
