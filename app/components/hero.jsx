@@ -5,7 +5,8 @@ import { MdSunny } from "react-icons/md";
 import { FaLightbulb, FaRegLightbulb } from "react-icons/fa";
 
 const pageLinks = [
-  { name : "docsPage", href : "./docs"}
+  { name : "docsPage", href : "./docs"},
+  { name : "componentsPage", href : "./showcase"},
 ];
 
 export default function Hero() {
@@ -29,7 +30,7 @@ export default function Hero() {
           </p>
           <div className="flex gap-4">
             <a
-              href="#components"
+              href={pageLinks[1].href}
               className="bg-black shadow-xl text-white px-5 py-3 rounded-lg hover:bg-neutral-800 transition"
             >
               Browse Components
