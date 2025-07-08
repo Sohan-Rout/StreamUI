@@ -1,17 +1,13 @@
 'use client';
 import React from 'react';
-import Navbar from '@/app/components/navbar';
 import { IoMdCloseCircle } from 'react-icons/io';
 import CopyButton from '@/app/components/ui/CopyButton';
 
 export default function ComponentShowcaseLayout({ title, description, preview, code, props }) {
   return (
-    <div className="min-h-screen flex flex-col bg-white">
-      {/* Navbar */}
-      <Navbar />
-
+    <div className="flex flex-col">
       {/* Content */}
-      <main className="max-w-4xl w-full mx-auto p-6 flex flex-col gap-6">
+      <main className="max-w-6xl my-12 bg-white rounded-lg shadow-xl w-full mx-auto p-6 flex flex-col gap-6">
         {/* Top corner icons */}
         <div className="flex justify-between">
           <IoMdCloseCircle className="text-lg text-black opacity-50" />
