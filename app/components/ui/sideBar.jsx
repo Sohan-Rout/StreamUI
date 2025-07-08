@@ -17,7 +17,7 @@ export default function Card({ title, links = [] }) {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm rounded-md text-black flex justify-center border border-neutral-400 hover:bg-gray-100 transition-colors"
+              className="text-sm rounded-md text-black hover:bg-gray-100 transition-colors"
             >
               {link.label}
             </Link>

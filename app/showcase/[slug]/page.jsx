@@ -1,10 +1,10 @@
 'use client';
 import React from 'react';
-import ComponentShowcaseLayout from '../layout';
-import showcaseComponents from '../showcase-config';
+import ComponentShowcaseLayout from '@/app/showcase/showcaseLayout';
+import showcaseComponents from '@/app/showcase/showcase-config';
 
 export default function ShowcaseVariantPage({ params }) {
-  const { slug } = params;
+  const { slug } = React.use(params);
   const component = showcaseComponents.find(comp => comp.slug === slug);
 
   if (!component) {
@@ -20,7 +20,7 @@ export default function ShowcaseVariantPage({ params }) {
     <ComponentShowcaseLayout
       title={component.title}
       description={component.description}
-      preview={component.preview}
+      preview={React.createElement(component.preview)}
       code={component.code}
       props={component.props}
     />
