@@ -35,13 +35,13 @@ export default function Hero() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <a
-                href="#components"
+                href="/showcase"
                 className="bg-black shadow-xl text-white px-6 py-3 rounded-full hover:bg-neutral-800 transition text-sm font-medium"
               >
                 Browse Components
               </a>
               <a
-                href="#docs"
+                href="/docs"
                 className="border shadow-xl border-neutral-700 text-neutral-900 px-6 py-3 rounded-full hover:bg-neutral-100 transition text-sm font-medium"
               >
                 View Documentation
