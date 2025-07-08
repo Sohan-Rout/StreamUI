@@ -22,7 +22,7 @@ export default function Sidebar() {
             <a href="#installation" className="flex gap-2 items-center tracking-wider hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full hover:text-black">
               <PiPackageFill className="text-lg"/>Installation
             </a>
-            <a href="/docs/faq" className="flex gap-2 items-center tracking-wider hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full hover:text-black">
+            <a href="#faq" className="flex gap-2 items-center tracking-wider hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full hover:text-black">
               <FaQuestion className="text-lg"/>FAQ
             </a>
             <a href="/docs/changelog" className="flex gap-2 items-center tracking-wider hover:bg-white hover:border hover:border-black hover:px-4 hover:py-2 hover:duration-300 hover:rounded-full hover:text-black">
