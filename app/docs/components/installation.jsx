@@ -184,8 +184,27 @@ export default function DocsContent() {
           <h2 className="text-lg font-medium text-black">Install necesaary packages</h2>
           <p className="text-sm text-neutral-600 mt-2 mb-4">
             Installation of packages which includes external icons packages along with gsap and framer motion for animation.
+            Install all dependency directly
           </p>
-          <p>Install Each pacakage separtely or</p>
+          <div className="bg-white rounded-xl shadow-lg">
+            <div className="flex justify-between py-2 px-2">
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+            </div>
+            <div className="px-8">
+              <div className="flex justify-between items-center">
+                <p className="font-mono text-sm text-black/75">Terminal ~</p>
+                <Copy text="npm install streamui-deps" />
+              </div>
+          <pre className="bg-neutral-900 text-white text-xs p-3 rounded-md mt-2 overflow-x-auto">
+            {`npm install streamui-deps`}
+          </pre>
+          </div><div className="flex justify-between py-2 px-2">
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+            </div>
+          </div>
+          <p className="text-sm text-neutral-600 mt-2 mb-4">Or Install Each pacakage separtely</p>
           <div className="bg-white rounded-xl shadow-lg">
             <div className="flex justify-between py-2 px-2">
               <IoMdCloseCircle className="text-lg text-black opacity-50" />
@@ -197,7 +216,7 @@ export default function DocsContent() {
                 <Copy text="@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');" />
               </div>
           <pre className="bg-neutral-900 text-white text-xs p-3 rounded-md mt-2 overflow-x-auto">
-            {`@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');`}
+            {`npm install gsap\nnpm install framer-motion\nnpm install react-icons`}
           </pre>
           </div><div className="flex justify-between py-2 px-2">
               <IoMdCloseCircle className="text-lg text-black opacity-50" />
