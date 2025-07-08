@@ -1,5 +1,5 @@
 "use client";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { RiGalleryFill } from "react-icons/ri";
 import SideBar from "@/app/components/ui/sideBar";
 import showcaseComponents from "./showcase-config";
@@ -28,6 +28,8 @@ const elements = [
 ];
 
 export default function ShowcaseGalleryPage() {
+  const router = useRouter();
+
   return (
     <main className="max-w-6xl w-full mx-auto p-6">
       <h1 className="text-2xl md:text-3xl font-medium mb-2 flex items-center">
@@ -48,17 +50,22 @@ export default function ShowcaseGalleryPage() {
           {showcaseComponents.map((component) => {
             const PreviewComponent = component.preview;
             return (
-              <Link key={component.slug} href={`/showcase/${component.slug}`}>
-                <div className="border border-dashed border-neutral-400 rounded-lg p-4 bg-white shadow hover:bg-neutral-50 transition cursor-pointer flex flex-col justify-between">
-                  <div>
-                    <h2 className="text-lg font-semibold">{component.name}</h2>
-                    <p className="text-sm text-neutral-600 mt-1">{component.description}</p>
-                  </div>
-                  <div className="mt-4 border border-neutral-300 rounded-md h-32 flex items-center justify-center text-neutral-700 text-sm overflow-hidden">
-                    <PreviewComponent />
-                  </div>
+              <div
+                key={component.slug}
+                onClick={() => router.push(`/showcase/${component.slug}`)}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && router.push(`/showcase/${component.slug}`)}
+                className="border border-dashed border-neutral-400 rounded-lg p-4 bg-white shadow hover:bg-neutral-50 transition cursor-pointer flex flex-col justify-between"
+              >
+                <div>
+                  <h2 className="text-lg font-semibold">{component.title}</h2>
+                  <p className="text-sm text-neutral-600 mt-1">{component.description}</p>
                 </div>
-              </Link>
+                <div className="mt-4 border border-neutral-300 rounded-md flex h-50 items-center justify-center text-neutral-700 text-sm overflow-hidden">
+                  <PreviewComponent />
+                </div>
+              </div>
             );
           })}
         </div>
