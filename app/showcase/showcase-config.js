@@ -56,9 +56,12 @@ export default function Navbar({
     </nav>
   );
 }`,
+implementation: `<Navbar logo={{}} links={[]} actions={{}} mode="light" />`,
     props: [
-      { name: 'fixed', type: 'boolean', default: 'false', description: 'Fixes navbar on scroll.' },
-      { name: 'links', type: 'array', default: '[]', description: 'Array of navigation links.' },
+      { name: 'logo', type: 'object', default: '{ text: "StreamUI", href: "/", image: null }', description: 'Logo configuration with text, href, and optional image.' },
+      { name: 'links', type: 'array', default: '[]', description: 'Array of navigation links with label and href.' },
+      { name: 'actions', type: 'ReactNode', default: 'null', description: 'Optional CTA buttons displayed on the navbar.' },
+      { name: 'mode', type: 'string', default: '"light"', description: 'Color mode of the navbar, can be "light" or "dark".' },
     ],
     category: 'Navbars',
   },

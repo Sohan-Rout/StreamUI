@@ -20,6 +20,7 @@ export default function ShowcaseVariantPage({ params }) {
     <ComponentShowcaseLayout
       category = {component.category}
       title={component.title}
+      implementation={component.implementation}
       description={component.description}
       preview={React.createElement(component.preview)}
       code={component.code}
