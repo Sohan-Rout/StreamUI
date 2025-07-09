@@ -31,15 +31,15 @@ export default function Hero() {
           <div className="flex gap-4">
             <a
               href={pageLinks[1].href}
-              className="bg-black shadow-xl text-white px-5 py-3 rounded-lg hover:bg-neutral-800 transition"
+              className="bg-black shadow-xl text-white px-5 py-3 rounded-lg hover:bg-neutral-800 duration-300 hover:scale-105 transition"
             >
               Browse Components
             </a>
             <a
               href={pageLinks[0].href}
-              className="border shadow-xl border-neutral-700 text-neutral-900 px-5 py-3 rounded-lg hover:bg-neutral-100 transition"
+              className="border shadow-xl border-neutral-700 text-neutral-900 px-5 py-3 rounded-lg duration-300 hover:scale-105 hover:bg-neutral-100 transition"
             >
-              Learn More
+              Documentation
             </a>
           </div>
           {/* Reviewed by */}

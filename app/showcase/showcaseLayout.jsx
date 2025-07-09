@@ -335,7 +335,7 @@ export default function ComponentShowcaseLayout({
       </div>
       <div className="flex justify-center mt-6">
         <div className="flex flex-col items-center">
-          <p className="text-neutral-600 mb-1">That's it folks</p>
+          <p className="text-neutral-600 mb-2">That's it folks</p>
           <a href="/showcase" className="px-4 py-2 bg-black text-white rounded-lg shadow-xl hover:scale-105 duration-300">Return to Gallery</a>
           <p className="text-neutral-600 mt-4">If You enjoy the product make sure to tag the library and share it with your freinds.</p>
         </div>
