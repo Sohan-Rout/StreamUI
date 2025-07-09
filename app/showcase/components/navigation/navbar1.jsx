@@ -13,7 +13,7 @@ export default function Navbar({
   actions = (
     <div className="flex gap-2">
       <button className="px-4 py-1 rounded bg-white border border-black text-black">Log In</button>
-      <button className="px-4 py-1 rounded bg-black text-white">Sign In</button>
+      <button className="px-4 border border-black py-1 rounded bg-black dark:border-white text-white">Sign In</button>
     </div>
   ),
   mode = "light",
