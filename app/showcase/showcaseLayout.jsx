@@ -32,7 +32,7 @@ export default function ComponentShowcaseLayout({
           </div>
         </span>
         <h1 className="text-2xl md:text-3xl font-medium">{title}</h1>
-        {description && <p className="text-neutral-600 mt-2">{description}</p>}
+        {description && <p className="text-neutral-600 mt-2 text-center">{description}</p>}
       </div>
       <div className="w-fit mb-4">
         <a

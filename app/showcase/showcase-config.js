@@ -7,7 +7,7 @@ const showcaseComponents = [
   {
     slug: 'SimpleNavabar',
     title: 'Minimalist Navbar',
-    description: 'A clean, simple and minimalist navbar',
+    description: 'A clean, simple and minimalist navbarA clean, responsive navbar component for your projects. Easily customizable with your logo, navigation links, and call-to-action buttons while supporting light and dark modes.',
     preview: NavbarVariant1,
     code: `"use client";
 import Link from "next/link";
