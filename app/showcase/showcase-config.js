@@ -1,11 +1,12 @@
 import NavbarVariant1 from '@/app/showcase/components/navigation/navbar1';
 import DynamicComponentCard1 from '@/app/showcase/components/elements/card1';
 import Button1 from '@/app/showcase/components/elements/button1';
+import Avatar1 from '@/app/showcase/components/elements/avatar1';
 
 const showcaseComponents = [
   {
     slug: 'SimpleNavabar',
-    title: 'Simple Navbar',
+    title: 'Minimalist Navbar',
     description: 'A clean, simple and minimalist navbar',
     preview: NavbarVariant1,
     code: `"use client";
@@ -96,6 +97,22 @@ export default function Navbar({
       { name: 'darkMode', type: 'boolean', default: 'false', description: 'Enable dark mode styling.' },
     ],
     category: 'Buttons',
+  },
+  {
+    slug: 'dynamic-avatar',
+    title: 'Minimalist Name Avatar',
+    description: 'A clean avatar component displaying name initials, perfect for testimonials.',
+    preview: Avatar1,
+    code: `<Avatar1 
+  name="Jhon Doe" 
+  size={56} 
+/>`,
+    props: [
+      { name: 'name', type: 'string', default: '"John Doe"', description: 'Name for initials displayed in the avatar.' },
+      { name: 'size', type: 'number', default: '48', description: 'Size of the avatar in pixels.' },
+      { name: 'className', type: 'string', default: '""', description: 'Additional Tailwind classes for styling.' },
+    ],
+    category: 'Avatars',
   },
 ];
 
