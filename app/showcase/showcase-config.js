@@ -70,16 +70,35 @@ implementation: `<Navbar logo={{}} links={[]} actions={{}} mode="light" />`,
     title: 'Minimalist Card',
     description: 'A minimal, dynamic card with placeholders for logo, title, and description.',
     preview: DynamicComponentCard1,
-    code: `<DynamicComponentCard 
-  logo={<YourLogoComponent />} 
-  title="Card Title" 
-  description="Card description goes here." 
-/>`,
-    props: [
-      { name: 'logo', type: 'ReactNode', default: 'null', description: 'Logo or image displayed in the card.' },
-      { name: 'title', type: 'string', default: '""', description: 'Title displayed in the card.' },
-      { name: 'description', type: 'string', default: '""', description: 'Description text displayed in the card.' },
-    ],
+    code: `'use client';
+    import React from 'react';
+    
+    export default function DynamicComponentCard({ logo, title, description }) {
+      return (
+        <div className="rounded-lg p-4 bg-white dark:bg-neutral-900 shadow-xl dark:shadow-neutral-700 flex flex-col justify-center items-center gap-2">
+          {/* Logo/Image Placeholder */}
+          <div className="flex justify-center items-center rounded-lg py-12 px-10 border dark:border-neutral-400">
+            {logo ? logo : <span className="text-black text-2xl dark:text-white">Stream<span className="bg-black px-2 py-2 rounded-lg text-white dark:text-black dark:bg-white ml-1">UI</span></span>}
+          </div>
+    
+          {/* Title */}
+          <h3 className="text-xl font-medium mt-6">
+            {title ? title : 'This is a card'}
+          </h3>
+    
+          {/* Description */}
+          <p className="text-sm text-neutral-600">
+            {description ? description : 'This is the description of the card'}
+          </p>
+        </div>
+      );
+    }`,
+implementation : `<DynamicComponentCard logo={<img src="/logo.png" alt="Logo" className="w-12 h-12" />} title="Streamlined Card" description="This card displays a custom logo, title, and description dynamically." />`,
+        props: [
+      { name: 'logo', type: 'ReactNode', default: 'Styled "StreamUI" text', description: 'Logo or image element for the card.' },
+      { name: 'title', type: 'string', default: '"This is a card"', description: 'Title displayed on the card.' },
+      { name: 'description', type: 'string', default: '"This is the description of the card"', description: 'Description displayed under the title.' }
+        ],
     category: 'Cards',
   },
   {

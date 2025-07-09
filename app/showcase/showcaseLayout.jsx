@@ -37,10 +37,10 @@ export default function ComponentShowcaseLayout({
       <div className="w-fit mb-4">
         <a
           href="/showcase"
-          className="flex gap-1 items-center bg-white tracking-widest px-4 py-2 rounded-md border border-neutral-400 hover:bg-neutral-50 transition"
+          className="flex gap-1 items-center bg-black text-white px-4 py-2 rounded-md border border-neutral-400 hover:scale-105 duration-300 transition"
         >
-          <IoBackspace className="text-xl" />
-          <span>Back to Components</span>
+          <IoBackspace className="text-md" />
+          <span className="text-md">Return To Gallery</span>
         </a>
       </div>
       {/* Content */}
@@ -56,7 +56,7 @@ export default function ComponentShowcaseLayout({
             {/* Preview */}
             <div className={previewDarkMode ? "dark" : ""}>
               <div
-                className={`border border-dashed border-neutral-400 rounded-lg p-4 shadow bg-white dark:bg-neutral-800 text-black dark:text-white`}
+                className={`border border-dashed border-neutral-400 rounded-lg p-4 shadow bg-neutral-100 dark:bg-neutral-800 text-black dark:text-white`}
               >
                 {/* Dark mode toggle */}
                 <div className="flex justify-end items-center mb-2">
@@ -94,7 +94,7 @@ export default function ComponentShowcaseLayout({
                     </div>
                   </button>
                 </div>
-                <div className="flex justify-center">
+                <div className="flex justify-center py-12">
                   {React.cloneElement(preview, {
                     mode: previewDarkMode ? "dark" : "light",
                   })}
@@ -268,6 +268,9 @@ export default function ComponentShowcaseLayout({
                   <IoMdCloseCircle className="text-lg text-black opacity-50" />
                   <IoMdCloseCircle className="text-lg text-black opacity-50" />
                 </div>
+                <div className="flex justify-end px-8">
+                  <CopyButton text={implementation} />
+                </div>
                 <div className="px-8">
                   <SyntaxHighlighter
                     language="jsx"
@@ -294,40 +297,47 @@ export default function ComponentShowcaseLayout({
 
           <div className="bg-white rounded-xl shadow-lg">
             <div className="flex justify-between py-2 px-2">
-                  <IoMdCloseCircle className="text-lg text-black opacity-50" />
-                  <IoMdCloseCircle className="text-lg text-black opacity-50" />
-                </div>
-          {/* Props table */}
-          {props && props.length > 0 && (
-            <div className="px-12">
-              <h2 className="text-lg font-semibold mb-2">Props</h2>
-              <table className="w-full text-sm text-left">
-                <thead>
-                  <tr>
-                    <th className="py-1">Name</th>
-                    <th className="py-1">Type</th>
-                    <th className="py-1">Default</th>
-                    <th className="py-1">Description</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {props.map((prop, idx) => (
-                    <tr key={idx} className="border-t border-neutral-300">
-                      <td className="py-1">{prop.name}</td>
-                      <td className="py-1">{prop.type}</td>
-                      <td className="py-1">{prop.default}</td>
-                      <td className="py-1">{prop.description}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
             </div>
-          )}
-          <div className="flex justify-between py-2 px-2">
-                  <IoMdCloseCircle className="text-lg text-black opacity-50" />
-                  <IoMdCloseCircle className="text-lg text-black opacity-50" />
-                </div>
+            {/* Props table */}
+            {props && props.length > 0 && (
+              <div className="px-12">
+                <h2 className="text-lg font-semibold mb-2">Props</h2>
+                <table className="w-full text-sm text-left">
+                  <thead>
+                    <tr>
+                      <th className="py-1">Name</th>
+                      <th className="py-1">Type</th>
+                      <th className="py-1">Default</th>
+                      <th className="py-1">Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {props.map((prop, idx) => (
+                      <tr key={idx} className="border-t border-neutral-300">
+                        <td className="py-1">{prop.name}</td>
+                        <td className="py-1">{prop.type}</td>
+                        <td className="py-1">{prop.default}</td>
+                        <td className="py-1">{prop.description}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
+            <div className="flex justify-between py-2 px-2">
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+              <IoMdCloseCircle className="text-lg text-black opacity-50" />
+            </div>
+          </div>
         </div>
+      </div>
+      <div className="flex justify-center mt-6">
+        <div className="flex flex-col items-center">
+          <p className="text-neutral-600 mb-1">That's it folks</p>
+          <a href="/showcase" className="px-4 py-2 bg-black text-white rounded-lg shadow-xl hover:scale-105 duration-300">Return to Gallery</a>
+          <p className="text-neutral-600 mt-4">If You enjoy the product make sure to tag the library and share it with your freinds.</p>
         </div>
       </div>
     </main>

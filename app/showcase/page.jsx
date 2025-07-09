@@ -58,7 +58,7 @@ export default function ShowcaseGalleryPage() {
                 onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && router.push(`/showcase/${component.slug}`)}
                 className={`rounded-lg p-4 bg-white shadow hover:bg-neutral-50 transition cursor-pointer flex flex-col gap-4 ${
                   component.category === "Navbars" ? "col-span-2" : "col-span-1"
-                } ${component.category === "Cards" ? "row-span-2" : ""}`}
+                } ${component.category === "Cards" ? "row-span-1" : ""}`}
               >
                 <div className="mt-4 border border-neutral-300 rounded-md flex h-[200px] items-center justify-center text-neutral-700 text-sm overflow-hidden">
                   <div className="scale-[0.75] origin-top w-full flex items-center justify-center">
