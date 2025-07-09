@@ -56,14 +56,18 @@ export default function ShowcaseGalleryPage() {
                 role="button"
                 tabIndex={0}
                 onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && router.push(`/showcase/${component.slug}`)}
-                className="border border-dashed border-neutral-400 rounded-lg p-4 bg-white shadow hover:bg-neutral-50 transition cursor-pointer flex flex-col justify-between"
+                className={`rounded-lg p-4 bg-white shadow hover:bg-neutral-50 transition cursor-pointer flex flex-col gap-4 ${
+                  component.category === "Navbars" ? "col-span-2" : "col-span-1"
+                } ${component.category === "Cards" ? "row-span-2" : ""}`}
               >
+                <div className="mt-4 border border-neutral-300 rounded-md flex h-[200px] items-center justify-center text-neutral-700 text-sm overflow-hidden">
+                  <div className="scale-[0.75] origin-top w-full flex items-center justify-center">
+                    <PreviewComponent />
+                  </div>
+                </div>
                 <div>
                   <h2 className="text-lg font-semibold">{component.title}</h2>
                   <p className="text-sm text-neutral-600 mt-1">{component.description}</p>
-                </div>
-                <div className="mt-4 border border-neutral-300 rounded-md flex h-50 items-center justify-center text-neutral-700 text-sm overflow-hidden">
-                  <PreviewComponent />
                 </div>
               </div>
             );

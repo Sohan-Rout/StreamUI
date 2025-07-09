@@ -1,5 +1,6 @@
 import NavbarVariant1 from '@/app/showcase/components/navigation/navbar1';
-import DynamicComponentCard from '@/app/showcase/components/elements/card1';
+import DynamicComponentCard1 from '@/app/showcase/components/elements/card1';
+import Button1 from '@/app/showcase/components/elements/button1';
 
 const showcaseComponents = [
   {
@@ -62,9 +63,9 @@ export default function Navbar({
   },
   {
     slug: 'dynamic-component-card',
-    title: 'Dynamic Component Card',
+    title: 'Minimalist Card',
     description: 'A minimal, dynamic card with placeholders for logo, title, and description.',
-    preview: DynamicComponentCard,
+    preview: DynamicComponentCard1,
     code: `<DynamicComponentCard 
   logo={<YourLogoComponent />} 
   title="Card Title" 
@@ -76,6 +77,25 @@ export default function Navbar({
       { name: 'description', type: 'string', default: '""', description: 'Description text displayed in the card.' },
     ],
     category: 'Cards',
+  },
+  {
+    slug: 'dynamic-button',
+    title: 'Minimalist Button',
+    description: 'A customizable, dark-mode ready button with optional href and actions.',
+    preview: Button1,
+    code: `<Button1 
+  label="Click Me" 
+  href="/docs"
+  darkMode={false}
+  onClick={() => console.log('Button clicked')}
+/>`,
+    props: [
+      { name: 'label', type: 'string', default: '"Click Me"', description: 'Text displayed on the button.' },
+      { name: 'href', type: 'string', default: '""', description: 'Optional href to turn button into a link.' },
+      { name: 'onClick', type: 'function', default: 'undefined', description: 'Click handler for the button.' },
+      { name: 'darkMode', type: 'boolean', default: 'false', description: 'Enable dark mode styling.' },
+    ],
+    category: 'Buttons',
   },
 ];
 
