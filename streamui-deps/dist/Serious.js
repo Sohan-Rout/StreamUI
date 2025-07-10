@@ -1,6 +1,6 @@
 import {
   Serious_default
-} from "./chunk-MH7RV7FL.js";
+} from "./chunk-MWVQFKAT.js";
 export {
   Serious_default as default
 };

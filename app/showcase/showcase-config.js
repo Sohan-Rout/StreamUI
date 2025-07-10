@@ -188,22 +188,39 @@ export default function Avatar1({
     description: 'A dynamic avatar component that displays a consistent random SVG face from your collection based on the user\'s name.',
     preview: RandomAvatar,
     code: `"use client";
-import Image from "next/image";
+import { AngryWithFang, SmileTeethGap, Awe, Blank, Calm, Cheeky, Concerned, Smile, SmileBig } from "streamui-deps";
 
-export default function RandomAvatar({ name = "User", size = 64 }) {
-  const totalAvatars = 20; // Adjust to match your /public/face SVG count
-  const avatarIndex = name.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0) % totalAvatars;
+const avatarList = [
+  AngryWithFang,
+  SmileTeethGap,
+  Awe,
+  Blank,
+  Calm,
+  Cheeky,
+  Concerned,
+  SmileBig,
+  Smile,
+];
+
+export default function RandomAvatar({ name = "User", size = 64, className = "", style = {} }) {
+  const index = Array.from(name).reduce((acc, char) => acc + char.charCodeAt(0), 0) % avatarList.length;
+  const SelectedAvatar = avatarList[index];
 
   return (
-    <div className="rounded-full overflow-hidden flex items-center justify-center bg-neutral-200 dark:bg-neutral-700" style={{ width: size, height: size }}>
-      <Image src={\`/face/\${avatarIndex}.svg\`} alt={\`Avatar for \${name}\`} width={size} height={size} className="object-cover" />
+    <div
+      className="rounded-full overflow-hidden border border-neutral-400 shadow-lg dark:shadow-neutral-600 bg-white dark:bg-neutral-400 flex items-center justify-center"
+      style={{ width: size, height: size, ...style }}
+    >
+      <SelectedAvatar className={\`w-full h-full text-neutral-800 dark:text-neutral-200 \${className}\`} />
     </div>
   );
 }`,
-    implementation: `<RandomAvatar name="Sohan Rout" size={64} />`,
+    implementation: `<Avatar name="User" size={64} className="" style={{}} />`,
     props: [
       { name: 'name', type: 'string', default: '"User"', description: 'Name for generating a consistent random avatar.' },
       { name: 'size', type: 'number', default: '64', description: 'Size of the avatar in pixels.' },
+      { name: 'className', type: 'string', default: '""', description: 'dditional Tailwind classes to customize.' },
+      { name: 'style', type: 'object', default: '{}', description: 'Inline styles for advanced control.' },
     ],
     category: 'Avatars',
   },

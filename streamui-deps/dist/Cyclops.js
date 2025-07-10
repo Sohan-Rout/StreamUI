@@ -1,6 +1,6 @@
 import {
   Cyclops_default
-} from "./chunk-CC4WEQ4V.js";
+} from "./chunk-MJPVR6YN.js";
 export {
   Cyclops_default as default
 };

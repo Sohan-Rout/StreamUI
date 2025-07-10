@@ -1,6 +1,6 @@
 import {
   Suspicious_default
-} from "./chunk-7J2NBZVS.js";
+} from "./chunk-6CM44WNK.js";
 export {
   Suspicious_default as default
 };

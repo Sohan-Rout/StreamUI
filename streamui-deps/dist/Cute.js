@@ -1,6 +1,6 @@
 import {
   Cute_default
-} from "./chunk-OXHK5VW2.js";
+} from "./chunk-B2L3SBAQ.js";
 export {
   Cute_default as default
 };

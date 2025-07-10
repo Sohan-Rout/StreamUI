@@ -1,6 +1,6 @@
 import {
   Hectic_default
-} from "./chunk-XNW7EEBE.js";
+} from "./chunk-6VLMBNWR.js";
 export {
   Hectic_default as default
 };

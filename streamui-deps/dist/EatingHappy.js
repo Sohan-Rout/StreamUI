@@ -1,6 +1,6 @@
 import {
   EatingHappy_default
-} from "./chunk-ZXOBEDZF.js";
+} from "./chunk-CZCDCGVR.js";
 export {
   EatingHappy_default as default
 };

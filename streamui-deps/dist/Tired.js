@@ -1,6 +1,6 @@
 import {
   Tired_default
-} from "./chunk-IN5ENDLC.js";
+} from "./chunk-FVO3RQWO.js";
 export {
   Tired_default as default
 };

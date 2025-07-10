@@ -1,6 +1,6 @@
 import {
   Blank_default
-} from "./chunk-FFP55JKT.js";
+} from "./chunk-KVTZ2C4V.js";
 export {
   Blank_default as default
 };

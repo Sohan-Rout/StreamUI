@@ -1,6 +1,6 @@
 import {
   SmileLol_default
-} from "./chunk-FIU4K57S.js";
+} from "./chunk-RRDAKRU7.js";
 export {
   SmileLol_default as default
 };
