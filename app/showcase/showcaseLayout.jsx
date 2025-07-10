@@ -4,7 +4,7 @@ import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscLight } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { IoMdCloseCircle } from "react-icons/io";
 import { HiSparkles } from "react-icons/hi2";
-import CopyButton from "@/app/components/ui/CopyButton";
+import CopyButton from "@/app/components/ui/copyButton";
 import { IoBackspace } from "react-icons/io5";
 import { MdSunny } from "react-icons/md";
 import { IoMdMoon } from "react-icons/io";
