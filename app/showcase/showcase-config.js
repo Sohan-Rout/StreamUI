@@ -1,14 +1,15 @@
-import NavbarVariant1 from '@/app/showcase/components/navigation/navbar1';
-import DynamicComponentCard1 from '@/app/showcase/components/elements/card1';
-import Button1 from '@/app/showcase/components/elements/button1';
-import Avatar1 from '@/app/showcase/components/elements/avatar1';
+import SimpleNavbar from '@/app/showcase/components/navigation/navbar1';
+import BasicMinimalCard from '@/app/showcase/components/elements/card1';
+import MinimalButton from '@/app/showcase/components/elements/button1';
+import MinimalAvatar from '@/app/showcase/components/elements/avatar1';
+import RandomAvatar from '@/app/showcase/components/elements/avatar2';
 
 const showcaseComponents = [
   {
     slug: 'SimpleNavabar',
     title: 'Minimalist Navbar',
     description: 'A clean, simple and minimalist navbarA clean, responsive navbar component for your projects. Easily customizable with your logo, navigation links, and call-to-action buttons while supporting light and dark modes.',
-    preview: NavbarVariant1,
+    preview: SimpleNavbar,
     code: `"use client";
 import Link from "next/link";
 import Image from "next/image";
@@ -66,10 +67,10 @@ implementation: `<Navbar logo={{}} links={[]} actions={{}} mode="light" />`,
     category: 'Navbars',
   },
   {
-    slug: 'dynamic-component-card',
+    slug: 'BasicMinimalCard',
     title: 'Minimalist Card',
     description: 'A minimal, dynamic card with placeholders for logo, title, and description.',
-    preview: DynamicComponentCard1,
+    preview: BasicMinimalCard,
     code: `'use client';
     import React from 'react';
     
@@ -102,10 +103,10 @@ implementation : `<DynamicComponentCard logo={<img src="/logo.png" alt="Logo" cl
     category: 'Cards',
   },
   {
-    slug: 'dynamic-button',
+    slug: 'MinimalButton',
     title: 'Minimalist Button',
     description: 'A customizable, dark-mode ready button with optional href and actions.',
-    preview: Button1,
+    preview: MinimalButton,
     code:`"use client";
 import Link from "next/link";
 
@@ -146,18 +147,63 @@ export default function Button1({
     category: 'Buttons',
   },
   {
-    slug: 'dynamic-avatar',
+    slug: 'MinimalAvatar',
     title: 'Minimalist Name Avatar',
     description: 'A clean avatar component displaying name initials, perfect for testimonials.',
-    preview: Avatar1,
-    code: `<Avatar1 
-  name="Jhon Doe" 
-  size={56} 
-/>`,
+    preview: MinimalAvatar,
+    code: `"use client";
+export default function Avatar1({
+  name = "John Doe",
+  size = 48,
+  className = ""
+}) {
+  // Extract initials from the name
+  const initials = name
+    .split(" ")
+    .filter(Boolean)
+    .map((word) => word[0])
+    .join("")
+    .toUpperCase();
+
+  return (
+    <div
+      className={\`flex items-center justify-center rounded-full bg-neutral-400 text-white font-semibold \${className}\`}
+      style={{ width: size, height: size, fontSize: size * 0.4 }}
+    >
+      {initials}
+    </div>
+  );
+}`,
+    implementation: `<Avatar name="Jhon Doe" size={56} />`,
     props: [
       { name: 'name', type: 'string', default: '"John Doe"', description: 'Name for initials displayed in the avatar.' },
       { name: 'size', type: 'number', default: '48', description: 'Size of the avatar in pixels.' },
       { name: 'className', type: 'string', default: '""', description: 'Additional Tailwind classes for styling.' },
+    ],
+    category: 'Avatars',
+  },
+  {
+    slug: 'RandomAvatar',
+    title: 'Random Avatar',
+    description: 'A dynamic avatar component that displays a consistent random SVG face from your collection based on the user\'s name.',
+    preview: RandomAvatar,
+    code: `"use client";
+import Image from "next/image";
+
+export default function RandomAvatar({ name = "User", size = 64 }) {
+  const totalAvatars = 20; // Adjust to match your /public/face SVG count
+  const avatarIndex = name.split("").reduce((acc, char) => acc + char.charCodeAt(0), 0) % totalAvatars;
+
+  return (
+    <div className="rounded-full overflow-hidden flex items-center justify-center bg-neutral-200 dark:bg-neutral-700" style={{ width: size, height: size }}>
+      <Image src={\`/face/\${avatarIndex}.svg\`} alt={\`Avatar for \${name}\`} width={size} height={size} className="object-cover" />
+    </div>
+  );
+}`,
+    implementation: `<RandomAvatar name="Sohan Rout" size={64} />`,
+    props: [
+      { name: 'name', type: 'string', default: '"User"', description: 'Name for generating a consistent random avatar.' },
+      { name: 'size', type: 'number', default: '64', description: 'Size of the avatar in pixels.' },
     ],
     category: 'Avatars',
   },
