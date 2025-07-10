@@ -5,24 +5,19 @@ export default function Button1({
   label = "Click Me",
   href = "",
   onClick,
-  darkMode = false,
   className = "",
 }) {
   const baseClasses =
-    "px-4 py-2 rounded-md font-medium transition-colors duration-200";
-  const lightClasses =
-    "bg-black text-white hover:bg-neutral-800";
-  const darkClasses =
-    "bg-white text-black hover:bg-neutral-200 border border-neutral-300";
+    "px-4 py-2 rounded-lg font-medium hover:scale-105 duration-300 shadow-xl transition-all";
+  const colorClasses =
+    "bg-black text-white hover:bg-neutral-800 dark:shadow-neutral-600 dark:bg-white dark:text-black dark:hover:bg-neutral-200 border dark:border-neutral-300";
 
-  const combinedClasses = `${baseClasses} ${
-    darkMode ? darkClasses : lightClasses
-  } ${className}`;
+  const combinedClasses = `${baseClasses} ${colorClasses} ${className}`;
 
   if (href) {
     return (
-      <Link href={href}>
-        <a className={combinedClasses}>{label}</a>
+      <Link href={href} passHref>
+        <button className={combinedClasses}>{label}</button>
       </Link>
     );
   }

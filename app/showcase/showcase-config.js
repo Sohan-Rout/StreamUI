@@ -106,12 +106,37 @@ implementation : `<DynamicComponentCard logo={<img src="/logo.png" alt="Logo" cl
     title: 'Minimalist Button',
     description: 'A customizable, dark-mode ready button with optional href and actions.',
     preview: Button1,
-    code: `<Button1 
-  label="Click Me" 
-  href="/docs"
-  darkMode={false}
-  onClick={() => console.log('Button clicked')}
-/>`,
+    code:`"use client";
+import Link from "next/link";
+
+export default function Button1({
+  label = "Click Me",
+  href = "",
+  onClick,
+  className = "",
+}) {
+  const baseClasses =
+    "px-4 py-2 rounded-lg font-medium hover:scale-105 duration-300 shadow-xl transition-all";
+  const colorClasses =
+    "bg-black text-white hover:bg-neutral-800 dark:shadow-neutral-600 dark:bg-white dark:text-black dark:hover:bg-neutral-200 border dark:border-neutral-300";
+
+  const combinedClasses = \`\${baseClasses} \${colorClasses} \${className}\`;
+
+  if (href) {
+    return (
+      <Link href={href} passHref>
+        <button className={combinedClasses}>{label}</button>
+      </Link>
+    );
+  }
+
+  return (
+    <button onClick={onClick} className={combinedClasses}>
+      {label}
+    </button>
+  );
+}`,
+    implementation: `<Button label="Click Me" href="/docs" darkMode={false} onClick={() => console.log('Button clicked')} />`,
     props: [
       { name: 'label', type: 'string', default: '"Click Me"', description: 'Text displayed on the button.' },
       { name: 'href', type: 'string', default: '""', description: 'Optional href to turn button into a link.' },
