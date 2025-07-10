@@ -183,9 +183,9 @@ export default function Avatar1({
     category: 'Avatars',
   },
   {
-    slug: 'RandomAvatar',
-    title: 'Random Avatar',
-    description: 'A dynamic avatar component that displays a consistent random SVG face from your collection based on the user\'s name.',
+    slug: 'FaceAvatar',
+    title: 'Face Avatar',
+    description: 'A dynamic avatar component that displays a random expression SVG.',
     preview: RandomAvatar,
     code: `"use client";
 import { AngryWithFang, SmileTeethGap, Awe, Blank, Calm, Cheeky, Concerned, Smile, SmileBig } from "streamui-deps";
