@@ -1,6 +1,7 @@
 import SimpleNavbar from '@/app/showcase/components/navigation/navbar1';
 import BasicMinimalCard from '@/app/showcase/components/elements/card1';
 import MinimalButton from '@/app/showcase/components/elements/button1';
+import ParticleButton from '@/app/showcase/components/elements/button2';
 import MinimalAvatar from '@/app/showcase/components/elements/avatar1';
 import RandomAvatar from '@/app/showcase/components/elements/avatar2';
 
@@ -223,6 +224,72 @@ export default function RandomAvatar({ name = "User", size = 64, className = "",
       { name: 'style', type: 'object', default: '{}', description: 'Inline styles for advanced control.' },
     ],
     category: 'Avatars',
+  },
+  {
+    slug: 'ParticleButton',
+    title: 'Particle Button',
+    description: 'A button that shows animated particle drops flowing upward on hover.',
+    preview: ParticleButton,
+    code: `"use client";
+import { useRef } from "react";
+import gsap from "gsap";
+
+export default function Button({
+  children = "Hover Me",
+  onClick,
+  className = "px-4 py-2 rounded-lg bg-black text-white dark:bg-neutral-200 dark:text-black duration-300 hover:scale-105",
+  ...props
+}) {
+  const buttonRef = useRef(null);
+  const particleContainerRef = useRef(null);
+
+  const createParticle = () => {
+    const particle = document.createElement("div");
+    particle.className = \`absolute w-2 h-2 bg-neutral-200 dark:bg-neutral-700 rounded-full pointer-events-none\`;
+    particle.style.left = \`\${Math.random() * 100}%\`;
+    particle.style.top = \`\${Math.random() * 100}%\`;
+    particleContainerRef.current.appendChild(particle);
+
+    const tl = gsap.timeline({
+      onComplete: () => {
+        particle.remove();
+      },
+    });
+
+    tl.to(particle, {
+      y: -20 - Math.random() * 50,
+      opacity: 0,
+      duration: 1 + Math.random(),
+      ease: "power2.out",
+    });
+  };
+
+  const handleMouseEnter = () => {
+    for (let i = 0; i < 10; i++) {
+      createParticle();
+    }
+  };
+
+  return (
+    <button
+      ref={buttonRef}
+      onClick={onClick}
+      onMouseEnter={handleMouseEnter}
+      className={\`relative overflow-hidden \${className}\`}
+      {...props}
+    >
+      {children}
+      <div ref={particleContainerRef} className="absolute inset-0 pointer-events-none"></div>
+    </button>
+  );
+}`,
+    implementation: `<Button className="px-6 py-3 rounded-lg bg-black text-white" onClick={() => console.log("Clicked!")}>Hover Me</Button>`,
+    props: [
+      { name: 'children', type: 'ReactNode', default: 'null', description: 'Content of the button.' },
+      { name: 'onClick', type: 'function', default: 'undefined', description: 'Click handler for the button.' },
+      { name: 'className', type: 'string', default: '""', description: 'Additional Tailwind classes for styling.' },
+    ],
+    category: 'Buttons',
   },
 ];
 
