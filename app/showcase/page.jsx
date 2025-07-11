@@ -59,7 +59,7 @@ export default function ShowcaseGalleryPage() {
           <SideBar title="Navigation" links={navigation} />
           <SideBar title="Elements" links={elements} />
         </aside>
-        <div className="col-span-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="col-span-4 grid auto-rows-min grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
           {showcaseComponents
             .filter((component) =>
               component.title.toLowerCase().includes(search.toLowerCase())
@@ -74,11 +74,12 @@ export default function ShowcaseGalleryPage() {
                   tabIndex={0}
                   onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && router.push(`/showcase/${component.slug}`)}
                   className={`rounded-lg p-4 bg-white shadow hover:bg-neutral-50 transition cursor-pointer flex flex-col gap-4 ${
-                    component.category === "Navbars" ? "col-span-2" : "col-span-1"
-                  } ${component.category === "Grids" ? "col-span-2" : ""}`}
+                    component.category === "Navbars" ? "col-span-2 row-span-1" : "col-span-1"
+                  } ${component.category === "Grids" ? "col-span-2 row-span-1" : "col-span-1"} 
+                   ${component.category === "pricing" ? "col-span-3 row-span-2" : "col-span-1"}`}
                 >
-                  <div className="mt-4 border border-neutral-300 rounded-md flex h-[200px] items-center justify-center text-neutral-700 text-sm overflow-hidden">
-                    <div className="scale-[0.75] origin-top w-full flex items-center justify-center">
+                  <div className={`mt-4 border border-neutral-300 rounded-md flex h-[200px] items-center justify-center text-neutral-700 text-sm overflow-hidden ${component.category === "pricing" ? "h-full" : ""}`}>
+                    <div className={`scale-[0.75] origin-top w-full flex items-center justify-center ${component.category === "pricing" ? "flex justify-center items-center origin-center" : ""}`}>
                       <PreviewComponent />
                     </div>
                   </div>
