@@ -28,7 +28,7 @@ export const metadata = {
     title: "Stream UI – Beautiful, Copy-Paste UI Components for Your Projects",
     description:
       "Stream UI offers a beautiful, accessible collection of reusable UI components ready to copy-paste into your projects, helping you build faster with consistent design.",
-    images: [`${domain}/twitter-preview.png`],
+    images: [`${domain}/ogImages/landing.png`],
   },
 };
 
