@@ -23,7 +23,7 @@ export const metadata = {
     locale: "en_US",
     type: "website",
   },
-  twitter: {
+  X: {
     card: "summary_large_image",
     title: "Stream UI – Beautiful, Copy-Paste UI Components for Your Projects",
     description:
