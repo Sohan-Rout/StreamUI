@@ -78,7 +78,7 @@ export default function ShowcaseGalleryPage() {
                   } ${component.category === "Grids" ? "col-span-2 row-span-1" : "col-span-1"} 
                    ${component.category === "pricing" ? "col-span-3 row-span-2" : "col-span-1"}`}
                 >
-                  <div className={`mt-4 border border-neutral-300 rounded-md flex h-[200px] items-center justify-center text-neutral-700 text-sm overflow-hidden ${component.category === "pricing" ? "h-full" : ""}`}>
+                  <div className={`border border-neutral-300 rounded-md flex h-[200px] items-center justify-center text-neutral-700 text-sm overflow-hidden ${component.category === "pricing" ? "h-full" : ""}`}>
                     <div className={`scale-[0.75] origin-top w-full flex items-center justify-center ${component.category === "pricing" ? "flex justify-center items-center origin-center" : ""}`}>
                       <PreviewComponent />
                     </div>

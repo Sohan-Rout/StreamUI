@@ -11,104 +11,7 @@ import BasicGrid from '@/app/showcase/components/layout/grid1';
 import MinimalPricingLayout from '@/app/showcase/components/layout/pricing1';
 
 const showcaseComponents = [
-  {
-    slug: 'SimpleNavabar',
-    title: 'Minimalist Navbar',
-    description: 'A clean, simple and minimalist navbarA clean, responsive navbar component for your projects. Easily customizable with your logo, navigation links, and call-to-action buttons while supporting light and dark modes.',
-    preview: SimpleNavbar,
-    code: `"use client";
-import Link from "next/link";
-import Image from "next/image";
-
-export default function Navbar({
-  logo = { text: "StreamUI", href: "/", image: null },
-  links = [
-    { label: "Home", href: "#home" },
-    { label: "Features", href: "#features" },
-    { label: "Reviews", href: "#Reviews" },
-    { label: "FAQs", href: "#faqs" },
-  ],
-  actions = (
-    <div className="flex gap-2">
-      <button className="px-4 py-1 rounded bg-white border border-black text-black">Log In</button>
-      <button className="px-4 py-1 rounded bg-black text-white">Sign In</button>
-    </div>
-  ),
-  mode = "light",
-}) {
-  const isDark = mode === "dark";
-
-  return (
-    <nav
-      className={\`w-full flex items-center justify-between p-4 border-b \${isDark ? "bg-black text-white border-white/20" : "bg-white text-black border-black"}\`}
-    >
-      <div className="text-lg font-semibold flex items-center space-x-2">
-        <Link href={logo.href} className="flex items-center space-x-2">
-          {logo.image ? (
-            <Image src={logo.image} alt={logo.text} width={32} height={32} />
-          ) : null}
-          {logo.text && <span>{logo.text}</span>}
-        </Link>
-      </div>
-
-      <div className="flex items-center space-x-4">
-        {links.map((link) => (
-          <Link key={link.href} href={link.href} className="hover:underline">
-            {link.label}
-          </Link>
-        ))}
-
-        {actions}
-      </div>
-    </nav>
-  );
-}`,
-implementation: `<Navbar logo={{}} links={[]} actions={{}} mode="light" />`,
-    props: [
-      { name: 'logo', type: 'object', default: '{ text: "StreamUI", href: "/", image: null }', description: 'Logo configuration with text, href, and optional image.' },
-      { name: 'links', type: 'array', default: '[]', description: 'Array of navigation links with label and href.' },
-      { name: 'actions', type: 'ReactNode', default: 'null', description: 'Optional CTA buttons displayed on the navbar.' },
-      { name: 'mode', type: 'string', default: '"light"', description: 'Color mode of the navbar, can be "light" or "dark".' },
-    ],
-    category: 'Navbars',
-  },
-  {
-    slug: 'BasicMinimalCard',
-    title: 'Minimalist Card',
-    description: 'A minimal, dynamic card with placeholders for logo, title, and description.',
-    preview: BasicMinimalCard,
-    code: `'use client';
-    import React from 'react';
-    
-    export default function DynamicComponentCard({ logo, title, description }) {
-      return (
-        <div className="rounded-lg p-4 bg-white dark:bg-neutral-900 shadow-xl dark:shadow-neutral-700 flex flex-col justify-center items-center gap-2">
-          {/* Logo/Image Placeholder */}
-          <div className="flex justify-center items-center rounded-lg py-12 px-10 border dark:border-neutral-400">
-            {logo ? logo : <span className="text-black text-2xl dark:text-white">Stream<span className="bg-black px-2 py-2 rounded-lg text-white dark:text-black dark:bg-white ml-1">UI</span></span>}
-          </div>
-    
-          {/* Title */}
-          <h3 className="text-xl font-medium mt-6">
-            {title ? title : 'This is a card'}
-          </h3>
-    
-          {/* Description */}
-          <p className="text-sm text-neutral-600">
-            {description ? description : 'This is the description of the card'}
-          </p>
-        </div>
-      );
-    }`,
-implementation : `<DynamicComponentCard logo={<img src="/logo.png" alt="Logo" className="w-12 h-12" />} title="Streamlined Card" description="This card displays a custom logo, title, and description dynamically." />`,
-        props: [
-      { name: 'logo', type: 'ReactNode', default: 'Styled "StreamUI" text', description: 'Logo or image element for the card.' },
-      { name: 'title', type: 'string', default: '"This is a card"', description: 'Title displayed on the card.' },
-      { name: 'description', type: 'string', default: '"This is the description of the card"', description: 'Description displayed under the title.' }
-        ],
-    category: 'Cards',
-  },
-  {
+    {
     slug: 'MinimalPricingLayout',
     title: 'Minimalist Pricing Layout',
     description: 'A responsive, minimalist pricing section showcasing a dynamic card layout with built-in Framer Motion animations and dark/light mode support. Enables easy integration into landing pages and SaaS sites. Cards scale on hover for interactivity and display included and excluded features clearly with icon indicators.',
@@ -277,6 +180,103 @@ implementation : `<PricingCard name="Pro" price="" description="" features={[""]
   }
 ],
     category: 'pricing',
+  },
+  {
+    slug: 'SimpleNavabar',
+    title: 'Minimalist Navbar',
+    description: 'A clean, simple and minimalist navbarA clean, responsive navbar component for your projects. Easily customizable with your logo, navigation links, and call-to-action buttons while supporting light and dark modes.',
+    preview: SimpleNavbar,
+    code: `"use client";
+import Link from "next/link";
+import Image from "next/image";
+
+export default function Navbar({
+  logo = { text: "StreamUI", href: "/", image: null },
+  links = [
+    { label: "Home", href: "#home" },
+    { label: "Features", href: "#features" },
+    { label: "Reviews", href: "#Reviews" },
+    { label: "FAQs", href: "#faqs" },
+  ],
+  actions = (
+    <div className="flex gap-2">
+      <button className="px-4 py-1 rounded bg-white border border-black text-black">Log In</button>
+      <button className="px-4 py-1 rounded bg-black text-white">Sign In</button>
+    </div>
+  ),
+  mode = "light",
+}) {
+  const isDark = mode === "dark";
+
+  return (
+    <nav
+      className={\`w-full flex items-center justify-between p-4 border-b \${isDark ? "bg-black text-white border-white/20" : "bg-white text-black border-black"}\`}
+    >
+      <div className="text-lg font-semibold flex items-center space-x-2">
+        <Link href={logo.href} className="flex items-center space-x-2">
+          {logo.image ? (
+            <Image src={logo.image} alt={logo.text} width={32} height={32} />
+          ) : null}
+          {logo.text && <span>{logo.text}</span>}
+        </Link>
+      </div>
+
+      <div className="flex items-center space-x-4">
+        {links.map((link) => (
+          <Link key={link.href} href={link.href} className="hover:underline">
+            {link.label}
+          </Link>
+        ))}
+
+        {actions}
+      </div>
+    </nav>
+  );
+}`,
+implementation: `<Navbar logo={{}} links={[]} actions={{}} mode="light" />`,
+    props: [
+      { name: 'logo', type: 'object', default: '{ text: "StreamUI", href: "/", image: null }', description: 'Logo configuration with text, href, and optional image.' },
+      { name: 'links', type: 'array', default: '[]', description: 'Array of navigation links with label and href.' },
+      { name: 'actions', type: 'ReactNode', default: 'null', description: 'Optional CTA buttons displayed on the navbar.' },
+      { name: 'mode', type: 'string', default: '"light"', description: 'Color mode of the navbar, can be "light" or "dark".' },
+    ],
+    category: 'Navbars',
+  },
+  {
+    slug: 'BasicMinimalCard',
+    title: 'Minimalist Card',
+    description: 'A minimal, dynamic card with placeholders for logo, title, and description.',
+    preview: BasicMinimalCard,
+    code: `'use client';
+    import React from 'react';
+    
+    export default function DynamicComponentCard({ logo, title, description }) {
+      return (
+        <div className="rounded-lg p-4 bg-white dark:bg-neutral-900 shadow-xl dark:shadow-neutral-700 flex flex-col justify-center items-center gap-2">
+          {/* Logo/Image Placeholder */}
+          <div className="flex justify-center items-center rounded-lg py-12 px-10 border dark:border-neutral-400">
+            {logo ? logo : <span className="text-black text-2xl dark:text-white">Stream<span className="bg-black px-2 py-2 rounded-lg text-white dark:text-black dark:bg-white ml-1">UI</span></span>}
+          </div>
+    
+          {/* Title */}
+          <h3 className="text-xl font-medium mt-6">
+            {title ? title : 'This is a card'}
+          </h3>
+    
+          {/* Description */}
+          <p className="text-sm text-neutral-600">
+            {description ? description : 'This is the description of the card'}
+          </p>
+        </div>
+      );
+    }`,
+implementation : `<DynamicComponentCard logo={<img src="/logo.png" alt="Logo" className="w-12 h-12" />} title="Streamlined Card" description="This card displays a custom logo, title, and description dynamically." />`,
+        props: [
+      { name: 'logo', type: 'ReactNode', default: 'Styled "StreamUI" text', description: 'Logo or image element for the card.' },
+      { name: 'title', type: 'string', default: '"This is a card"', description: 'Title displayed on the card.' },
+      { name: 'description', type: 'string', default: '"This is the description of the card"', description: 'Description displayed under the title.' }
+        ],
+    category: 'Cards',
   },
   {
     slug: 'MinimalButton',
@@ -469,7 +469,7 @@ export default function Button({
   {
     slug: 'BasicToggleSwitch',
     title: 'Basic Toggle Switch',
-    description: 'A simple toggle switch to switch between dark and light modes using Tailwind.',
+    description: 'A simple toggle switch to switch between dark and light modes.',
     preview: BasicToggleSwitch,
     code: `"use client";
 import { useEffect, useState } from "react";
@@ -522,7 +522,7 @@ export default function ToggleSwitch() {
   {
     slug: 'AnimatedDownloadButton',
     title: 'Animated Download Button',
-    description: 'A clean, minimal download button that opens a specified download link on click.',
+    description: 'A clean, minimal download button that opens a specified download link',
     preview: AnimatedDownloadButton,
     code: `"use client";
 import { useRef, useEffect } from "react";
@@ -666,7 +666,7 @@ export default function DownloadButton({ downloadLink, label = "Download" }) {
 {
     slug: 'BasicGrid',
     title: 'Dynamic Grid Layout',
-    description: 'A flexible, responsive grid that accepts entire card components as props, displaying them in a clean, adaptive layout with a fallback to three default cards if none are provided.',
+    description: 'A flexible, responsive grid that accepts entire card components as props, displaying them in a clean, adaptive layout with a fallback to three default cards.',
     preview: BasicGrid,
     code: `import React from 'react';
     import { RiNextjsFill, RiTailwindCssFill, RiVercelFill } from "react-icons/ri";
