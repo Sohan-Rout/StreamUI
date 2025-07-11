@@ -4,7 +4,8 @@ import MinimalButton from '@/app/showcase/components/elements/button1';
 import ParticleButton from '@/app/showcase/components/elements/button2';
 import MinimalAvatar from '@/app/showcase/components/elements/avatar1';
 import RandomAvatar from '@/app/showcase/components/elements/avatar2';
-import BasicToggleSwitch from '@/app/showcase/components/elements/toggleSwitch';
+import BasicToggleSwitch from '@/app/showcase/components/elements/toggleSwitch1';
+import PushToggleButton from '@/app/showcase/components/elements/toggleSwitch2';
 import BasicGrid from '@/app/showcase/components/layout/grid1';
 
 const showcaseComponents = [
@@ -296,7 +297,7 @@ export default function Button({
   {
     slug: 'BasicToggleSwitch',
     title: 'Basic Toggle Switch',
-    description: 'A simple toggle switch to switch between dark and light modes using Tailwind and localStorage for persistence.',
+    description: 'A simple toggle switch to switch between dark and light modes using Tailwind.',
     preview: BasicToggleSwitch,
     code: `"use client";
 import { useEffect, useState } from "react";
@@ -343,6 +344,55 @@ export default function ToggleSwitch() {
   );
 }`,
     implementation: `<ToggleSwitch />`,
+    props: [],
+    category: 'Utilities',
+  },
+  {
+    slug: 'PushToggleButton',
+    title: '  Push Toggle Button',
+    description: 'A push-button to toggle dark and light modes globally for your app.',
+    preview: PushToggleButton,
+    code: `"use client";
+    import { useEffect, useState } from "react";
+    import { FaLightbulb } from "react-icons/fa";
+    
+    export default function DarkModeToggleButton() {
+      const [setIsDark] = useState(false);
+    
+      useEffect(() => {
+        // Initialize based on system or existing theme
+        if (
+          localStorage.theme === "dark" ||
+          (!("theme" in localStorage) && window.matchMedia("(prefers-color-scheme: dark)").matches)
+        ) {
+          document.documentElement.classList.add("dark");
+          setIsDark(true);
+        }
+      }, []);
+    
+      const toggleTheme = () => {
+        if (document.documentElement.classList.contains("dark")) {
+          document.documentElement.classList.remove("dark");
+          localStorage.theme = "light";
+          setIsDark(false);
+        } else {
+          document.documentElement.classList.add("dark");
+          localStorage.theme = "dark";
+          setIsDark(true);
+        }
+      };
+    
+      return (
+        <button
+          onClick={toggleTheme}
+          className="p-2 rounded-full border border-neutral-300 dark:border-neutral-700 hover:bg-neutral-200 dark:hover:bg-neutral-700 transition shadow-lg shadow-black/25 dark:shadow-yellow-400/25 hover:scale-110 duration-300"
+          aria-label="Toggle Dark Mode"
+        >
+            <FaLightbulb className="dark:text-yellow-400 w-5 h-5 text-black" />
+        </button>
+      );
+    }`,
+    implementation: `<DarkModeToggleButton />`,
     props: [],
     category: 'Utilities',
   },
