@@ -1,7 +1,7 @@
 import { defineConfig } from "tsup";
 
 export default defineConfig({
-  entry: ["avatars/**/*.js"],
+  entry: [],
   format: ["esm"],
   dts: false,
   sourcemap: false,
