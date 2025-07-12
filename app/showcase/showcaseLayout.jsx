@@ -309,23 +309,21 @@ export default function ComponentShowcaseLayout({
                 <IoMdCloseCircle className="text-lg text-black opacity-50" />
               </div>
               <div className="px-12">
-                <h2 className="text-lg font-semibold mb-2">Props</h2>
-                <table className="w-full text-sm text-left">
+                <h2 className="text-lg font-medium mb-2">Props ~</h2>
+                <table className="w-full text-sm text-center">
                   <thead>
                     <tr>
-                      <th className="py-1">Name</th>
-                      <th className="py-1">Type</th>
-                      <th className="py-1">Default</th>
-                      <th className="py-1">Description</th>
+                      <th className="py-1 border">Name</th>
+                      <th className="py-1 border">Type</th>
+                      <th className="py-1 border">Default</th>
                     </tr>
                   </thead>
                   <tbody>
                     {props.map((prop, idx) => (
                       <tr key={idx} className="border-t border-neutral-300">
-                        <td className="py-1">{prop.name}</td>
-                        <td className="py-1">{prop.type}</td>
-                        <td className="py-1">{prop.default}</td>
-                        <td className="py-1">{prop.description}</td>
+                        <td className="py-1 border">{prop.name}</td>
+                        <td className="py-1 border">{prop.type}</td>
+                        <td className="py-1 border">{prop.default}</td>
                       </tr>
                     ))}
                   </tbody>

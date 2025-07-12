@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "next-sitemap"
+    "postbuild": "next-sitemap",
+    "generate:showcase": "node scripts/generateShowcaseConfig.js"
   },
   "dependencies": {
     "gsap": "^3.13.0",

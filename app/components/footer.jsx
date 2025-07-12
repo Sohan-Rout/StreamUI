@@ -31,7 +31,7 @@ export default function Footer() {
       <div className="w-full flex justify-between px-6 mt-2 mb-2">
         <div>https://www.streamui.org</div>
         <div className="flex flex-wrap gap-4 text-xs text-neutral-400">
-          <a href="/sitemap" className="hover:underline">Sitemap</a>
+          <a href="/sitemap.xml" className="hover:underline">Sitemap</a>
           <a href="/terms" className="hover:underline">Terms & Conditions</a>
           <a href="/privacy" className="hover:underline">Privacy Policy</a>
         </div>
