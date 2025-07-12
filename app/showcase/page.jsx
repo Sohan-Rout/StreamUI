@@ -10,7 +10,7 @@ export default function ShowcaseGalleryPage() {
   const [search, setSearch] = useState("");
 
   return (
-    <main className="max-w-6xl w-full mx-auto p-6">
+    <main className="max-w-6xl w-full mx-auto px-2 sm:px-4 md:px-6 py-2 sm:py-4 md:py-6">
       <div className="flex flex-col justify-center items-center mb-8">
       <h1 className="text-2xl md:text-3xl font-medium mb-2 flex items-center">
         Welcome to Component Gallery
@@ -30,9 +30,9 @@ export default function ShowcaseGalleryPage() {
           />
       </div>
       </div>
-
-      <div className="grid grid-cols-5 sm:grid-cols-1 md:grid-cols-5 gap-4">
-        <div className="col-span-5 grid auto-rows-min grid-cols-1 sm:grid-cols-1 md:grid-cols-5 gap-4">
+<div className="w-full">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+        <div className="col-span-full grid auto-rows-min grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
           {showcaseComponents
             .filter((component) =>
               component.title.toLowerCase().includes(search.toLowerCase())
@@ -47,10 +47,10 @@ export default function ShowcaseGalleryPage() {
                   tabIndex={0}
                   onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && router.push(`/showcase/${component.slug}`)}
                   className={`rounded-lg p-4 bg-white shadow hover:bg-neutral-50 transition cursor-pointer flex flex-col gap-4 ${
-                    component.category === "Navbars" ? "col-span-3 row-span-1" : "col-span-1"
-                  } ${component.category === "Grids" ? "col-span-3 row-span-1" : "col-span-1"} 
-                   ${component.category === "pricing" ? "col-span-5 row-span-2" : "col-span-1"}
-                   ${component.category === "Cards" ? "col-span-2 row-span-1" : "col-span-1"}`}
+                    component.category === "Navbars" ? "col-span-3 row-span-1" : ""
+                  } ${component.category === "Grids" ? "col-span-3 row-span-1" : ""} 
+                   ${component.category === "pricing" ? "col-span-5 row-span-2" : ""}
+                   ${component.category === "Cards" ? "col-span-2 row-span-1" : ""}`}
                 >
                   <div className={`border border-neutral-300 rounded-md flex h-[200px] items-center justify-center text-neutral-700 text-sm overflow-hidden ${component.category === "pricing" ? "h-auto" : ""}`}>
                     <div className={`scale-[0.75] origin-center w-full flex items-center justify-center ${component.category === "pricing" ? "flex justify-center items-center" : ""}`}>
@@ -65,6 +65,7 @@ export default function ShowcaseGalleryPage() {
               );
             })}
         </div>
+      </div>
       </div>
     </main>
   );
