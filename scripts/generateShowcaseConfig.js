@@ -11,9 +11,9 @@ const componentsToProcess = [
     implementation: "<PricingCard name=\"Pro\" price=\"$9/mo\" description=\"Access all advanced components and premium support.\" features={[\"All Starter Features\", \"Animated Components\", \"Priority Support\", \"Component Requests\"]} notIncluded={[\"Team Collaboration\"]} highlight={true} />",
   },
   {
-    slug: "SimpleNavbar",
-    title: "Minimalist Navbar",
-    description: "A clean, simple and minimalist SaaS-friendly navbar",
+    slug: "GlassmorphismNavbar",
+    title: "Glassmorphism Navbar",
+    description: "A modern, floating glassmorphism navbar designed for SaaS products and startup landing pages. Frosted glass background with subtle gradients for a premium aesthetic. Rounded, spacious layout that adapts seamlessly to all screen sizes.",
     category: "navbar",
     componentPath: "./app/showcase/components/navbar1.jsx",
     implementation: "<Navbar logo={{ text: \"StreamUI\", href: \"/\", image: null }} links={[{ label: \"Home\", href: \"#home\" }, { label: \"Features\", href: \"#features\" }, { label: \"Reviews\", href: \"#Reviews\" }, { label: \"FAQs\", href: \"#faqs\" }]} mode=\"light\" />",

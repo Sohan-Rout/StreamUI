@@ -6,3 +6,4 @@ export { GrInstallOption } from "react-icons/gr";
 export { RiGalleryFill, RiTailwindCssFill } from "react-icons/ri";
 export { CiSearch } from "react-icons/ci";
 export { HiSparkles } from "react-icons/hi2";
+export { GiHamburgerMenu } from "react-icons/gi";

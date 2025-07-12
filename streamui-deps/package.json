@@ -1,6 +1,6 @@
 {
   "name": "streamui-deps",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Dependency installer for StreamUI copy-paste component library (gsap, framer-motion, react-icons).",
   "keywords": [
     "streamui",
