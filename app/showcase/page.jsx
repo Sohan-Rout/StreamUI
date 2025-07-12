@@ -3,11 +3,19 @@ import { useRouter } from "next/navigation";
 import { RiGalleryFill } from "react-icons/ri";
 import { CiSearch } from "react-icons/ci";
 import showcaseComponents from "./showcase-config";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function ShowcaseGalleryPage() {
   const router = useRouter();
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      localStorage.setItem("theme", "light");
+      document.documentElement.classList.remove("dark");
+      document.documentElement.classList.add("light");
+    }
+  }, []);
 
   return (
     <main className="max-w-6xl w-full mx-auto px-2 sm:px-4 md:px-6 py-2 sm:py-4 md:py-6">
