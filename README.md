@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![StreamUI Banner](./public/ogImages/landing.png)
 
-## Getting Started
+# StreamUI
 
-First, run the development server:
+🚀 **StreamUI** is a copy-paste-friendly React + Tailwind SaaS component library that helps you build beautiful, consistent interfaces faster.
+
+## 📦 What is StreamUI?
+
+- A collection of **ready-to-use, beautifully designed components**.
+- **Copy-paste or install once** and use directly in your projects.
+- Includes SaaS-specific components like login forms, pricing sections, dashboards, and more.
+- Built with **Next.js, React, and TailwindCSS**.
+
+---
+
+## 🛠️ Getting Started
+
+Clone the repo:
+
+```bash
+git clone https://github.com/yourusername/streamui.git
+cd streamui
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view the site.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📚 Documentation
 
-## Learn More
+Explore component usage, props, and previews:
 
-To learn more about Next.js, take a look at the following resources:
+- **Gallery:** Browse all available components visually.
+- **Documentation:** Step-by-step usage, integration, and customization guidance.
+- **Examples:** See real-world usage with SaaS-focused layouts.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🚀 Deployment
 
-## Deploy on Vercel
+Deploy seamlessly using [Vercel](https://vercel.com/) or your preferred platform:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+vercel
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## 🤝 Contributing
+
+Contributions, component designs, and issue reports are welcome!
+
+1. Fork the repository.
+2. Create your feature branch (`git checkout -b feature/new-component`).
+3. Commit your changes (`git commit -m 'Add new component'`).
+4. Push to the branch (`git push origin feature/new-component`).
+5. Open a Pull Request.
+
+---
+
+## 📄 License
+
+MIT License © 2025 Sohan Rout
+
+---
+
+## 💫 Stay Connected
+
+If you enjoy using StreamUI, share it with your friends and tag the library! Contributions and stars are always appreciated ⭐️
