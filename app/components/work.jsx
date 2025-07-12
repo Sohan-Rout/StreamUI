@@ -20,7 +20,7 @@ const features = [
   {
     title: "Copy the Code",
     description:
-      "Click copy and paste directly into your project. No installation required.",
+      "Install the package. Click copy and paste directly into your project.",
     icon: "FaCopy",
   },
   {

@@ -26,7 +26,7 @@ const features = [
   {
     title: "Copy Paste simplicity",
     description:
-      "No installation needed, just copy and paste directly into your project.",
+      "Install and instantly access copy-paste components without setup friction.",
   },
   {
     title: "Dark Mode Compatible",
@@ -94,7 +94,7 @@ export default function Hero() {
         </h2>
         <p className="mt-4 text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto">
           Reusable, clean, and responsive components ready to copy-paste into
-          your next project.
+          your next SaaS project.
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-6 max-w-6xl mx-auto">

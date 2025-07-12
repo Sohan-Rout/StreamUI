@@ -29,7 +29,7 @@ export default function Footer() {
       </div>
       <hr className="w-full border-t border-dotted border-neutral-700 mt-8" />
       <div className="w-full flex justify-between px-6 mt-2 mb-2">
-        <div>https://www.streamui.in</div>
+        <div>https://www.streamui.org</div>
         <div className="flex flex-wrap gap-4 text-xs text-neutral-400">
           <a href="/sitemap" className="hover:underline">Sitemap</a>
           <a href="/terms" className="hover:underline">Terms & Conditions</a>
