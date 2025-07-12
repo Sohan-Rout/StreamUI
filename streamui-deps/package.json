@@ -1,6 +1,6 @@
 {
   "name": "streamui-deps",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "Dependency installer for StreamUI copy-paste component library (gsap, framer-motion, react-icons).",
   "keywords": [
     "streamui",
@@ -15,12 +15,14 @@
   "main": "dist/index.js",
   "module": "dist/index.js",
   "files": [
-    "dist"
+    "index.js",
+    "dist",
+    "packages"
   ],
   "scripts": {
     "build": "tsup",
     "prepublishOnly": "echo skipping build"
-},
+  },
   "author": "Sohan Rout",
   "license": "MIT",
   "dependencies": {

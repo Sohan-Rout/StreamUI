@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
-import { FaCheck } from "react-icons/fa";
-import { IoIosClose } from "react-icons/io";
+import { motion } from "streamui-deps";
+import { FaCheck } from "streamui-deps";
+import { IoIosClose } from "streamui-deps";
 import PropTypes from "prop-types";
 
 const plans = [

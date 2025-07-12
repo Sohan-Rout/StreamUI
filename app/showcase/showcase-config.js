@@ -8,9 +8,9 @@ const showcaseComponents = [
     title: 'Minimalist Pricing Layout',
     description: 'A responsive, minimalist pricing section showcasing a dynamic card layout with built-in Framer Motion animations and dark/light mode support. Enables easy integration into landing pages and SaaS sites. Cards scale on hover for interactivity and display included and excluded features clearly with icon indicators.',
     preview: MinimalPricingLayout,
-    code: `import { motion } from "framer-motion";
-import { FaCheck } from "react-icons/fa";
-import { IoIosClose } from "react-icons/io";
+    code: `import { motion } from "streamui-deps";
+import { FaCheck } from "streamui-deps";
+import { IoIosClose } from "streamui-deps";
 import PropTypes from "prop-types";
 
 const plans = [
