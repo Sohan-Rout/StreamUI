@@ -26,7 +26,7 @@ export default function Hero() {
             Build Fast with <span className="font-medium">Stream</span><span className="px-2 py-2 bg-black text-white rounded-lg">UI</span>
           </h1>
           <p className="text-neutral-600 dark:text-neutral-400 text-lg mb-6">
-            Copy-paste clean, ready-to-use React + Tailwind components into your SaaS projects.
+            Copy-paste clean, ready-to-use NextJs + Tailwind components into your SaaS projects.
           </p>
           <div className="flex gap-4">
             <a
