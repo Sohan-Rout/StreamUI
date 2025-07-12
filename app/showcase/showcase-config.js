@@ -324,7 +324,7 @@ export default function Button1({
   },
   {
     slug: 'MinimalAvatar',
-    title: 'Minimalist Name Avatar',
+    title: 'Minimalist Avatar',
     description: 'A clean avatar component displaying name initials, perfect for testimonials.',
     preview: MinimalAvatar,
     code: `"use client";
