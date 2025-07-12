@@ -5,26 +5,26 @@ const componentsToProcess = [
   {
     slug: "MinimalPricingLayout",
     title: "Minimalist Pricing Layout",
-    description: "A clean SaaS pricing section...",
+    description: "A clean, responsive SaaS pricing section showcasing multiple plans with feature highlights, clear call-to-action, and light/dark mode support, perfect for landing pages and indie products.",
     category: "pricing",
     componentPath: "./app/showcase/components/pricing1.jsx",
-    implementation: "<PricingSection demoProp=\"Demo\" />",
+    implementation: "<PricingCard name=\"Pro\" price=\"$9/mo\" description=\"Access all advanced components and premium support.\" features={[\"All Starter Features\", \"Animated Components\", \"Priority Support\", \"Component Requests\"]} notIncluded={[\"Team Collaboration\"]} highlight={true} />",
   },
   {
     slug: "SimpleNavbar",
     title: "Minimalist Navbar",
-    description: "A clean, SaaS-friendly navbar...",
+    description: "A clean, simple and minimalist SaaS-friendly navbar",
     category: "navbar",
     componentPath: "./app/showcase/components/navbar1.jsx",
-    implementation: "<Navbar logo=\"StreamUI\" links={links} />",
+    implementation: "<Navbar logo={{ text: \"StreamUI\", href: \"/\", image: null }} links={[{ label: \"Home\", href: \"#home\" }, { label: \"Features\", href: \"#features\" }, { label: \"Reviews\", href: \"#Reviews\" }, { label: \"FAQs\", href: \"#faqs\" }]} mode=\"light\" />",
   },
   {
     slug: "BasicMinimalCard",
     title: "Minimalist Card",
-    description: "A clean, minimalist card for SaaS apps.",
+    description: "A clean, minimalist card supports both light and dark modes for your SaaS apps.",
     category: "cards",
     componentPath: "./app/showcase/components/card1.jsx",
-    implementation: "<DynamicComponentCard title=\"Card Title\" description=\"Card description.\" />",
+    implementation: "<Card logo=\"StreamUI\" title=\"This is a card\" description=\"This is the description of the card\"/>",
   },
 ];
 

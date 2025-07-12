@@ -2,16 +2,51 @@
   {
     "slug": "MinimalPricingLayout",
     "title": "Minimalist Pricing Layout",
-    "description": "A clean SaaS pricing section...",
+    "description": "A clean, responsive SaaS pricing section showcasing multiple plans with feature highlights, clear call-to-action, and light/dark mode support, perfect for landing pages and indie products.",
     "category": "pricing",
     "code": "import { motion } from \"streamui-deps\";\nimport { FaCheck } from \"streamui-deps\";\nimport { IoIosClose } from \"streamui-deps\";\nimport PropTypes from \"prop-types\";\n\nconst plans = [\n  {\n    name: \"Starter\",\n    price: \"Free\",\n    description: \"Basic components and regular updates.\",\n    features: [\"10+ Components\", \"Basic Animations\", \"Light/Dark Mode\", \"All Starter Features\"],\n    notIncluded: [\"Priority Support\", \"Component Requests\", \"Team Collaboration\"],\n    highlight: false,\n  },\n  {\n    name: \"Pro\",\n    price: \"$9/mo\",\n    description: \"Access all advanced components and premium support.\",\n    features: [\"All Starter Features\", \"Animated Components\", \"Priority Support\", \"Component Requests\"],\n    notIncluded: [\"Priority Support\", \"Component Requests\", \"Team Collaboration\"],\n    highlight: true,\n  },\n  {\n    name: \"Team\",\n    price: \"$29/mo\",\n    description: \"For teams and startups needing advanced support.\",\n    features: [\n      \"All Pro Features\",\n      \"Team Collaboration\",\n      \"Custom Branding\",\n      \"Animated Components\",\n      \"Priority Support\",\n      \"Light/Dark Mode\",\n      \"Component Requests\",\n    ],\n    highlight: false,\n  },\n];\n\nexport function PricingCard({\n  name,\n  price,\n  description,\n  features,\n  notIncluded,\n  highlight,\n}) {\n  return (\n    <motion.div\n      whileHover={{ scale: 1.03 }}\n      whileTap={{ scale: 0.98 }}\n      className={`border rounded-xl p-6 shadow-sm bg-white dark:bg-neutral-900 ${\n        highlight\n          ? \"border-blue-500 shadow-lg\"\n          : \"border-gray-200 dark:border-neutral-700\"\n      }`}\n    >\n      <div className=\"flex justify-center\">\n        <h3 className=\"text-lg dark:text-black font-medium bg-green-500 mb-4 px-6 py-1 rounded-full\">\n          {name}\n        </h3>\n      </div>\n      <p className=\"text-3xl font-bold mb-4\">{price}</p>\n      <p className=\"text-gray-600 dark:text-gray-400 mb-4\">{description}</p>\n      <ul className=\"text-sm text-left mb-6\">\n        {features.map((feature) => (\n          <li key={feature} className=\"flex items-center mb-1\">\n            <span className=\"text-green-500 mr-2\">\n              <FaCheck />\n            </span>{\" \"}\n            {feature}\n          </li>\n        ))}\n        {notIncluded &&\n          notIncluded.map((item) => (\n            <li key={item} className=\"flex items-center mb-1\">\n              <span className=\"text-red-500\">\n                <IoIosClose className=\"text-2xl font-semibold\" />\n              </span>\n              {item}\n            </li>\n          ))}\n      </ul>\n      <button className=\"w-full py-2 rounded-md bg-black text-white dark:bg-white dark:text-black hover:opacity-90 transition\">\n        Get Started\n      </button>\n    </motion.div>\n  );\n}\n\nPricingCard.propTypes = {\n  name: PropTypes.string.isRequired,\n  price: PropTypes.string.isRequired,\n  description: PropTypes.string.isRequired,\n  features: PropTypes.arrayOf(PropTypes.string).isRequired,\n  notIncluded: PropTypes.arrayOf(PropTypes.string),\n  highlight: PropTypes.bool,\n};\n\nexport default function PricingSection() {\n  return (\n    <section className=\"py-16 bg-gray-50 dark:bg-neutral-950\">\n      <div className=\"max-w-5xl mx-auto px-4 text-center\">\n        <h2 className=\"text-3xl font-bold mb-4\">Choose Your Plan</h2>\n        <p className=\"text-gray-600 dark:text-gray-400 mb-12\">\n          Simple, transparent pricing for developers and indie makers.\n        </p>\n        <div className=\"grid grid-cols-1 md:grid-cols-3 gap-6\">\n          {plans.map((plan) => (\n            <PricingCard\n              key={plan.name}\n              name={plan.name}\n              price={plan.price}\n              description={plan.description}\n              features={plan.features}\n              notIncluded={plan.notIncluded}\n              highlight={plan.highlight}\n            />\n          ))}\n        </div>\n      </div>\n    </section>\n  );\n}",
-    "implementation": "<PricingSection demoProp=\"Demo\" />",
+    "implementation": "<PricingCard name=\"Pro\" price=\"$9/mo\" description=\"Access all advanced components and premium support.\" features={[\"All Starter Features\", \"Animated Components\", \"Priority Support\", \"Component Requests\"]} notIncluded={[\"Team Collaboration\"]} highlight={true} />",
     "props": [
       {
-        "name": "demoProp",
+        "name": "name",
         "type": "string",
         "required": false,
-        "default": "Demo",
+        "default": "Pro",
+        "description": ""
+      },
+      {
+        "name": "price",
+        "type": "string",
+        "required": false,
+        "default": "$9/mo",
+        "description": ""
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "default": "Access all advanced components and premium support.",
+        "description": ""
+      },
+      {
+        "name": "features",
+        "type": "string",
+        "required": false,
+        "default": "[\n  \"All Starter Features\",\n  \"Animated Components\",\n  \"Priority Support\",\n  \"Component Requests\"\n]",
+        "description": ""
+      },
+      {
+        "name": "notIncluded",
+        "type": "string",
+        "required": false,
+        "default": "[\n  \"Team Collaboration\"\n]",
+        "description": ""
+      },
+      {
+        "name": "highlight",
+        "type": "string",
+        "required": false,
+        "default": "true",
         "description": ""
       }
     ],
@@ -20,10 +55,42 @@
   {
     "slug": "SimpleNavbar",
     "title": "Minimalist Navbar",
-    "description": "A clean, SaaS-friendly navbar...",
+    "description": "A clean, simple and minimalist SaaS-friendly navbar",
     "category": "navbar",
     "code": "\"use client\";\nimport Link from \"next/link\";\nimport Image from \"next/image\";\n\nexport default function Navbar({\n  logo = { text: \"StreamUI\", href: \"/\", image: null },\n  links = [\n    { label: \"Home\", href: \"#home\" },\n    { label: \"Features\", href: \"#features\" },\n    { label: \"Reviews\", href: \"#Reviews\" },\n    { label: \"FAQs\", href: \"#faqs\" },\n  ],\n  actions = (\n    <div className=\"flex gap-2\">\n      <button className=\"px-4 py-1 rounded bg-white border border-black text-black\">Log In</button>\n      <button className=\"px-4 border border-black py-1 rounded bg-black dark:border-white text-white\">Sign In</button>\n    </div>\n  ),\n  mode = \"light\",\n}) {\n  const isDark = mode === \"dark\";\n\n  return (\n    <nav\n      className={`w-full flex items-center justify-between p-4 border-b ${\n        isDark ? \"bg-black text-white border-white/20\" : \"bg-white text-black border-black\"\n      }`}\n    >\n      <div className=\"text-lg font-semibold flex items-center space-x-2\">\n        <Link href={logo.href} className=\"flex items-center space-x-2\">\n          {logo.image ? (\n            <Image src={logo.image} alt={logo.text} width={32} height={32} />\n          ) : null}\n          {logo.text && <span>{logo.text}</span>}\n        </Link>\n      </div>\n\n      <div className=\"flex items-center space-x-4\">\n        {links.map((link) => (\n          <Link key={link.href} href={link.href} className=\"hover:underline\">\n            {link.label}\n          </Link>\n        ))}\n\n        {actions}\n      </div>\n    </nav>\n  );\n}",
-    "implementation": "<Navbar logo=\"StreamUI\" links={links} />",
+    "implementation": "<Navbar logo={{ text: \"StreamUI\", href: \"/\", image: null }} links={[{ label: \"Home\", href: \"#home\" }, { label: \"Features\", href: \"#features\" }, { label: \"Reviews\", href: \"#Reviews\" }, { label: \"FAQs\", href: \"#faqs\" }]} mode=\"light\" />",
+    "props": [
+      {
+        "name": "logo",
+        "type": "string",
+        "required": false,
+        "default": "{{ text: \"StreamUI\", href: \"/\", image: null }",
+        "description": ""
+      },
+      {
+        "name": "links",
+        "type": "string",
+        "required": false,
+        "default": "{[{ label: \"Home\", href: \"#home\" }",
+        "description": ""
+      },
+      {
+        "name": "mode",
+        "type": "string",
+        "required": false,
+        "default": "light",
+        "description": ""
+      }
+    ],
+    "componentName": "Navbar"
+  },
+  {
+    "slug": "BasicMinimalCard",
+    "title": "Minimalist Card",
+    "description": "A clean, minimalist card supports both light and dark modes for your SaaS apps.",
+    "category": "cards",
+    "code": "'use client';\nimport React from 'react';\n\nexport default function DynamicComponentCard({ logo, title, description }) {\n  return (\n    <div className=\"rounded-lg p-4 bg-white dark:bg-neutral-900 shadow-xl dark:shadow-neutral-700 flex flex-col justify-center items-center gap-2\">\n      {/* Logo/Image Placeholder */}\n      <div className=\"flex justify-center items-center rounded-lg py-12 px-10 border dark:border-neutral-400\">\n        {logo ? logo : <span className=\"text-black text-2xl dark:text-white\">Stream<span className=\"bg-black px-2 py-2 rounded-lg text-white dark:text-black dark:bg-white ml-1\">UI</span></span>}\n      </div>\n\n      {/* Title */}\n      <h3 className=\"text-xl font-medium mt-6\">\n        {title ? title : 'This is a card'}\n      </h3>\n\n      {/* Description */}\n      <p className=\"text-sm text-neutral-600\">\n        {description ? description : 'This is the description of the card'}\n      </p>\n    </div>\n  );\n}",
+    "implementation": "<Card logo=\"StreamUI\" title=\"This is a card\" description=\"This is the description of the card\"/>",
     "props": [
       {
         "name": "logo",
@@ -33,35 +100,17 @@
         "description": ""
       },
       {
-        "name": "links",
-        "type": "string",
-        "required": false,
-        "default": "{links}",
-        "description": ""
-      }
-    ],
-    "componentName": "Navbar"
-  },
-  {
-    "slug": "BasicMinimalCard",
-    "title": "Minimalist Card",
-    "description": "A clean, minimalist card for SaaS apps.",
-    "category": "cards",
-    "code": "'use client';\nimport React from 'react';\n\nexport default function DynamicComponentCard({ logo, title, description }) {\n  return (\n    <div className=\"rounded-lg p-4 bg-white dark:bg-neutral-900 shadow-xl dark:shadow-neutral-700 flex flex-col justify-center items-center gap-2\">\n      {/* Logo/Image Placeholder */}\n      <div className=\"flex justify-center items-center rounded-lg py-12 px-10 border dark:border-neutral-400\">\n        {logo ? logo : <span className=\"text-black text-2xl dark:text-white\">Stream<span className=\"bg-black px-2 py-2 rounded-lg text-white dark:text-black dark:bg-white ml-1\">UI</span></span>}\n      </div>\n\n      {/* Title */}\n      <h3 className=\"text-xl font-medium mt-6\">\n        {title ? title : 'This is a card'}\n      </h3>\n\n      {/* Description */}\n      <p className=\"text-sm text-neutral-600\">\n        {description ? description : 'This is the description of the card'}\n      </p>\n    </div>\n  );\n}",
-    "implementation": "<DynamicComponentCard title=\"Card Title\" description=\"Card description.\" />",
-    "props": [
-      {
         "name": "title",
         "type": "string",
         "required": false,
-        "default": "Card Title",
+        "default": "This is a card",
         "description": ""
       },
       {
         "name": "description",
         "type": "string",
         "required": false,
-        "default": "Card description.",
+        "default": "This is the description of the card",
         "description": ""
       }
     ],

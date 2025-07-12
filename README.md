@@ -33,6 +33,25 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 
 ---
 
+### ⚡ Generating Showcase Data
+
+StreamUI uses an automated script to generate `showcase-data.json` for the dynamic component showcase.
+
+Run:
+
+```bash
+npm run generate:showcase
+```
+
+This will:
+- Extract readable props from your hardcoded implementations.
+- Automatically generate a clean `showcase-data.json` used in the showcase gallery.
+- Preserve your manual `implementation` entries while keeping your props up to date.
+
+Run this whenever you add or update components to keep your showcase data current.
+
+---
+
 ## 📚 Documentation
 
 Explore component usage, props, and previews:
