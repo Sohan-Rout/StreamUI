@@ -85,32 +85,53 @@
     "componentName": "Navbar"
   },
   {
-    "slug": "BasicMinimalCard",
-    "title": "Minimalist Card",
-    "description": "A clean, minimalist card supports both light and dark modes for your SaaS apps.",
+    "slug": "DarkGradientCard",
+    "title": "Dark Gradient card",
+    "description": "A modern, dark glassmorphism card component for SaaS products, designed to highlight features. It adds subtle hover lift, orange glow, and clean readability to your landing pages",
     "category": "cards",
-    "code": "'use client';\nimport React from 'react';\n\nexport default function DynamicComponentCard({ logo, title, description }) {\n  return (\n    <div className=\"rounded-lg p-4 bg-white dark:bg-neutral-900 shadow-xl dark:shadow-neutral-700 flex flex-col justify-center items-center gap-2\">\n      {/* Logo/Image Placeholder */}\n      <div className=\"flex justify-center items-center rounded-lg py-12 px-10 border dark:border-neutral-400\">\n        {logo ? logo : <span className=\"text-black text-2xl dark:text-white\">Stream<span className=\"bg-black px-2 py-2 rounded-lg text-white dark:text-black dark:bg-white ml-1\">UI</span></span>}\n      </div>\n\n      {/* Title */}\n      <h3 className=\"text-xl font-medium mt-6\">\n        {title ? title : 'This is a card'}\n      </h3>\n\n      {/* Description */}\n      <p className=\"text-sm text-neutral-600\">\n        {description ? description : 'This is the description of the card'}\n      </p>\n    </div>\n  );\n}",
-    "implementation": "<Card logo=\"StreamUI\" title=\"This is a card\" description=\"This is the description of the card\"/>",
+    "code": "'use client';\nimport React from 'react';\nimport { GiHamburgerMenu } from \"streamui-deps\";\nimport { HiArrowSmallRight } from \"streamui-deps\";\n\nexport default function DynamicComponentCard({ icon, title, description, tag, linkName, linkUrl }) {\n  icon = icon || <GiHamburgerMenu className=\"w-6 h-6 text-white/75\" />;\n  title = title || \"Feature Title\";\n  description = description || \"This is a concise description of the feature that gives clear context to the user.\";\n  tag = tag || \"01\";\n  linkName = linkName || \"Learn More\";\n  linkUrl = linkUrl || \"#\";\n  return (\n    <div className=\"relative max-w-[250px] w-full rounded-2xl p-6 backdrop-blur-md bg-gradient-to-br from-neutral-800 via-neutral-950 to-orange-500 border border-white/50 flex flex-col gap-4 overflow-hidden shadow-xl transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl\">\n      {/* Tag */}\n      <span className=\"text-2xl text-orange-600 rounded-full w-fit font-bold font-mono\">\n        #{tag}\n      </span>\n\n      {/* Icon */}\n      <div className=\"w-16 h-16 flex items-center justify-center rounded-xl bg-white/10\">\n        {icon}\n      </div>\n\n      {/* Title */}\n      <h3 className=\"text-xl font-bold text-white dark:text-white\">\n        {title}\n      </h3>\n\n      {/* Description */}\n      <p className=\"text-md text-neutral-300 dark:text-neutral-300\">\n        {description}\n      </p>\n\n      {linkName && linkUrl && (\n        <a\n          href={linkUrl}\n          target=\"_blank\"\n          rel=\"noopener noreferrer\"\n          className=\"group mt-2 flex text-sm text-white hover:text-white/90 relative items-center gap-1 transition\"\n        >\n          {linkName}<HiArrowSmallRight className='text-md'/>\n          <span className=\"absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full\"></span>\n        </a>\n      )}\n\n      {/* Glass glow */}\n      <div className=\"pointer-events-none absolute inset-0 rounded-2xl\">\n        <div className=\"absolute bottom-4 right-4 w-40 h-40 rounded-full bg-orange-500/20 blur-3xl\"></div>\n      </div>\n    </div>\n  );\n}",
+    "implementation": "<FeatureCard icon={<GiHamburgerMenu className=\"w-6 h-6 text-white/75\" />} title=\"Feature Title\" description=\"This is a concise description of the feature that gives clear context to the user.\" tag=\"01\" linkName=\"Learn More\" linkUrl=\"./\" />",
     "props": [
       {
-        "name": "logo",
+        "name": "icon",
         "type": "string",
         "required": false,
-        "default": "StreamUI",
+        "default": "{<GiHamburgerMenu className=\"w-6 h-6 text-white/75\" />}",
         "description": ""
       },
       {
         "name": "title",
         "type": "string",
         "required": false,
-        "default": "This is a card",
+        "default": "Feature Title",
         "description": ""
       },
       {
         "name": "description",
         "type": "string",
         "required": false,
-        "default": "This is the description of the card",
+        "default": "This is a concise description of the feature that gives clear context to the user.",
+        "description": ""
+      },
+      {
+        "name": "tag",
+        "type": "string",
+        "required": false,
+        "default": "01",
+        "description": ""
+      },
+      {
+        "name": "linkName",
+        "type": "string",
+        "required": false,
+        "default": "Learn More",
+        "description": ""
+      },
+      {
+        "name": "linkUrl",
+        "type": "string",
+        "required": false,
+        "default": "./",
         "description": ""
       }
     ],

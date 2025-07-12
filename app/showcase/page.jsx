@@ -61,7 +61,9 @@ export default function ShowcaseGalleryPage() {
                    ${component.category === "cards" ? "col-span-2 row-span-1" : ""}`}
                 >
                   <div className={`border border-neutral-300 rounded-md flex h-[200px] items-center justify-center text-neutral-700 text-sm overflow-hidden ${component.category === "pricing" ? "h-auto" : ""}`}>
-                    <div className={`scale-[0.75] origin-center w-full flex items-center justify-center ${component.category === "pricing" ? "flex justify-center items-center" : ""}`}>
+                    <div className={`origin-center w-full flex items-center justify-center ${
+                      component.category === "cards" ? "scale-[0.5]" : "scale-[0.75]"
+                    } ${component.category === "pricing" ? "flex justify-center items-center" : ""}`}>
                       {PreviewComponent ? (
                         <PreviewComponent />
                       ) : (

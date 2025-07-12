@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Navbar from "@/app/showcase/components/navbar1";
+import Card from "@/app/showcase/components/card1";
 
 export default function ShowcaseTestPage() {
   const [mode, setMode] = useState("light");
@@ -9,22 +9,23 @@ export default function ShowcaseTestPage() {
     <div
       className={
         mode === "dark"
-          ? "bg-black text-white min-h-screen"
+          ? "bg-neutral-800 text-white min-h-screen"
           : "bg-white text-black min-h-screen"
       }
     >
       {/* Toggle switch */}
       <div className="fixed top-4 right-4 z-50">
         <button
-          onClick={() => setMode(mode === "light" ? "dark" : "light")}
-          className="px-4 py-2 rounded-lg bg-neutral-200 dark:bg-neutral-800 text-black dark:text-white shadow"
-        >
-          Toggle {mode === "light" ? "Dark" : "Light"}
-        </button>
+  onClick={() => {
+    const isDark = document.documentElement.classList.toggle("dark");
+    setMode(isDark ? "dark" : "light");
+  }}
+>
+  Toggle {mode === "light" ? "Dark" : "Light"}
+</button>
       </div>
       <div className="pt-10">
-        {/* Navbar */}
-        <Navbar mode={mode} />
+        <Card/>
       </div>
 
       {/* Dummy content */}

@@ -19,12 +19,12 @@ const componentsToProcess = [
     implementation: "<Navbar logo={{ text: \"StreamUI\", href: \"/\", image: null }} links={[{ label: \"Home\", href: \"#home\" }, { label: \"Features\", href: \"#features\" }, { label: \"Reviews\", href: \"#Reviews\" }, { label: \"FAQs\", href: \"#faqs\" }]} mode=\"light\" />",
   },
   {
-    slug: "BasicMinimalCard",
-    title: "Minimalist Card",
-    description: "A clean, minimalist card supports both light and dark modes for your SaaS apps.",
+    slug: "DarkGradientCard",
+    title: "Dark Gradient card",
+    description: "A modern, dark glassmorphism card component for SaaS products, designed to highlight features. It adds subtle hover lift, orange glow, and clean readability to your landing pages",
     category: "cards",
     componentPath: "./app/showcase/components/card1.jsx",
-    implementation: "<Card logo=\"StreamUI\" title=\"This is a card\" description=\"This is the description of the card\"/>",
+    implementation: "<FeatureCard icon={<GiHamburgerMenu className=\"w-6 h-6 text-white/75\" />} title=\"Feature Title\" description=\"This is a concise description of the feature that gives clear context to the user.\" tag=\"01\" linkName=\"Learn More\" linkUrl=\"./\" />",
   },
 ];
 
