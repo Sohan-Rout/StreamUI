@@ -1,9 +1,13 @@
 "use client";
 import { useState } from "react";
-import Card from "@/app/showcase/components/auth1";
+import Card from "@/app/showcase/components/calendar1";
 
 export default function ShowcaseTestPage() {
   const [mode, setMode] = useState("light");
+   const handleDateSelect = (date) => {
+    console.log("Selected Date:", date);
+    // handle date here: API, state, etc.
+  };
 
   return (
     <div
@@ -25,7 +29,7 @@ export default function ShowcaseTestPage() {
 </button>
       </div>
       <div className="pt-10">
-        <Card/>
+        <Card onDateSelect={handleDateSelect}/>
       </div>
 
       {/* Dummy content */}

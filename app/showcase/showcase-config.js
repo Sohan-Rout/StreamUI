@@ -3,13 +3,15 @@ import PricingSection from "@/app/showcase/components/pricing1";
 import Navbar from "@/app/showcase/components/navbar1";
 import DynamicComponentCard from "@/app/showcase/components/card1";
 import AuthForm from "@/app/showcase/components/auth1";
+import Calendar from "@/app/showcase/components/calendar1";
 import showcaseData from "./showcase-data.json";
 
 const componentMap = {
   PricingSection,
   Navbar,
   DynamicComponentCard,
-  AuthForm
+  AuthForm,
+  Calendar
 };
 
 const showcaseComponents = showcaseData.map(item => {

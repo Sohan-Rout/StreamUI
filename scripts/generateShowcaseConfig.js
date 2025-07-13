@@ -34,6 +34,25 @@ const componentsToProcess = [
     componentPath: "./app/showcase/components/card1.jsx",
     implementation: "<FeatureCard icon={<GiHamburgerMenu className=\"w-6 h-6 text-white/75\" />} title=\"Feature Title\" description=\"This is a concise description of the feature that gives clear context to the user.\" tag=\"01\" linkName=\"Learn More\" linkUrl=\"./\" />",
   },
+  {
+    slug: "MinimalistCalendar",
+    title: "Minimalist Calendar",
+    description: "A clean, responsive minimalist calendar component with dynamic month and year navigation, today and selection indicators, and light/dark mode support. Perfect for SaaS dashboards and booking flows",
+    category: "utilities",
+    componentPath: "./app/showcase/components/calendar1.jsx",
+    implementation: `export default function CalendarDemoPage() {
+  const handleDateSelect = (date) => {
+    console.log("User selected:", date);
+    // Use for state, API calls, etc.
+  };
+
+  return (
+    <main>
+      <Calendar onDateSelect={handleDateSelect} />
+    </main>
+  );
+}`,
+  },
 ];
 
 function extractPropsFromImplementation(implementation) {
