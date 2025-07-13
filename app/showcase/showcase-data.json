@@ -50,7 +50,7 @@
         "description": ""
       }
     ],
-    "componentName": "PricingSection"
+    "componentName": "Pricing1"
   },
   {
     "slug": "AestheticAuthCard",
@@ -103,7 +103,7 @@
         "description": ""
       }
     ],
-    "componentName": "AuthForm"
+    "componentName": "Auth1"
   },
   {
     "slug": "GlassmorphismNavbar",
@@ -135,7 +135,7 @@
         "description": ""
       }
     ],
-    "componentName": "Navbar"
+    "componentName": "Navbar1"
   },
   {
     "slug": "DarkGradientCard",
@@ -188,7 +188,7 @@
         "description": ""
       }
     ],
-    "componentName": "DynamicComponentCard"
+    "componentName": "Card1"
   },
   {
     "slug": "MinimalistCalendar",
@@ -206,6 +206,6 @@
         "description": ""
       }
     ],
-    "componentName": "Calendar"
+    "componentName": "Calendar1"
   }
 ]
