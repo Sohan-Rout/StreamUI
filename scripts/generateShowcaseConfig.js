@@ -53,6 +53,16 @@ const componentsToProcess = [
   );
 }`,
   },
+  {
+    slug: "MinimalistStatusBadge",
+    title: "Minimalist Status Badge",
+    description: "Badge for SaaS dashboards and tables, supporting Active, Pending, and Error states.",
+    category: "badges",
+    componentPath: "./app/showcase/components/statusBadge1.jsx",
+    implementation: `<StatusBadge status='Active' />
+    <StatusBadge status='Pending' />
+    <StatusBadge status='Error' />`,
+  },
 ];
 
 function extractPropsFromImplementation(implementation) {

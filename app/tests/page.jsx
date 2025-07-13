@@ -1,14 +1,9 @@
 "use client";
 import { useState } from "react";
-import Card from "@/app/showcase/components/calendar1";
+import Card from "@/app/showcase/components/statusBadge1";
 
 export default function ShowcaseTestPage() {
   const [mode, setMode] = useState("light");
-   const handleDateSelect = (date) => {
-    console.log("Selected Date:", date);
-    // handle date here: API, state, etc.
-  };
-
   return (
     <div
       className={
@@ -20,16 +15,16 @@ export default function ShowcaseTestPage() {
       {/* Toggle switch */}
       <div className="fixed top-4 right-4 z-50">
         <button
-  onClick={() => {
-    const isDark = document.documentElement.classList.toggle("dark");
-    setMode(isDark ? "dark" : "light");
-  }}
->
-  Toggle {mode === "light" ? "Dark" : "Light"}
-</button>
+          onClick={() => {
+            const isDark = document.documentElement.classList.toggle("dark");
+            setMode(isDark ? "dark" : "light");
+          }}
+        >
+          Toggle {mode === "light" ? "Dark" : "Light"}
+        </button>
       </div>
       <div className="pt-10">
-        <Card onDateSelect={handleDateSelect}/>
+        <Card />
       </div>
 
       {/* Dummy content */}
@@ -37,7 +32,7 @@ export default function ShowcaseTestPage() {
         <h1 className="text-3xl font-semibold">Testing Page</h1>
         <p className="mt-4 max-w-md text-center">
           Toggle the theme using the button on the top-right to test your
-          glassmorphism navbar in both light and dark modes.
+          Components in both light and dark modes.
         </p>
       </div>
     </div>

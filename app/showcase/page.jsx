@@ -8,6 +8,8 @@ import { useState, useEffect } from "react";
 export default function ShowcaseGalleryPage() {
   const router = useRouter();
   const [search, setSearch] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 30; // 6 rows * 5 columns
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -16,6 +18,15 @@ export default function ShowcaseGalleryPage() {
       document.documentElement.classList.add("light");
     }
   }, []);
+
+  const filteredComponents = showcaseComponents.filter((component) =>
+    component.title.toLowerCase().includes(search.toLowerCase())
+  );
+  const totalPages = Math.ceil(filteredComponents.length / itemsPerPage);
+  const paginatedComponents = filteredComponents.slice(
+    (currentPage - 1) * itemsPerPage,
+    currentPage * itemsPerPage
+  );
 
   return (
     <main className="max-w-6xl w-full mx-auto px-2 sm:px-4 md:px-6 py-2 sm:py-4 md:py-6">
@@ -33,7 +44,10 @@ export default function ShowcaseGalleryPage() {
             type="text"
             placeholder="Search components..."
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setCurrentPage(1);
+            }}
             className="text-sm w-full bg-none focus:outline-none"
           />
       </div>
@@ -41,11 +55,7 @@ export default function ShowcaseGalleryPage() {
 <div className="w-full">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
         <div className="col-span-full grid auto-rows-min grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-          {showcaseComponents
-            .filter((component) =>
-              component.title.toLowerCase().includes(search.toLowerCase())
-            )
-            .map((component) => {
+          {paginatedComponents.map((component) => {
               const PreviewComponent = component.preview;
               return (
                 <div
@@ -82,6 +92,27 @@ export default function ShowcaseGalleryPage() {
             })}
         </div>
       </div>
+      {totalPages > 1 && (
+        <div className="flex justify-center mt-6 gap-4">
+          <button
+            onClick={() => setCurrentPage((prev) => Math.max(prev - 1, 1))}
+            disabled={currentPage === 1}
+            className="px-4 py-2 rounded bg-neutral-200 disabled:opacity-50"
+          >
+            Previous
+          </button>
+          <span className="text-sm text-neutral-700">
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            onClick={() => setCurrentPage((prev) => Math.min(prev + 1, totalPages))}
+            disabled={currentPage === totalPages}
+            className="px-4 py-2 rounded bg-neutral-200 disabled:opacity-50"
+          >
+            Next
+          </button>
+        </div>
+      )}
       </div>
     </main>
   );

@@ -207,5 +207,37 @@
       }
     ],
     "componentName": "Calendar1"
+  },
+  {
+    "slug": "MinimalistStatusBadge",
+    "title": "Minimalist Status Badge",
+    "description": "Badge for SaaS dashboards and tables, supporting Active, Pending, and Error states.",
+    "category": "badges",
+    "code": "import { IoMdCloseCircle } from \"streamui-deps\";\nimport { LuClockAlert } from \"streamui-deps\";\nimport { GoDotFill } from \"streamui-deps\";\n\nexport default function StatusBadge({ status = \"Active\" }) {\n  const statusMap = {\n    Active: \"bg-green-200 dark:bg-green-900\",\n    Pending: \"bg-yellow-200 dark:bg-yellow-900\",\n    Error: \"bg-red-200 dark:bg-red-900\",\n  };\n\n  const iconPlaceholder = () => {\n    if (status === \"Active\") {\n      return <span className=\"mr-1\"><GoDotFill className=\"text-green-500 text-lg\" /></span>;\n    } else if (status === \"Pending\") {\n      return <span className=\"mr-1\"><LuClockAlert className=\"text-yellow-500 text-lg\" /></span>;\n    } else if (status === \"Error\") {\n      return <span className=\"mr-1\"><IoMdCloseCircle className=\"text-red-500 text-lg\" /></span>;\n    } else {\n      return null;\n    }\n  };\n\n  return (\n    <span\n      className={`inline-flex border border-black/10 animate-pulse dark:border-white/25 shadow-xl font-mono items-center px-3 py-1 rounded-full text-sm font-medium transition transform hover:-translate-y-0.5 hover:animate-none duration-300 hover:shadow-2xl\n      ${statusMap[status] || statusMap[\"Active\"]}`}\n    >\n      {iconPlaceholder()}\n      {status}\n    </span>\n  );\n}",
+    "implementation": "<StatusBadge status='Active' />\n    <StatusBadge status='Pending' />\n    <StatusBadge status='Error' />",
+    "props": [
+      {
+        "name": "status",
+        "type": "string",
+        "required": false,
+        "default": "Active",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "required": false,
+        "default": "Pending",
+        "description": ""
+      },
+      {
+        "name": "status",
+        "type": "string",
+        "required": false,
+        "default": "Error",
+        "description": ""
+      }
+    ],
+    "componentName": "StatusBadge1"
   }
 ]

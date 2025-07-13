@@ -9,3 +9,5 @@ export { HiSparkles } from "react-icons/hi2";
 export { GiHamburgerMenu } from "react-icons/gi";
 export { HiArrowSmallRight } from "react-icons/hi2";
 export { PiCaretCircleDoubleRightFill, PiCaretCircleDoubleLeftFill } from "react-icons/pi";
+export { LuClockAlert } from "react-icons/lu";
+export { GoDotFill } from "react-icons/go";
