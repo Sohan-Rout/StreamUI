@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Card from "@/app/showcase/components/card1";
+import Card from "@/app/showcase/components/auth1";
 
 export default function ShowcaseTestPage() {
   const [mode, setMode] = useState("light");
@@ -9,7 +9,7 @@ export default function ShowcaseTestPage() {
     <div
       className={
         mode === "dark"
-          ? "bg-neutral-800 text-white min-h-screen"
+          ? "bg-neutral-900 text-white min-h-screen"
           : "bg-white text-black min-h-screen"
       }
     >

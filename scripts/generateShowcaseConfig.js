@@ -11,6 +11,14 @@ const componentsToProcess = [
     implementation: "<PricingCard name=\"Pro\" price=\"$9/mo\" description=\"Access all advanced components and premium support.\" features={[\"All Starter Features\", \"Animated Components\", \"Priority Support\", \"Component Requests\"]} notIncluded={[\"Team Collaboration\"]} highlight={true} />",
   },
   {
+    slug: "AestheticAuthCard",
+    title: "Aesthetic Auth Card",
+    description: "A clean, responsive authentication component with dynamic login and signup modes, glassmorphic styling, and light/dark mode support. Perfect for SaaS products and indie apps requiring a polished, minimalist experience.",
+    category: "cards",
+    componentPath: "./app/showcase/components/auth1.jsx",
+    implementation: "<AuthForm mode=\"login\" onSubmit={handleAuthSubmit} title=\"Welcome to StreamUI\" description=\"Sign in to access your dashboard and manage your components seamlessly.\" submitText=\"Get Started\" extraFields={[{ name: \"username\", label: \"Username\" }, { name: \"phone\", label: \"Phone Number\" },]} />",
+  },
+  {
     slug: "GlassmorphismNavbar",
     title: "Glassmorphism Navbar",
     description: "A modern, floating glassmorphism navbar designed for SaaS products and startup landing pages. Frosted glass background with subtle gradients for a premium aesthetic. Rounded, spacious layout that adapts seamlessly to all screen sizes.",
