@@ -4,11 +4,13 @@ import Footer from "@/app/components/footer";
 const domain = process.env.NEXT_PUBLIC_DOMAIN || "https://yourdomain.com";
 
 export const metadata = {
-  title: "Component Gallery – Stream UI",
-  description: "Explore a gallery of beautiful, reusable, accessible UI components ready to copy and integrate into your projects with Stream UI.",
+  title: "Stream UI Component Gallery – Beautiful React Components",
+  description:
+    "Discover and copy-paste beautifully designed, responsive React components with Stream UI to accelerate your SaaS and web projects effortlessly.",
   openGraph: {
-    title: "Component Gallery – Stream UI",
-    description: "Explore a gallery of beautiful, reusable, accessible UI components ready to copy and integrate into your projects with Stream UI.",
+    title: "Stream UI Component Gallery – Beautiful React Components",
+    description:
+      "Discover and copy-paste beautifully designed, responsive React components with Stream UI to accelerate your SaaS and web projects effortlessly.",
     url: `${domain}/showcase`,
     siteName: "Stream UI",
     images: [
@@ -16,7 +18,7 @@ export const metadata = {
         url: `${domain}/og-preview.png`,
         width: 1200,
         height: 630,
-        alt: "Stream UI Component Gallery",
+        alt: "Stream UI Gallery showcasing React components for SaaS and web projects",
       },
     ],
     locale: "en_US",
@@ -24,8 +26,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Component Gallery – Stream UI",
-    description: "Explore a gallery of beautiful, reusable, accessible UI components ready to copy and integrate into your projects with Stream UI.",
+    title: "Stream UI Component Gallery – Beautiful React Components",
+    description:
+      "Discover and copy-paste beautifully designed, responsive React components with Stream UI to accelerate your SaaS and web projects effortlessly.",
     images: [`${domain}/twitter-preview.png`],
   },
 };
