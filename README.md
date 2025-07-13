@@ -1,5 +1,12 @@
 ![StreamUI Banner](./public/ogImages/landing.png)
 
+# Built Using
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=git,js,nextjs,tailwind,express,nodejs,npm,vercel" />
+  </a>
+</p>
+
 # StreamUI
 
 🚀 **StreamUI** is a copy-paste-friendly React + Tailwind SaaS component library that helps you build beautiful, consistent interfaces faster.
