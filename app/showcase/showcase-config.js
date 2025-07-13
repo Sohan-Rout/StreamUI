@@ -1,9 +1,9 @@
 // app/showcase/showcase-config.js
-import Pricing1 from "@/app/showcase/components/Pricing1";
-import Navbar1 from "@/app/showcase/components/Navbar1";
-import Card1 from "@/app/showcase/components/Card1";
-import Auth1 from "@/app/showcase/components/Auth1";
-import Calendar1 from "@/app/showcase/components/Calendar1";
+import Pricing1 from "@/app/showcase/components/pricing1";
+import Navbar1 from "@/app/showcase/components/navbar1";
+import Card1 from "@/app/showcase/components/card1";
+import Auth1 from "@/app/showcase/components/auth1";
+import Calendar1 from "@/app/showcase/components/calendar1";
 import showcaseData from "./showcase-data.json";
 
 const componentMap = {

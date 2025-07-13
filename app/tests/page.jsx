@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import Card from "@/app/showcase/components/Calendar1";
+import Card from "@/app/showcase/components/calendar1";
 
 export default function ShowcaseTestPage() {
   const [mode, setMode] = useState("light");
