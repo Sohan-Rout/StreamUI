@@ -68,13 +68,14 @@ export default function ShowcaseGalleryPage() {
                     component.category === "navbar" ? "col-span-3 row-span-1" : ""
                   } ${component.category === "grids" ? "col-span-3 row-span-1" : ""} 
                    ${component.category === "pricing" ? "col-span-5 row-span-2" : ""}
+                   ${component.category === "featured" ? "col-span-5 row-span-2" : ""}
                    ${component.category === "cards" ? "col-span-2 row-span-1" : ""}
                    ${component.category === "utilities" ? "col-span-2 row-span-1" : ""}`}
                 >
-                  <div className={`border border-neutral-300 rounded-md flex h-[200px] items-center justify-center text-neutral-700 text-sm overflow-hidden ${component.category === "pricing" ? "h-auto" : ""}`}>
+                  <div className={`border border-neutral-300 rounded-md flex h-[200px] items-center justify-center text-neutral-700 text-sm overflow-hidden ${(component.category === "pricing" || component.category === "featured") ? "h-auto" : ""}`}>
                     <div className={`origin-center w-full flex items-center justify-center ${
                       (component.category === "cards" || component.category === "utilities") ? "scale-[0.5]" : "scale-[0.75]"
-                    } ${component.category === "pricing" ? "flex justify-center items-center" : ""}
+                    } ${(component.category === "pricing" || component.category === "featured") ? "flex justify-center items-center" : ""}
                      `}>
                       {PreviewComponent ? (
                         <PreviewComponent />

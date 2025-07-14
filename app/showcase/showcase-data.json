@@ -239,5 +239,51 @@
       }
     ],
     "componentName": "StatusBadge1"
+  },
+  {
+    "slug": "MinimalistFeaturedSection",
+    "title": "Minimalist Featured Section",
+    "description": "A clean, aesthetic featured section with a dynamic header, description, tag, and CTA paired with a glassy, metallic Bento Grid for showcasing your best components. Fully responsive and light/dark mode ready, ideal for SaaS product landing pages or documentation sites.",
+    "category": "featured",
+    "code": "import React from \"react\";\nimport { FaShieldAlt, FaLightbulb, FaBolt, FaRegClock } from \"streamui-deps\";\nimport { HiSparkles } from \"streamui-deps\";\nimport { IoMdCloseCircle } from \"streamui-deps\";\n\nconst defaultCards = [\n  {\n    title: \"Secured Transactions\",\n    description: \"Safe and encrypted payments on our platform.\",\n    icon: FaShieldAlt,\n  },\n  {\n    title: \"Smart Design\",\n    description: \"Crafted for scalability and aesthetics.\",\n    icon: FaLightbulb,\n  },\n  {\n    title: \"Fast Performance\",\n    description: \"Snappy user experience across devices.\",\n    icon: FaBolt,\n  },\n  {\n    title: \"Never Miss a Payment\",\n    description: \"Timely reminders and payment tracking.\",\n    icon: FaRegClock,\n  },\n  {\n    title: \"Let's Explore\",\n    description: \"Timely reminders and payment tracking.\",\n    icon: FaRegClock,\n  },\n];\n\nconst FeaturedSection = ({\n  title = \"Featured Components\",\n  description = \"Discover hand-crafted components ready to use in your projects.\",\n  tag = \"UI Essentials\",\n  ctaText = \"Get Started\",\n  ctaHref = \"\",\n  cards,\n}) => {\n  const data = cards && cards.length > 0 ? cards : defaultCards;\n\n  return (\n    <section className=\"max-w-6xl mx-auto px-4 py-12 flex flex-col gap-8\">\n      {/* Section Header */}\n      <div className=\"flex flex-col items-center text-center gap-2\">\n        <p className=\"text-xs uppercase tracking-widest text-neutral-500\">{tag}</p>\n        <h1 className=\"text-3xl md:text-4xl font-bold\">{title}</h1>\n        <p className=\"text-neutral-600 dark:text-neutral-300 max-w-xl\">{description}</p>\n        <a\n          href={ctaHref}\n          className=\"mt-4 px-6 py-2 rounded-full flex items-center gap-2 bg-black text-white dark:bg-white dark:text-black hover:scale-105 transition-transform duration-300\"\n        >\n            <HiSparkles className=\"text-xl\"/>{ctaText}\n        </a>\n      </div>\n\n      {/* Bento Grid */}\n      <div className=\"grid grid-cols-2 md:grid-cols-4 auto-rows-[200px] gap-4\">\n        {data.map((card, index) => {\n          const Icon = card.icon;\n          const isLarge = index === 0;\n\n          return (\n            <div\n              key={index}\n              className={`relative overflow-hidden shadow-xl rounded-xl backdrop-blur-md bg-white/30 dark:bg-black/30 border border-black/20 dark:border-white/20 hover:scale-105 transition-all duration-300 flex flex-col justify-center items-center ${\n                isLarge ? \"col-span-2 row-span-2\" : \"\"\n              }`}\n            >\n              {/* Cross icons pinned in corners */}\n              <IoMdCloseCircle className=\"text-neutral-400 dark:text-white/90 absolute top-2 left-2 z-20\" />\n              <IoMdCloseCircle className=\"text-neutral-400 dark:text-white/90 absolute top-2 right-2 z-20\" />\n              <IoMdCloseCircle className=\"text-neutral-400 dark:text-white/90 absolute bottom-2 left-2 z-20\" />\n              <IoMdCloseCircle className=\"text-neutral-400 dark:text-white/90 absolute bottom-2 right-2 z-20\" />\n\n              <div className=\"px-6 py-2\">\n                <div className=\"absolute inset-0 bg-gradient-to-br from-white/20 to-black/10 dark:from-black/30 dark:to-white/10 pointer-events-none\"></div>\n                {Icon && <Icon size={28} className=\"relative z-10 my-2\" />}\n                <h2 className=\"text-lg font-semibold relative z-10\">{card.title}</h2>\n                <p className=\"text-sm text-black/70 dark:text-white/70 relative z-10\">{card.description}</p>\n              </div>\n            </div>\n          );\n        })}\n      </div>\n    </section>\n  );\n};\n\nexport default FeaturedSection;\n",
+    "implementation": "<Featured\n  title=\"Featured Components\"\n  description=\"Discover hand-crafted components ready to use in your projects.\"\n  tag=\"UI Essentials\"\n  ctaText=\"Explore Components\"\n  ctaHref=\"\"\n/>",
+    "props": [
+      {
+        "name": "title",
+        "type": "string",
+        "required": false,
+        "default": "Featured Components",
+        "description": ""
+      },
+      {
+        "name": "description",
+        "type": "string",
+        "required": false,
+        "default": "Discover hand-crafted components ready to use in your projects.",
+        "description": ""
+      },
+      {
+        "name": "tag",
+        "type": "string",
+        "required": false,
+        "default": "UI Essentials",
+        "description": ""
+      },
+      {
+        "name": "ctaText",
+        "type": "string",
+        "required": false,
+        "default": "Explore Components",
+        "description": ""
+      },
+      {
+        "name": "ctaHref",
+        "type": "string",
+        "required": false,
+        "default": "",
+        "description": ""
+      }
+    ],
+    "componentName": "Featured1"
   }
 ]

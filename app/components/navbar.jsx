@@ -11,7 +11,7 @@ const navlinks = [
 
 const social = [
     { "title" : "Github", "links" : "/", "icon": <FaGithub size={20} /> },
-    { "title" : "LinkedIn", "links" : "/", "icon": <FaLinkedin size={20} /> },
+    { "title" : "LinkedIn", "links" : "https://www.linkedin.com/in/sohan-rout/", "icon": <FaLinkedin size={20} /> },
     { "title" : "ProductHunt", "links" : "/", "icon": <FaProductHunt size={20} /> },
 ];
 

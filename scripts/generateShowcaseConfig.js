@@ -63,6 +63,20 @@ const componentsToProcess = [
     <StatusBadge status='Pending' />
     <StatusBadge status='Error' />`,
   },
+  {
+    slug: "MinimalistFeaturedSection",
+    title: "Minimalist Featured Section",
+    description: "A clean, aesthetic featured section with a dynamic header, description, tag, and CTA paired with a glassy, metallic Bento Grid for showcasing your best components. Fully responsive and light/dark mode ready, ideal for SaaS product landing pages or documentation sites.",
+    category: "featured",
+    componentPath: "./app/showcase/components/featured1.jsx",
+    implementation: `<Featured
+  title="Featured Components"
+  description="Discover hand-crafted components ready to use in your projects."
+  tag="UI Essentials"
+  ctaText="Explore Components"
+  ctaHref=""
+/>`,
+  },
 ];
 
 function extractPropsFromImplementation(implementation) {
