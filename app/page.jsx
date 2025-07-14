@@ -1,5 +1,6 @@
 import Navbar from "@/app/components/navbar";
 import Hero from "@/app/components/hero";
+import Corousel from "@/app/components/corousel";
 import Work from "@/app/components/work";
 import Features from "@/app/components/features";
 import Testimonial from "@/app/components/testimonial";
@@ -14,6 +15,9 @@ export default function App() {
       </div>
       <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
         <Hero/>
+      </div>
+      <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
+        <Corousel/>
       </div>
       <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
         <Work/>
