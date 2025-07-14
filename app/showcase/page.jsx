@@ -3,19 +3,36 @@ import { useRouter } from "next/navigation";
 import { RiGalleryFill } from "react-icons/ri";
 import { CiSearch } from "react-icons/ci";
 import showcaseComponents from "./showcase-config";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { IoMdClose } from "react-icons/io";
 
 export default function ShowcaseGalleryPage() {
   const router = useRouter();
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 30; // 6 rows * 5 columns
+  const searchInputRef = useRef(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       localStorage.setItem("theme", "light");
       document.documentElement.classList.remove("dark");
       document.documentElement.classList.add("light");
+
+      const handleKeyDown = (e) => {
+        const isMac = /Mac|iPod|iPhone|iPad/.test(navigator.platform);
+        const isTrigger = (isMac && e.metaKey && e.key === "/") || (!isMac && e.ctrlKey && e.key === "/");
+
+        if (isTrigger) {
+          e.preventDefault();
+          if (document.activeElement !== searchInputRef.current) {
+            searchInputRef.current?.focus();
+            searchInputRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+          }
+        }
+      };
+      window.addEventListener("keydown", handleKeyDown);
+      return () => window.removeEventListener("keydown", handleKeyDown);
     }
   }, []);
 
@@ -38,18 +55,45 @@ export default function ShowcaseGalleryPage() {
       <p className="text-neutral-600 mb-4">
         Browse all available components and variants. Click to view and copy them directly for your projects.
       </p>
-      <div className="px-8 py-2 flex items-center gap-2 bg-white rounded-lg border border-neutral-300 focus:outline-none focus:ring">
-            <CiSearch className="text-xl"/>
-            <input
-            type="text"
-            placeholder="Search components..."
-            value={search}
-            onChange={(e) => {
-              setSearch(e.target.value);
+      <div className="relative px-8 py-2 flex items-center gap-2 bg-white rounded-lg border border-neutral-300 focus:outline-none focus:ring">
+        <CiSearch className="text-xl" />
+        <input
+          ref={searchInputRef}
+          type="text"
+          placeholder="Search components..."
+          value={search}
+          onChange={(e) => {
+            setSearch(e.target.value);
+            setCurrentPage(1);
+          }}
+          className="text-sm w-full bg-none focus:outline-none"
+        />
+        {search && (
+          <button
+            onClick={() => {
+              setSearch("");
               setCurrentPage(1);
             }}
-            className="text-sm w-full bg-none focus:outline-none"
-          />
+            className="absolute right-3 text-neutral-400 hover:text-neutral-600 transition"
+            aria-label="Clear search"
+          >
+            <IoMdClose/>
+          </button>
+        )}
+      </div>
+      <div className="flex flex-wrap justify-center mt-4 gap-2">
+        {["auth", "navbar", "section", "pricing", "badge"].map((tag) => (
+          <button
+            key={tag}
+            onClick={() => {
+              setSearch(tag);
+              setCurrentPage(1);
+            }}
+            className="px-3 py-1 border-l border-r border-black rounded-full bg-neutral-100 text-neutral-700 text-sm hover:bg-neutral-200 transition"
+          >
+            {tag.charAt(0).toUpperCase() + tag.slice(1)}
+          </button>
+        ))}
       </div>
       </div>
 <div className="w-full">
@@ -115,6 +159,17 @@ export default function ShowcaseGalleryPage() {
         </div>
       )}
       </div>
+      <button
+        onClick={() => {
+          searchInputRef.current?.focus();
+          searchInputRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+        }}
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-2 bg-black text-white rounded-full shadow-lg animate-bounce hover:scale-105 transition-transform"
+      >
+        <CiSearch className="text-lg" />
+        <p>To search use</p>
+        <span className="text-sm font-mono bg-white text-black rounded-lg px-2 py-1">/</span>
+      </button>
     </main>
   );
 }
