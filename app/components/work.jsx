@@ -41,9 +41,9 @@ export default function Hero() {
             How it works
           </div>
         </span>
-        <h2 className="text-4xl md:text-4xl font-medium text-neutral-900">
-          Start Building with <span className="font-medium">Stream</span>
-          <span className="px-2 py-2 bg-black text-white rounded-lg">UI</span>{" "}
+        <h2 className="text-4xl md:text-4xl font-medium text-neutral-900 leading-relaxed">
+          Start Building with <span className=""><span className="font-medium">Stream</span>
+          <span className="px-2 py-2 bg-black text-white rounded-lg">UI</span></span>{" "}
           seconds
         </h2>
         <p className="mt-4 text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto">
