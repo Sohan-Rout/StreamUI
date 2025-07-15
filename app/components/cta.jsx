@@ -3,7 +3,7 @@ import { MdWidgets } from "react-icons/md";
 
 export default function Hero() {
   return (
-    <section className="flex justify-center items-center py-12 px-6">
+    <section className="flex justify-center items-center py-12 px-6 overflow-hidden">
       {/* White base layer (card) */}
       <div className="relative max-w-6xl w-full bg-white rounded-xl shadow-lg z-10">
         {/* Bento grid background layer */}
