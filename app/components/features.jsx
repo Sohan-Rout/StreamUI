@@ -101,11 +101,11 @@ export default function Hero() {
         {features.map((item, idx) => (
           <div
             key={idx}
-            className={`rounded-xl shadow-lg flex flex-col justify-between ${
-              idx === 0
-                ? "col-span-1 sm:col-span-2 md:col-span-2 md:row-span-2"
-                : "p-0"
-            } ${idx === 3 && isCardDarkMode ? "bg-neutral-900 text-white" : "bg-white"}`}
+            className={`rounded-xl shadow-lg flex flex-col justify-between overflow-hidden ${
+  idx === 0
+   ? "col-span-1 sm:col-span-2 md:col-span-2 row-span-3 md:row-span-2"
+   : "p-0"
+ } ${idx === 3 && isCardDarkMode ? "bg-neutral-900 text-white" : "bg-white"}`}
           >
             {idx === 0 ? (
               <>
