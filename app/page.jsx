@@ -10,25 +10,25 @@ import Footer from "@/app/components/footer";
 export default function App() {
   return (
     <>
-      <div className="border-l border-r border-dashed border-neutral-400 p-2 md:p-2 mx-12">
+      <div className="border-l border-r border-dashed border-neutral-400 p-2 md:p-2 md:mx-12 sm:mx-2">
         <Navbar/>
       </div>
-      <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
+      <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 md:mx-12 sm:mx-2">
         <Hero/>
       </div>
-      <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
+      <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 md:mx-12 sm:mx-2">
         <Corousel/>
       </div>
-      <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
+      <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 md:mx-12 sm:mx-2">
         <Work/>
       </div>
-      <div id="features" className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
+      <div id="features" className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 md:mx-12 sm:mx-2">
         <Features/>
       </div>
-      <div id="reviews" className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
+      <div id="reviews" className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 md:mx-12 sm:mx-2">
         <Testimonial/>
       </div>
-      <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 mx-12">
+      <div className="border-t border-l border-r border-dashed border-neutral-400 p-1 md:p-1 md:mx-12 sm:mx-2">
         <Cta/>
       </div>
       <Footer/>

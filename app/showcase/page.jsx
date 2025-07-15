@@ -89,7 +89,7 @@ export default function ShowcaseGalleryPage() {
               setSearch(tag);
               setCurrentPage(1);
             }}
-            className="px-3 py-1 border-l border-r border-black rounded-full bg-neutral-100 text-neutral-700 text-sm hover:bg-neutral-200 transition"
+            className="px-3 py-1 border-l border-r border-black bg-neutral-100 duration-300 text-neutral-700 text-sm hover:bg-neutral-200 transition"
           >
             {tag.charAt(0).toUpperCase() + tag.slice(1)}
           </button>
