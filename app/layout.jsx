@@ -60,7 +60,7 @@ export default function RootLayout({ children }) {
           }}
         />
       </head>
-      <body className="font-poppins bg-gray-100">{children}</body>
+      <body className="font-poppins bg-gray-100 scrollbar-hide">{children}</body>
     </html>
   );
 }

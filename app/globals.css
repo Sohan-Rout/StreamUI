@@ -7,3 +7,13 @@
 html {
   scroll-behavior: smooth;
 }
+
+.scrollbar-hide {
+  /* Firefox & IE/Edge */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  /* Chrome, Safari, Opera */
+  display: none;
+}
