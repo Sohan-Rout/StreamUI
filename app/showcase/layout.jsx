@@ -37,11 +37,11 @@ export default function ComponentShowcaseLayout({children}) {
   return (
     <main className="font-poppins">
       {/* Navbar with dotted border */}
-      <div className="border-l border-r border-dashed border-neutral-400 p-2 md:p-2 mx-12">
+      <div className="border-l border-r border-dashed border-neutral-400 p-2 md:p-2 md:mx-12 sm:mx-2">
         <Navbar />
       </div>
 
-      <div className="border-l border-r border-t border-dashed border-neutral-400 p-2 md:p-2 mx-12">
+      <div className="border-l border-r border-t border-dashed border-neutral-400 p-2 md:p-2 md:mx-12 sm:px-2">
         {children}
       </div>
 
