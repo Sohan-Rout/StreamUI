@@ -2,6 +2,7 @@ import Sidebar from "./components/sidebar";
 import Content from "./components/content";
 import Installation from "./components/installation";
 import Faqs from "./components/faqs";
+import ChangeLog from "./components/changelog";
 
 export default function DocsHome() {
   return (
@@ -17,6 +18,7 @@ export default function DocsHome() {
           <Content/>
           <Installation/>
           <Faqs />
+          <ChangeLog />
         </div>
       </div>
     </div>
