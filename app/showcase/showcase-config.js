@@ -1,4 +1,3 @@
-// app/showcase/showcase-config.js
 import Pricing1 from "@/app/showcase/components/pricing1";
 import Navbar1 from "@/app/showcase/components/navbar1";
 import Card1 from "@/app/showcase/components/card1";
@@ -6,6 +5,7 @@ import Auth1 from "@/app/showcase/components/auth1";
 import Calendar1 from "@/app/showcase/components/calendar1";
 import StatusBadge1 from "@/app/showcase/components/statusBadge1";
 import Featured1 from "@/app/showcase/components/featured1";
+import Loader1 from "@/app/showcase/components/loader1";
 import showcaseData from "./showcase-data.json";
 
 const componentMap = {
@@ -15,7 +15,8 @@ const componentMap = {
   Auth1,
   Calendar1,
   StatusBadge1,
-  Featured1
+  Featured1,
+  Loader1,
 };
 
 const showcaseComponents = showcaseData.map(item => {
