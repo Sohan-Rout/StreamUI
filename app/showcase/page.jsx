@@ -4,13 +4,14 @@ import { RiGalleryFill } from "react-icons/ri";
 import { CiSearch } from "react-icons/ci";
 import showcaseComponents from "./showcase-config";
 import { useState, useEffect, useRef } from "react";
-import { IoIosCloseCircle, IoMdClose } from "react-icons/io";
+import { IoMdClose } from "react-icons/io";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
 export default function ShowcaseGalleryPage() {
   const router = useRouter();
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 30;
+  const itemsPerPage = 6;
   const searchInputRef = useRef(null);
 
   useEffect(() => {
@@ -32,9 +33,6 @@ export default function ShowcaseGalleryPage() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
-  /* ---------------------------------------------------------- */
-  /* helpers                                                    */
-  /* ---------------------------------------------------------- */
   const filtered = showcaseComponents.filter((c) =>
     c.title.toLowerCase().includes(search.toLowerCase())
   );
@@ -116,7 +114,7 @@ export default function ShowcaseGalleryPage() {
       </div>
 
       {/* Grid */}
-<div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {paginated.map((c) => {
           const Preview = c.preview;
           return (
@@ -126,15 +124,10 @@ export default function ShowcaseGalleryPage() {
               role="button"
               tabIndex={0}
               onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && router.push(`/showcase/${c.slug}`)}
-              className={`rounded-lg px-2 bg-white shadow hover:bg-neutral-50 transition cursor-pointer flex flex-col gap-4 ${layoutClass(
+              className={`rounded-lg p-2 bg-white shadow hover:bg-neutral-50 transition cursor-pointer flex flex-col gap-4 ${layoutClass(
                 c.category
               )}`}
             >
-              {/* top ornaments */}
-              <div className="flex justify-between pt-2">
-                <IoIosCloseCircle className="text-neutral-400" />
-                <IoIosCloseCircle className="text-neutral-400" />
-              </div>
 
               {/* preview */}
               <div
@@ -146,12 +139,6 @@ export default function ShowcaseGalleryPage() {
                   {Preview ? <Preview /> : <span className="text-sm text-neutral-400">Preview unavailable</span>}
                 </div>
               </div>
-
-              {/* bottom ornaments */}
-              <div className="flex justify-between pb-2">
-                <IoIosCloseCircle className="text-neutral-400" />
-                <IoIosCloseCircle className="text-neutral-400" />
-              </div>
             </div>
           );
         })}
@@ -159,13 +146,13 @@ export default function ShowcaseGalleryPage() {
 
       {/* Pagination */}
       {totalPages > 1 && (
-        <div className="flex justify-center mt-6 gap-4">
+        <div className="flex justify-center items-center mt-6 gap-4">
           <button
             onClick={() => setCurrentPage((p) => Math.max(p - 1, 1))}
             disabled={currentPage === 1}
-            className="px-4 py-2 rounded bg-neutral-200 disabled:opacity-50"
+            className="px-4 py-2 flex gap-2 justify-center items-center rounded-md hover:scale-105 duration-300 transition-all disabled:hover:scale-100 bg-neutral-200 disabled:opacity-50"
           >
-            Previous
+            <FaArrowLeft/>Previous
           </button>
           <span className="text-sm text-neutral-700">
             Page {currentPage} of {totalPages}
@@ -173,9 +160,9 @@ export default function ShowcaseGalleryPage() {
           <button
             onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
             disabled={currentPage === totalPages}
-            className="px-4 py-2 rounded bg-neutral-200 disabled:opacity-50"
+            className="px-4 flex py-2 gap-2 justify-center items-center rounded-md hover:scale-105 duration-300 disabled:hover:scale-100 transition-all bg-neutral-200 disabled:opacity-50"
           >
-            Next
+            Next<FaArrowRight/>
           </button>
         </div>
       )}
