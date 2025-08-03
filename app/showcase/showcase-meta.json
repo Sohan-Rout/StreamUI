@@ -53,57 +53,11 @@
     "componentName": "Pricing1"
   },
   {
-    "slug": "AestheticAuthCard",
+    "slug": "auth1",
     "title": "Aesthetic Auth Card",
     "description": "A clean, responsive authentication component with dynamic login and signup modes, glassmorphic styling, and light/dark mode support. Perfect for SaaS products and indie apps requiring a polished, minimalist experience.",
     "category": "cards",
-    "code": "\"use client\";\nimport React, { useState } from \"react\";\nimport { IoMdCloseCircle } from \"streamui-deps\";\n\nexport default function AuthForm({\n  mode: initialMode = \"login\",\n  onSubmit,\n  title,\n  description,\n  submitText,\n  extraFields,\n}) {\n  const [mode, setMode] = useState(initialMode);\n  const [email, setEmail] = useState(\"\");\n  const [password, setPassword] = useState(\"\");\n  const initialExtras =\n    mode === \"signup\"\n      ? extraFields && extraFields.length > 0\n        ? extraFields.reduce((acc, field) => ({ ...acc, [field.name]: \"\" }), {})\n        : { name: \"\", address: \"\" }\n      : {};\n  const [extras, setExtras] = useState(initialExtras);\n  const [isLoading, setIsLoading] = useState(false);\n  const [agreed, setAgreed] = useState(false);\n\n  const handleSubmit = async (e) => {\n    e.preventDefault();\n    if (!agreed) return alert(\"Please agree to the Terms and Conditions.\");\n    setIsLoading(true);\n\n    try {\n      const payload =\n        mode === \"signup\"\n          ? { email, password, ...extras }\n          : { email, password };\n\n      console.log(mode === \"signup\" ? \"Signing up user:\" : \"Logging in user:\", payload);\n\n      await new Promise((resolve) => setTimeout(resolve, 1000));\n      onSubmit(payload);\n    } catch (error) {\n      console.error(\"Error in auth:\", error);\n    } finally {\n      setIsLoading(false);\n    }\n  };\n\n  const handleExtraChange = (e) => {\n    setExtras({ ...extras, [e.target.name]: e.target.value });\n  };\n\n  const toggleMode = () => {\n    const newMode = mode === \"login\" ? \"signup\" : \"login\";\n    setMode(newMode);\n    setExtras(\n      newMode === \"signup\"\n        ? extraFields && extraFields.length > 0\n          ? extraFields.reduce((acc, field) => ({ ...acc, [field.name]: \"\" }), {})\n          : { name: \"\", address: \"\" }\n        : {}\n    );\n    setEmail(\"\");\n    setPassword(\"\");\n  };\n\n  return (\n    <div className=\"min-h-screen flex items-center justify-center p-4\">\n      <div className=\"w-full max-w-sm rounded-xl p-6 bg-white dark:bg-black/60 backdrop-blur-md border border-black/10 dark:border-white/20 shadow-lg\">\n      <div className=\"flex justify-between pb-2\">\n        <IoMdCloseCircle className=\"text-neutral-400\"/>\n        <IoMdCloseCircle className=\"text-neutral-400\"/>\n      </div>\n      <div className=\"px-2\">\n      <div className=\"flex justify-center mb-2\">\n        <h2 className=\"text-lg rounded-full px-4 py-1 tracking-wide font-medium text-black bg-green-500 text-center\">\n          {title || (mode === \"login\" ? \"Welcome Back\" : \"Create Account\")}\n        </h2>\n      </div>\n        <p className=\"text-md text-neutral-600 dark:text-neutral-400 text-center mt-1\">\n          {description ? description : \"Continue to your dashboard.\"}\n        </p>\n        <form onSubmit={handleSubmit} className=\"flex flex-col gap-4 mt-6\">\n          <input\n            className=\"w-full px-3 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md bg-transparent text-black dark:text-white placeholder-neutral-500 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition\"\n            type=\"email\"\n            name=\"email\"\n            required\n            value={email}\n            onChange={(e) => setEmail(e.target.value)}\n            placeholder=\"Email\"\n          />\n          <input\n            className=\"w-full px-3 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md bg-transparent text-black dark:text-white placeholder-neutral-500 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition\"\n            type=\"password\"\n            name=\"password\"\n            required\n            value={password}\n            onChange={(e) => setPassword(e.target.value)}\n            placeholder=\"Password\"\n          />\n          {mode === \"signup\" &&\n            Object.keys(extras).map((key) => (\n              <input\n                key={key}\n                className=\"w-full px-3 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md bg-transparent text-black dark:text-white placeholder-neutral-500 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition\"\n                type=\"text\"\n                name={key}\n                required\n                value={extras[key]}\n                onChange={handleExtraChange}\n                placeholder={key.charAt(0).toUpperCase() + key.slice(1)}\n              />\n            ))}\n          <label className=\"flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300\">\n            <input\n              type=\"checkbox\"\n              checked={agreed}\n              onChange={(e) => setAgreed(e.target.checked)}\n              className=\"border border-neutral-300 dark:border-neutral-700 rounded-sm focus:ring-black dark:focus:ring-white\"\n              required\n            />\n            I agree to the Terms and Conditions\n          </label>\n          <button\n            type=\"submit\"\n            disabled={isLoading || !agreed}\n            className=\"w-full mt-2 hover:scale-105 duration-300 hover:shadow-xl bg-black dark:bg-white text-white dark:text-black hover:opacity-90 font-medium py-2 rounded-md transition active:scale-95 disabled:opacity-50\"\n          >\n            {isLoading\n              ? \"Processing...\"\n              : submitText || (mode === \"login\" ? \"Login\" : \"Sign Up\")}\n          </button>\n        </form>\n        <div className=\"text-center text-sm text-neutral-700 dark:text-neutral-300 mt-4\">\n          {mode === \"login\" ? (\n            <p>\n              Don't have an account?{\" \"}\n              <button\n                type=\"button\"\n                onClick={toggleMode}\n                className=\"underline hover:text-black dark:hover:text-white\"\n              >\n                Sign up\n              </button>\n            </p>\n          ) : (\n            <p>\n              Already have an account?{\" \"}\n              <button\n                type=\"button\"\n                onClick={toggleMode}\n                className=\"underline hover:text-black dark:hover:text-white\"\n              >\n                Login\n              </button>\n            </p>\n          )}\n        </div>\n        </div>\n        <div className=\"flex justify-between pt-2\">\n        <IoMdCloseCircle className=\"text-neutral-400\"/>\n        <IoMdCloseCircle className=\"text-neutral-400\"/>\n      </div>\n      </div>\n    </div>\n  );\n}",
-    "implementation": "<AuthForm mode=\"login\" onSubmit={handleAuthSubmit} title=\"Welcome to StreamUI\" description=\"Sign in to access your dashboard and manage your components seamlessly.\" submitText=\"Get Started\" extraFields={[{ name: \"username\", label: \"Username\" }, { name: \"phone\", label: \"Phone Number\" },]} />",
-    "props": [
-      {
-        "name": "mode",
-        "type": "string",
-        "required": false,
-        "default": "login",
-        "description": ""
-      },
-      {
-        "name": "onSubmit",
-        "type": "string",
-        "required": false,
-        "default": "{handleAuthSubmit}",
-        "description": ""
-      },
-      {
-        "name": "title",
-        "type": "string",
-        "required": false,
-        "default": "Welcome to StreamUI",
-        "description": ""
-      },
-      {
-        "name": "description",
-        "type": "string",
-        "required": false,
-        "default": "Sign in to access your dashboard and manage your components seamlessly.",
-        "description": ""
-      },
-      {
-        "name": "submitText",
-        "type": "string",
-        "required": false,
-        "default": "Get Started",
-        "description": ""
-      },
-      {
-        "name": "extraFields",
-        "type": "string",
-        "required": false,
-        "default": "{[{ name: \"username\", label: \"Username\" }",
-        "description": ""
-      }
-    ],
-    "componentName": "Auth1"
+    "componentName": "AestheticAuthCard"
   },
   {
     "slug": "GlassmorphismNavbar",

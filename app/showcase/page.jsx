@@ -7,6 +7,18 @@ import { useState, useEffect, useRef } from "react";
 import { IoMdClose } from "react-icons/io";
 import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 
+const LazyPreview = ({ slug }) => {
+  const [Component, setComponent] = useState(null);
+
+  useEffect(() => {
+    import(`@/app/showcase/components/previews/${slug}`)
+      .then((mod) => setComponent(() => mod.default))
+      .catch(() => setComponent(() => null));
+  }, [slug]);
+
+  return Component ? <Component /> : <span className="text-sm text-neutral-400">Preview unavailable</span>;
+};
+
 export default function ShowcaseGalleryPage() {
   const router = useRouter();
   const [search, setSearch] = useState("");
@@ -116,7 +128,7 @@ export default function ShowcaseGalleryPage() {
       {/* Grid */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
         {paginated.map((c) => {
-          const Preview = c.preview;
+          // removed
           return (
             <div
               key={c.slug}
@@ -136,7 +148,7 @@ export default function ShowcaseGalleryPage() {
                 )} items-center justify-center text-neutral-700 text-sm overflow-hidden`}
               >
                 <div className={`origin-center w-full flex items-center justify-center ${scaleClass(c.category)}`}>
-                  {Preview ? <Preview /> : <span className="text-sm text-neutral-400">Preview unavailable</span>}
+                  <LazyPreview slug={c.slug} />
                 </div>
               </div>
             </div>

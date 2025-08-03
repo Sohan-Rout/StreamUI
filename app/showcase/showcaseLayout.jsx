@@ -100,9 +100,15 @@ export default function ComponentShowcaseLayout({
                     </button>
                   </div>
                   <div className="flex justify-center py-12">
-                    {React.cloneElement(preview, {
-                      mode: previewDarkMode ? "dark" : "light",
-                    })}
+                    {typeof preview === 'function' ? (
+                      React.createElement(preview, { mode: previewDarkMode ? "dark" : "light" })
+                    ) : React.isValidElement(preview) ? (
+                      React.cloneElement(preview, {
+                        mode: previewDarkMode ? "dark" : "light",
+                      })
+                    ) : (
+                      preview
+                    )}
                   </div>
                 </div>
               </div>
@@ -323,7 +329,7 @@ export default function ComponentShowcaseLayout({
                       <tr key={idx} className="border-t border-neutral-300">
                         <td className="py-1 border">{prop.name}</td>
                         <td className="py-1 border">{prop.type}</td>
-                        <td className="py-1 border">{prop.default}</td>
+                        <td className="py-1 border">{prop.defaultValue}</td>
                       </tr>
                     ))}
                   </tbody>

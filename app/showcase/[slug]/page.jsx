@@ -1,11 +1,32 @@
 'use client';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import ComponentShowcaseLayout from '@/app/showcase/showcaseLayout';
 import showcaseComponents from '@/app/showcase/showcase-config';
 
 export default function ShowcaseVariantPage({ params }) {
   const { slug } = React.use(params);
   const component = showcaseComponents.find(comp => comp.slug === slug);
+
+  const [Preview, setPreview] = useState(null);
+  const [code, setCode] = useState('');
+  const [implementation, setImplementation] = useState('');
+  const [props, setProps] = useState([]);
+
+useEffect(() => {
+  if (!slug) return;
+
+  import(`@/app/showcase/components/code/${slug}.js`)
+    .then((mod) => {
+      setCode(mod.code || "");
+      setImplementation(mod.implementation || "");
+      setProps(mod.props || []);
+    });
+
+  import(`@/app/showcase/components/previews/${slug}.jsx`)
+    .then((mod) => {
+      setPreview(() => mod.default);
+    });
+}, [slug]);
 
   if (!component) {
     return (
@@ -18,13 +39,13 @@ export default function ShowcaseVariantPage({ params }) {
 
   return (
     <ComponentShowcaseLayout
-      category = {component.category}
+      category={component.category}
       title={component.title}
-      implementation={component.implementation}
+      implementation={implementation}
       description={component.description}
-      preview={React.createElement(component.preview)}
-      code={component.code}
-      props={component.props}
+      preview={Preview ? <Preview /> : <p>Loading preview...</p>}
+      code={code}
+      props={props}
     />
   );
 }
