@@ -54,21 +54,6 @@ export default function ShowcaseGalleryPage() {
     currentPage * itemsPerPage
   );
 
-  const layoutClass = (cat) => {
-    if (cat === "navbar" || cat === "grids") return "col-span-3 row-span-1";
-    if (cat === "pricing" || cat === "featured") return "col-span-5 row-span-2";
-    if (cat === "cards" || cat === "utilities") return "col-span-2 row-span-1";
-    return "";
-  };
-
-  const scaleClass = (cat) => {
-    if (["cards", "utilities"].includes(cat)) return "scale-[0.5]";
-    if (["pricing", "featured"].includes(cat)) return "";
-    return "scale-[0.75]";
-  };
-
-  const heightClass = (cat) => (["pricing", "featured"].includes(cat) ? "h-auto" : "h-[200px]");
-  
   return (
     <main className="max-w-6xl w-full mx-auto px-2 sm:px-4 md:px-6 py-2 sm:py-4 md:py-6">
       {/* Header */}
@@ -126,7 +111,7 @@ export default function ShowcaseGalleryPage() {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+      <div className="flex flex-col gap-4">
         {paginated.map((c) => {
           // removed
           return (
@@ -136,18 +121,14 @@ export default function ShowcaseGalleryPage() {
               role="button"
               tabIndex={0}
               onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && router.push(`/showcase/${c.slug}`)}
-              className={`rounded-lg p-2 bg-white shadow hover:bg-neutral-50 transition cursor-pointer flex flex-col gap-4 ${layoutClass(
-                c.category
-              )}`}
+              className="rounded-lg p-2 bg-white shadow hover:bg-neutral-50 transition cursor-pointer flex flex-col gap-4"
             >
 
               {/* preview */}
               <div
-                className={`border border-neutral-300 rounded-md flex ${heightClass(
-                  c.category
-                )} items-center justify-center text-neutral-700 text-sm overflow-hidden`}
+                className="border border-neutral-300 rounded-md flex items-center justify-center text-neutral-700 text-sm overflow-hidden"
               >
-                <div className={`origin-center w-full flex items-center justify-center ${scaleClass(c.category)}`}>
+                <div className="origin-center w-full flex items-center justify-center">
                   <LazyPreview slug={c.slug} />
                 </div>
               </div>
