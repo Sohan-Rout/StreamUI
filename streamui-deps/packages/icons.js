@@ -1,4 +1,4 @@
-export { FaCheck, FaCopy, FaPencilRuler, FaShieldAlt, FaLightbulb, FaBolt, FaRegClock } from "react-icons/fa";
+export { FaCheck, FaCopy, FaPencilRuler, FaShieldAlt, FaLightbulb, FaBolt, FaRegClock, FaPaperPlane } from "react-icons/fa";
 export { IoIosClose, IoMdMoon, IoMdCloseCircle, IoIosArrowDropleftCircle, IoIosArrowDroprightCircle } from "react-icons/io";
 export { IoBackspace } from "react-icons/io5";
 export { MdSunny } from "react-icons/md";
