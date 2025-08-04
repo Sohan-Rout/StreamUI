@@ -8,7 +8,7 @@
   },
   {
     "slug": "schedule1",
-    "title": "Minimalist Calendar Scheduling",
+    "title": "Minimalist Schedule Section",
     "description": "A clean, responsive minimalist calendar component with dynamic month and year navigation, today and selection indicators, and light/dark mode support. Perfect for SaaS dashboards and booking flows",
     "category": "schedule",
     "componentName": "MinimalistSchedule"
