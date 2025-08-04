@@ -64,15 +64,15 @@ export default function ShowcaseGalleryPage() {
     <main className="max-w-7xl mx-auto px-4 md:px-6 py-6">
       {/* Page heading */}
       <header className="mb-8 text-center md:text-left">
-        <h1 className="text-3xl font-bold mb-2 flex justify-center md:justify-start items-center gap-2">
-          Component Gallery <RiGalleryFill />
+        <h1 className="text-3xl font-medium mb-2 flex justify-center md:justify-start items-center gap-2">
+          <RiGalleryFill /> Component Gallery
         </h1>
         <p className="text-neutral-600">
           Browse and explore reusable UI components. Click to preview or copy for your own projects.
         </p>
       </header>
 
-      {/* Layout: Sidebar + Main content */}
+      {/* Layout: Sidebar and Main content */}
       <div className="flex flex-col md:flex-row gap-6">
         {/* Sidebar */}
         <aside className="md:w-52 w-full">
