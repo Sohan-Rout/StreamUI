@@ -5,7 +5,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 
 const navlinks = [
   { title: "Features", links: "#features" },
-  { title: "Components", links: "/showcase" },
+  { title: "Sections", links: "/showcase" },
   { title: "Documentation", links: "/docs" },
   { title: "Reviews", links: "#reviews" },
 ];

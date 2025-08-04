@@ -30,7 +30,7 @@ export default function Hero() {
               <span className="px-2 py-1 ml-1 bg-black text-white rounded-lg">UI</span>
             </h1>
             <p className="text-neutral-600 text-base sm:text-lg mb-6">
-              Copy-paste clean, ready-to-use NextJs + Tailwind components into your SaaS projects.
+              Copy-paste clean, ready-to-use NextJs + Tailwind sections into your SaaS projects.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3">
@@ -38,7 +38,7 @@ export default function Hero() {
                 href={pageLinks[1].href}
                 className="bg-black shadow-xl text-white px-5 py-3 rounded-lg hover:bg-neutral-800 duration-300 hover:scale-105 transition"
               >
-                Browse Components
+                Browse Sections
               </a>
               <a
                 href={pageLinks[0].href}

@@ -79,7 +79,7 @@ export default function ShowcaseGalleryPage() {
               <RiGalleryFill /> Component Gallery
             </h1>
             <p className="text-neutral-600">
-              Browse and explore reusable UI components. Click to preview or copy for your own projects.
+              Browse and explore Sections. Click to preview or copy for your own projects.
             </p>
           </header>
 
