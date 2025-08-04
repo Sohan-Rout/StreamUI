@@ -99,16 +99,18 @@ export default function ComponentShowcaseLayout({
                       </div>
                     </button>
                   </div>
-                  <div className="flex justify-center py-12">
-                    {typeof preview === 'function' ? (
-                      React.createElement(preview, { mode: previewDarkMode ? "dark" : "light" })
-                    ) : React.isValidElement(preview) ? (
-                      React.cloneElement(preview, {
-                        mode: previewDarkMode ? "dark" : "light",
-                      })
-                    ) : (
-                      preview
-                    )}
+                  <div className="w-full py-8 overflow-x-auto">
+                    <div className="min-w-[768px] max-w-full mx-auto">
+                      {typeof preview === 'function' ? (
+                        React.createElement(preview, { mode: previewDarkMode ? "dark" : "light" })
+                      ) : React.isValidElement(preview) ? (
+                        React.cloneElement(preview, {
+                          mode: previewDarkMode ? "dark" : "light",
+                        })
+                      ) : (
+                        preview
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>

@@ -18,7 +18,7 @@
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0",
     "react-syntax-highlighter": "^15.6.1",
-    "streamui-deps": "^1.1.5"
+    "streamui-deps": "^1.1.6"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

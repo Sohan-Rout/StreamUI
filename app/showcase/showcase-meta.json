@@ -7,135 +7,11 @@
     "componentName": "MinimalPricingLayout"
   },
   {
-    "slug": "auth1",
-    "title": "Aesthetic Auth Card",
-    "description": "A clean, responsive authentication component with dynamic login and signup modes, glassmorphic styling, and light/dark mode support. Perfect for SaaS products and indie apps requiring a polished, minimalist experience.",
-    "category": "auth",
-    "componentName": "AestheticAuthCard"
-  },
-  {
-    "slug": "GlassmorphismNavbar",
-    "title": "Glassmorphism Navbar",
-    "description": "A modern, floating glassmorphism navbar designed for SaaS products and startup landing pages. Frosted glass background with subtle gradients for a premium aesthetic. Rounded, spacious layout that adapts seamlessly to all screen sizes.",
-    "category": "navbar",
-    "code": "\"use client\";\nimport Link from \"next/link\";\nimport Image from \"next/image\";\nimport { useState, useEffect, useMemo } from \"react\";\nimport { GiHamburgerMenu } from \"streamui-deps\";\n\nexport default function Navbar({\n  logo = { text: \"StreamUI\", href: \"/\", image: null },\n  links = [\n    { label: \"Home\", href: \"#home\" },\n    { label: \"Features\", href: \"#features\" },\n    { label: \"Reviews\", href: \"#Reviews\" },\n    { label: \"FAQs\", href: \"#faqs\" },\n  ],\n  mode = \"light\",\n}) {\n  const [isDark, setIsDark] = useState(mode === \"dark\");\n  const [isOpen, setIsOpen] = useState(false);\n\n  useEffect(() => {\n    setIsDark(mode === \"dark\");\n  }, [mode]);\n\n  const actions = useMemo(() => (\n    <div className=\"flex gap-2\">\n      <button\n        className={`px-4 py-1 rounded ring-1 ring-inset ${\n          isDark\n            ? \"bg-white text-black ring-black\"\n            : \"bg-black text-white ring-white\"\n        }`}\n      >\n        Log In\n      </button>\n      <button\n        className={`px-4 py-1 rounded ring-1 ring-inset ${\n          isDark\n            ? \"bg-black text-white ring-white\"\n            : \"bg-white text-black ring-black\"\n        }`}\n      >\n        Sign Up\n      </button>\n    </div>\n  ), [isDark]);\n\n  return (\n    <nav\n      className={`relative max-w-4xl mx-auto rounded-xl w-[95%] flex flex-col md:flex-row items-center justify-between px-6 py-3 backdrop-blur-md shadow-lg overflow-hidden ${\n        isDark ? \"text-white\" : \"text-black\"\n      }`}\n    >\n      {/* Logo + Hamburger */}\n      <div className=\"w-full flex items-center justify-between md:w-auto\">\n        <Link href={logo.href} className=\"flex items-center space-x-2 text-lg font-normal\">\n          {logo.image && <Image src={logo.image} alt={logo.text} width={32} height={32} />}\n          {logo.text && <span>{logo.text}</span>}\n        </Link>\n        {/* Hamburger */}\n        <button\n          onClick={() => setIsOpen(!isOpen)}\n          className=\"md:hidden inline-flex items-center justify-center p-2 rounded\"\n        >\n          <GiHamburgerMenu className={`${isDark ? \"text-white\" : \"text-black\"}`} />\n        </button>\n      </div>\n\n      {/* Links + Actions */}\n      <div\n        className={`md:flex md:flex-row md:items-center md:space-x-4 md:w-auto w-full ${\n          isOpen\n            ? `flex flex-col rounded-b-xl shadow-md px-6 py-4 space-y-4 mt-2 backdrop-blur-md ${\n                isDark ? \"bg-black/70 text-white\" : \"bg-white/80 text-black\"\n              }`\n            : \"hidden md:flex\"\n        }`}\n      >\n        {links.map((link) => (\n          <Link\n            key={link.href}\n            href={link.href}\n            className={`hover:underline ${\n              isDark ? \"hover:text-neutral-300\" : \"hover:text-neutral-700\"\n            }`}\n          >\n            {link.label}\n          </Link>\n        ))}\n        {/* Show actions inside hamburger on mobile */}\n        <div className=\"flex gap-2 md:hidden\">\n          <button\n            className={`px-4 py-1 rounded ring-1 ring-inset ${\n              isDark\n                ? \"bg-white text-black ring-black\"\n                : \"bg-black text-white ring-white\"\n            }`}\n          >\n            Log In\n          </button>\n          <button\n            className={`px-4 py-1 rounded ring-1 ring-inset ${\n              isDark\n                ? \"bg-black text-white dark:ring-white\"\n                : \"bg-white text-black ring-black\"\n            }`}\n          >\n            Sign Up\n          </button>\n        </div>\n      </div>\n\n      {/* Always visible actions on desktop */}\n      <div className=\"hidden md:flex\">{actions}</div>\n\n      {/* Glass overlay */}\n      <div className=\"pointer-events-none absolute inset-0 rounded-xl border border-white/20\">\n        <div\n          className={`absolute inset-0 rounded-xl bg-gradient-to-br ${\n            isDark ? \"from-white/10 to-transparent\" : \"from-neutral-300/30 to-transparent\"\n          }`}\n        ></div>\n      </div>\n    </nav>\n  );\n}",
-    "implementation": "<Navbar logo={{ text: \"StreamUI\", href: \"/\", image: null }} links={[{ label: \"Home\", href: \"#home\" }, { label: \"Features\", href: \"#features\" }, { label: \"Reviews\", href: \"#Reviews\" }, { label: \"FAQs\", href: \"#faqs\" }]} mode=\"light\" />",
-    "props": [
-      {
-        "name": "logo",
-        "type": "string",
-        "required": false,
-        "default": "{{ text: \"StreamUI\", href: \"/\", image: null }",
-        "description": ""
-      },
-      {
-        "name": "links",
-        "type": "string",
-        "required": false,
-        "default": "{[{ label: \"Home\", href: \"#home\" }",
-        "description": ""
-      },
-      {
-        "name": "mode",
-        "type": "string",
-        "required": false,
-        "default": "light",
-        "description": ""
-      }
-    ],
-    "componentName": "Navbar1"
-  },
-  {
-    "slug": "DarkGradientCard",
-    "title": "Dark Gradient card",
-    "description": "A modern, dark glassmorphism card component for SaaS products, designed to highlight features. It adds subtle hover lift, orange glow, and clean readability to your landing pages",
-    "category": "cards",
-    "code": "'use client';\nimport React from 'react';\nimport { GiHamburgerMenu } from \"streamui-deps\";\nimport { HiArrowSmallRight } from \"streamui-deps\";\n\nexport default function DynamicComponentCard({ icon, title, description, tag, linkName, linkUrl }) {\n  icon = icon || <GiHamburgerMenu className=\"w-6 h-6 text-white/75\" />;\n  title = title || \"Feature Title\";\n  description = description || \"This is a concise description of the feature that gives clear context to the user.\";\n  tag = tag || \"01\";\n  linkName = linkName || \"Learn More\";\n  linkUrl = linkUrl || \"#\";\n  return (\n    <div className=\"relative max-w-[250px] w-full rounded-2xl p-6 backdrop-blur-md bg-gradient-to-br from-neutral-800 via-neutral-950 to-orange-500 border border-white/50 flex flex-col gap-4 overflow-hidden shadow-xl transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl\">\n      {/* Tag */}\n      <span className=\"text-2xl text-orange-600 rounded-full w-fit font-bold font-mono\">\n        #{tag}\n      </span>\n\n      {/* Icon */}\n      <div className=\"w-16 h-16 flex items-center justify-center rounded-xl bg-white/10\">\n        {icon}\n      </div>\n\n      {/* Title */}\n      <h3 className=\"text-xl font-bold text-white dark:text-white\">\n        {title}\n      </h3>\n\n      {/* Description */}\n      <p className=\"text-md text-neutral-300 dark:text-neutral-300\">\n        {description}\n      </p>\n\n      {linkName && linkUrl && (\n        <a\n          href={linkUrl}\n          target=\"_blank\"\n          rel=\"noopener noreferrer\"\n          className=\"group mt-2 flex text-sm text-white hover:text-white/90 relative items-center gap-1 transition\"\n        >\n          {linkName}<HiArrowSmallRight className='text-md'/>\n          <span className=\"absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full\"></span>\n        </a>\n      )}\n\n      {/* Glass glow */}\n      <div className=\"pointer-events-none absolute inset-0 rounded-2xl\">\n        <div className=\"absolute bottom-4 right-4 w-40 h-40 rounded-full bg-orange-500/20 blur-3xl\"></div>\n      </div>\n    </div>\n  );\n}",
-    "implementation": "<FeatureCard icon={<GiHamburgerMenu className=\"w-6 h-6 text-white/75\" />} title=\"Feature Title\" description=\"This is a concise description of the feature that gives clear context to the user.\" tag=\"01\" linkName=\"Learn More\" linkUrl=\"./\" />",
-    "props": [
-      {
-        "name": "icon",
-        "type": "string",
-        "required": false,
-        "default": "{<GiHamburgerMenu className=\"w-6 h-6 text-white/75\" />}",
-        "description": ""
-      },
-      {
-        "name": "title",
-        "type": "string",
-        "required": false,
-        "default": "Feature Title",
-        "description": ""
-      },
-      {
-        "name": "description",
-        "type": "string",
-        "required": false,
-        "default": "This is a concise description of the feature that gives clear context to the user.",
-        "description": ""
-      },
-      {
-        "name": "tag",
-        "type": "string",
-        "required": false,
-        "default": "01",
-        "description": ""
-      },
-      {
-        "name": "linkName",
-        "type": "string",
-        "required": false,
-        "default": "Learn More",
-        "description": ""
-      },
-      {
-        "name": "linkUrl",
-        "type": "string",
-        "required": false,
-        "default": "./",
-        "description": ""
-      }
-    ],
-    "componentName": "Card1"
-  },
-  {
-    "slug": "calendar1",
-    "title": "Minimalist Calendar",
+    "slug": "schedule1",
+    "title": "Minimalist Calendar Scheduling",
     "description": "A clean, responsive minimalist calendar component with dynamic month and year navigation, today and selection indicators, and light/dark mode support. Perfect for SaaS dashboards and booking flows",
-    "category": "utilities",
-    "componentName": "MinimalistCalendar"
-  },
-  {
-    "slug": "MinimalistStatusBadge",
-    "title": "Minimalist Status Badge",
-    "description": "Badge for SaaS dashboards and tables, supporting Active, Pending, and Error states.",
-    "category": "badges",
-    "code": "import { IoMdCloseCircle } from \"streamui-deps\";\nimport { LuClockAlert } from \"streamui-deps\";\nimport { GoDotFill } from \"streamui-deps\";\n\nexport default function StatusBadge({ status = \"Active\" }) {\n  const statusMap = {\n    Active: \"bg-green-200 dark:bg-green-900\",\n    Pending: \"bg-yellow-200 dark:bg-yellow-900\",\n    Error: \"bg-red-200 dark:bg-red-900\",\n  };\n\n  const iconPlaceholder = () => {\n    if (status === \"Active\") {\n      return <span className=\"mr-1\"><GoDotFill className=\"text-green-500 text-lg\" /></span>;\n    } else if (status === \"Pending\") {\n      return <span className=\"mr-1\"><LuClockAlert className=\"text-yellow-500 text-lg\" /></span>;\n    } else if (status === \"Error\") {\n      return <span className=\"mr-1\"><IoMdCloseCircle className=\"text-red-500 text-lg\" /></span>;\n    } else {\n      return null;\n    }\n  };\n\n  return (\n    <span\n      className={`inline-flex border border-black/10 animate-pulse dark:border-white/25 shadow-xl font-mono items-center px-3 py-1 rounded-full text-sm font-medium transition transform hover:-translate-y-0.5 hover:animate-none duration-300 hover:shadow-2xl\n      ${statusMap[status] || statusMap[\"Active\"]}`}\n    >\n      {iconPlaceholder()}\n      {status}\n    </span>\n  );\n}",
-    "implementation": "<StatusBadge status='Active' />\n    <StatusBadge status='Pending' />\n    <StatusBadge status='Error' />",
-    "props": [
-      {
-        "name": "status",
-        "type": "string",
-        "required": false,
-        "default": "Active",
-        "description": ""
-      },
-      {
-        "name": "status",
-        "type": "string",
-        "required": false,
-        "default": "Pending",
-        "description": ""
-      },
-      {
-        "name": "status",
-        "type": "string",
-        "required": false,
-        "default": "Error",
-        "description": ""
-      }
-    ],
-    "componentName": "StatusBadge1"
+    "category": "schedule",
+    "componentName": "MinimalistSchedule"
   },
   {
     "slug": "MinimalistFeaturedSection",
@@ -182,23 +58,5 @@
       }
     ],
     "componentName": "Featured1"
-  },
-  {
-    "slug": "MinimalistLoader",
-    "title": "Minimalist Loader",
-    "description": "A modern minimalist loader using Framer Motion with bouncing dots. Perfect for dashboard loading states or full-page transitions.",
-    "category": "loaders",
-    "code": "import React from 'react';\nimport { motion } from 'framer-motion';\n\nexport default function Loader({ children = 'Loading...' }) {\n  return (\n    <div className=\"flex flex-col items-center justify-center h-full w-full gap-2\">\n      <div className=\"flex space-x-2\">\n        {[0, 1, 2].map((i) => (\n          <motion.div\n            key={i}\n            className=\"h-3 w-3 rounded-full bg-gradient-to-br from-green-400 to-green-600\"\n            animate={{ y: [0, -6, 0] }}\n            transition={{ duration: 0.6, repeat: Infinity, delay: i * 0.2, ease: 'easeInOut' }}\n          />\n        ))}\n      </div>\n      {children && <p className=\"text-sm text-gray-600 dark:text-white\">{children}</p>}\n    </div>\n  );\n}",
-    "implementation": "<Loader>Processing Request...</Loader>",
-    "props": [
-      {
-        "name": "children",
-        "type": "ReactNode",
-        "required": false,
-        "default": "Loading...",
-        "description": "Text or JSX to show below the loader dots."
-      }
-    ],
-    "componentName": "Loader1"
   }
 ]
