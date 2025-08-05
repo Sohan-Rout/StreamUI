@@ -1,4 +1,4 @@
-"use client";            // keep this line at the very top
+"use client";
 import { useState, useEffect } from "react";
 import { FaGithub, FaLinkedin, FaProductHunt } from "react-icons/fa";
 import { FiMenu, FiX } from "react-icons/fi";

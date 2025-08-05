@@ -12,9 +12,9 @@ const iconMap = {
 
 const features = [
   {
-    title: "Browse Components",
+    title: "Browse Sections",
     description:
-      "Explore a curated collection of clean, ready-to-use React + Tailwind components for modern projects.",
+      "Explore a curated collection of clean, ready-to-use React + Tailwind sections for modern projects.",
     icon: "FaFile",
   },
   {
@@ -47,7 +47,7 @@ export default function Hero() {
           seconds
         </h2>
         <p className="mt-4 text-neutral-600 dark:text-neutral-400 max-w-xl mx-auto">
-          Build faster with clean, reusable components designed for modern
+          Build faster with clean, reusable sections designed for modern
           products.
         </p>
       </div>
