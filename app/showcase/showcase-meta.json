@@ -19,5 +19,12 @@
     "description": "A clean, aesthetic featured section with a dynamic header, description, tag, and CTA paired with a glassy, metallic Bento Grid for showcasing your best components. Fully responsive and light/dark mode ready, ideal for SaaS product landing pages or documentation sites.",
     "category": "featured",
     "componentName": "MinimalistFeaturedSection"
+  },
+  {
+    "slug": "auth1",
+    "title": "Minimalist Auth Section",
+    "description": "A clean and aesthetic Auth section with dynamic form handling.",
+    "category": "Auth",
+    "componentName": "MinimalistAuthSection"
   }
 ]

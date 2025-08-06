@@ -14,13 +14,13 @@ export default function AuthForm({
   const [mode, setMode] = useState(initialMode);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const initialExtras =
-    mode === "signup"
-      ? extraFields && extraFields.length > 0
-        ? extraFields.reduce((acc, field) => ({ ...acc, [field.name]: "" }), {})
-        : { name: "", address: "" }
-      : {};
-  const [extras, setExtras] = useState(initialExtras);
+  const defaultSignupFields = [{ name: "username", label: "Username", type: "text", required: true }];
+  const signupFields = mode === "signup"
+    ? [...defaultSignupFields, ...(extraFields || [])]
+    : [];
+  const [extras, setExtras] = useState(
+    signupFields.reduce((acc, field) => ({ ...acc, [field.name]: "" }), {})
+  );
   const [isLoading, setIsLoading] = useState(false);
   const [agreed, setAgreed] = useState(false);
 
@@ -55,9 +55,10 @@ export default function AuthForm({
     setMode(newMode);
     setExtras(
       newMode === "signup"
-        ? extraFields && extraFields.length > 0
-          ? extraFields.reduce((acc, field) => ({ ...acc, [field.name]: "" }), {})
-          : { name: "", address: "" }
+        ? [...defaultSignupFields, ...(extraFields || [])].reduce(
+            (acc, field) => ({ ...acc, [field.name]: "" }),
+            {}
+          )
         : {}
     );
     setEmail("");
@@ -100,16 +101,16 @@ export default function AuthForm({
             placeholder="Password"
           />
           {mode === "signup" &&
-            Object.keys(extras).map((key) => (
+            signupFields.map(({ name, label, type = "text", required = false }) => (
               <input
-                key={key}
+                key={name}
                 className="w-full px-3 py-2 border border-neutral-300 dark:border-neutral-700 rounded-md bg-transparent text-black dark:text-white placeholder-neutral-500 dark:placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-black dark:focus:ring-white transition"
-                type="text"
-                name={key}
-                required
-                value={extras[key]}
+                type={type}
+                name={name}
+                required={required}
+                value={extras[name] || ""}
                 onChange={handleExtraChange}
-                placeholder={key.charAt(0).toUpperCase() + key.slice(1)}
+                placeholder={label || name.charAt(0).toUpperCase() + name.slice(1)}
               />
             ))}
           <label className="flex items-center gap-2 text-sm text-neutral-700 dark:text-neutral-300">
@@ -168,49 +169,59 @@ export default function AuthForm({
 }
 `;
 
-export const implementation = `<AuthForm mode="login" onSubmit={handleAuthSubmit} title="Welcome to StreamUI" description="Sign in to access your dashboard and manage your components seamlessly." submitText="Get Started" extraFields={[{ name: "username", label: "Username" }, { name: "phone", label: "Phone Number" },]} />`;
+export const implementation = `<AuthForm
+  mode="signup"
+  title="Get Started"
+  description="Create your account below."
+  submitText="Sign Up"
+  extraFields={[
+    { name: "name", label: "Name", required: true },
+    { name: "address", label: "Address", required: true }
+  ]}
+  onSubmit={(data) => console.log("Submitted:", data)}
+/>`;
 
 export const props = [
   {
     name: "mode",
     type: "string",
     required: false,
-    defaultValue: "login",
+    defaultValue: "signup",
     controlType: "select"
   },
   {
     name: "onSubmit",
     type: "function",
     required: false,
-    defaultValue: "handleAuthSubmit",
+    defaultValue: "(data) => console.log('Form submitted:', data)",
     controlType: "code"
   },
   {
     name: "title",
     type: "string",
     required: false,
-    defaultValue: "Welcome to StreamUI",
+    defaultValue: "Create Your Account",
     controlType: "text"
   },
   {
     name: "description",
     type: "string",
     required: false,
-    defaultValue: "Sign in to access your dashboard and manage your components seamlessly.",
+    defaultValue: "Sign up to get started with our services.",
     controlType: "textarea"
   },
   {
     name: "submitText",
     type: "string",
     required: false,
-    defaultValue: "Get Started",
+    defaultValue: "Register Now",
     controlType: "text"
   },
   {
     name: "extraFields",
     type: "array",
     required: false,
-    defaultValue: `[{"name":"username","label":"Username"}]`,
+    defaultValue: ``,
     controlType: "code"
   }
 ];
